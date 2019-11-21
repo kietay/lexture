@@ -23,17 +23,16 @@ const Video = new mongoose.Schema({
   },
   captions: [
     {
-      languageCode: String,
+      languageCode: {
+        type: String,
+        enum: languages,
+      },
       captionsText: [Captions],
     },
   ],
-  length: {
-    type: String,
+  lengthSeconds: {
+    type: int,
     required: false,
-  },
-  languages: {
-    type: String,
-    enum: languages,
   },
 })
 
@@ -45,6 +44,10 @@ const Course = new mongoose.Schema({
   title: {
     type: String,
     required: true,
+  },
+  description: {
+    type: String,
+    required: false,
   },
   instructor: {
     type: String,
