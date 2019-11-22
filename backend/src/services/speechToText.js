@@ -1,9 +1,11 @@
-import speech from 'google-cloud/speech'
+import speech from '@google-cloud/speech'
 import fs from 'fs'
-import videoConverter from 'video-converter'
+import ffmpeg from 'fluent-ffmpeg'
 import uuid from 'uuid'
 
-const transcribeAudio = async fp => {
+const FFPMPEG_PATH = '/usr/local/bin/ffmpeg'
+
+export const transcribeAudio = async fp => {
   const client = new speech.SpeechClient()
   const file = fs.readFileSync(fp)
 
@@ -16,7 +18,7 @@ const transcribeAudio = async fp => {
   const config = {
     encoding: 'LINEAR16',
     sampleRateHertz: 16000,
-    languageCode: 'en-UD',
+    languageCode: 'en-US',
   }
 
   const request = {
@@ -34,18 +36,16 @@ const transcribeAudio = async fp => {
   return transcription
 }
 
-const convertVidToFlac = async fp => {
-  // todo cleanup the files after conversion is done
-  videoConverter.setFfmpegPath('/usr/bin/ffmpeg', err => {
-    if (err) throw err
-  })
-
+export const convertVid = async fp => {
   const outPath = `temp_audio_${uuid.v4()}.flac`
 
-  console.log(`Starting conversion for: ${fp}`)
+  const command = ffmpeg({
+    source: fp,
+  }).output(outPath)
 
-  videoConverter.convert(fp, outPath, err => {
-    if (err) throw err
-    console.log(`Video conversion done for: ${fp}`)
-  })
+  console.log(`Converting video file to audio: ${fp}`)
+
+  await command.run()
+
+  return outPath
 }
