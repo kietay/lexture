@@ -35,6 +35,7 @@ const transcribeAudio = async fp => {
 }
 
 const convertVidToFlac = async fp => {
+  // todo cleanup the files after conversion is done
   videoConverter.setFfmpegPath('/usr/bin/ffmpeg', err => {
     if (err) throw err
   })
