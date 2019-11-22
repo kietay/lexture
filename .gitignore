@@ -3,6 +3,7 @@
 *.env
 */dist
 oplog*
+*.flac
 
 *DS_Store
 

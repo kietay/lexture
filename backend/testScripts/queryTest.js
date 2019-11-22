@@ -1,4 +1,4 @@
-import { searchTranscripts } from './queryMongo'
+import { searchTranscripts } from '../src/services/queryMongo'
 import mongoose from 'mongoose'
 import 'dotenv/config'
 

@@ -1,18 +1,24 @@
 import speech from '@google-cloud/speech'
+import { Storage } from '@google-cloud/storage'
 import fs from 'fs'
+import path from 'path'
 import ffmpeg from 'fluent-ffmpeg'
 import uuid from 'uuid'
+import { getConsoleOutput } from '@jest/console'
 
 const FFPMPEG_PATH = '/usr/local/bin/ffmpeg'
 
 export const transcribeAudio = async fp => {
-  const client = new speech.SpeechClient()
-  const file = fs.readFileSync(fp)
+  const gcsUri = await uploadToGcs(fp)
 
-  const audioBytes = file.toString('base64')
+  const client = new speech.SpeechClient()
+  //   const file = fs.readFileSync(fp)
+
+  //   const audioBytes = file.toString('base64')
 
   const audio = {
-    content: audioBytes,
+    // content: audioBytes,
+    uri: gcsUri,
   }
 
   const config = {
@@ -28,7 +34,8 @@ export const transcribeAudio = async fp => {
     config: config,
   }
 
-  const [response] = await client.recognize(request)
+  const [operation] = await client.longRunningRecognize(request)
+  const [response] = await operation.promise()
   const transcription = response.results
     .map(result => result.alternatives[0].transcript)
     .join('\n')
@@ -36,6 +43,16 @@ export const transcribeAudio = async fp => {
   console.log(`Transcription: ${transcription}`)
 
   return response
+}
+
+export const uploadToGcs = async fp => {
+  const fileName = path.basename(fp)
+  const storage = new Storage()
+  const bucketName = 'lexture'
+  await storage.bucket(bucketName).upload(fileName, {})
+  console.log(`File uploaded to GCS: ${fp}`)
+
+  return `gs://${bucketName}/` + fileName
 }
 
 export const convertVid = async fp => {
