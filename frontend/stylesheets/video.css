@@ -1,0 +1,357 @@
+@import url('https://fonts.googleapis.com/css?family=Old+Standard+TT|Open+Sans&display=swap');
+@font-face {
+    font-family: 'Avenir-Book';
+    src: url("../assets/AvenirLTStd-Book.otf");
+}
+@font-face {
+    font-family: 'Avenir-Roman';
+    src: url("../assets/AvenirLTStd-Roman.otf");
+}
+@font-face {
+    font-family: 'Avenir-Medium';
+    src: url("../assets/AvenirLTStd-Medium.otf");
+}
+
+:root {
+    --dark: #252c32;
+    --light-periwinkle: #d3ddff;
+    --powder-blue: #b8d5ff;
+    --powder-blue-two: #b9d2ff;
+    --white: #ffffff;
+    --black: #000000;
+    --very-light-blue-50: rgba(221, 232, 255, 0.5);
+    --blue-with-a-hint-of-purple: #3b37c6;
+    --pale-grey: #dee2ee;
+    --white-two: #f2f2f2;
+    --pastel-blue: #9eb5ff;
+    --very-light-blue: #edf1ff;
+    --white-three: #f7f7f7;
+    --std-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+
+    color: #333333;
+    font-family: 'Avenir-Book', sans-serif;
+
+    background-color: var(--color-bg);
+}
+
+#lexture-navbar {
+    height: 132px;
+}
+
+#lexture-searchbar {
+    width: 312px;
+    height: 40px;
+    border-radius: 1px;
+    border: solid 1px var(--black);
+    border-right: none;
+    font-size: 18px;
+    font-weight: normal;
+    padding-left: 20px;
+}
+
+#lexture-searchbar::placeholder {
+    color: var(--pale-grey);
+}
+
+#search-btn {
+    width: 40px;
+    height: 40px;
+    background: var(--color-bg) url("../assets/search.png") no-repeat center;
+    background-size: 30px 30px;
+    border-radius: 1px;
+    border: solid 1px var(--black);
+}
+
+#lexture-breadcrumb {
+    height: 46px;
+    border-radius: 0;
+    border: solid 1px var(--black);
+    border-left: none;
+    border-right: none;
+    background-color: var(--white);
+    margin-bottom: 44px;
+}
+
+.container {
+    display: flex;
+}
+
+.left-section {
+    flex: 2;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-section {
+    flex: 3;
+}
+
+.text-search-timestamp-card {
+    cursor: pointer;
+    width: 95%;
+    height: 57px;
+    border-radius: 1px;
+    border: none;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    background-color: var(--white);
+    margin-bottom: 14px;
+    transition: 0.2s;
+}
+.text-search-timestamp-card:hover {
+    background-color: var(--very-light-blue);
+}
+
+.selected-timestamp-card {
+    background-color: var(--very-light-blue);
+}
+
+.text-search-timestamp-card .card-body {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-body-left-align {
+    display: flex;
+}
+
+/* Dirty hack for triangles */
+.play-btn {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid var(--black);
+    margin-right: 20px;
+}
+
+.selected-timestamp-card .play-btn {
+    border-left: 10px solid var(--blue-with-a-hint-of-purple);
+}
+
+.text-search-snippet {
+    width: 270px;
+    color: var(--pastel-blue);
+}
+
+.search-term-highlight {
+    color: var(--black);
+}
+
+/*
+  Player Skin Designer for Video.js
+  http://videojs.com
+
+  To customize the player skin edit
+  the CSS below. Click "details"
+  below to add comments or questions.
+  This file uses some SCSS. Learn more
+  at http://sass-lang.com/guide)
+
+  This designer can be linked to at:
+  https://codepen.io/heff/pen/EarCt/left/?editors=010
+*/
+.video-js {
+    /* The base font size controls the size of everything, not just text.
+       All dimensions use em-based sizes so that the scale along with the font size.
+       Try increasing it to 15px and see what happens. */
+    font-size: 10px;
+    /* The main font color changes the ICON COLORS as well as the text */
+    color: var(--blue-with-a-hint-of-purple);
+    /* Custom settings */
+    width: 100%;
+    box-shadow: var(--std-box-shadow);
+}
+
+/* The "Big Play Button" is the play button that shows before the video plays.
+   To center it set the align values to center and middle. The typical location
+   of the button is the center, but there is trend towards moving it to a corner
+   where it gets out of the way of valuable content in the poster image.*/
+.vjs-default-skin .vjs-big-play-button {
+    /* The font size is what makes the big play button...big.
+       All width/height values use ems, which are a multiple of the font size.
+       If the .video-js font-size is 10px, then 3em equals 30px.*/
+    font-size: 3em;
+    /* We're using SCSS vars here because the values are used in multiple places.
+       Now that font size is set, the following em values will be a multiple of the
+       new font size. If the font-size is 3em (30px), then setting any of
+       the following values to 3em would equal 30px. 3 * font-size. */
+    /* 1.5em = 45px default */
+    line-height: 1.7em;
+    height: 1.7em;
+    width: 2.5em;
+    /* 0.06666em = 2px default */
+    /* 0.3em = 9px default */
+    border-radius: 0.3em;
+    /* Align center */
+    left: 50%;
+    top: 50%;
+    margin-left: -1.25em;
+    margin-top: -0.85em;
+}
+
+/* The default color of control backgrounds is mostly black but with a little
+   bit of blue so it can still be seen on all-black video frames, which are common. */
+.video-js .vjs-control-bar,
+.video-js .vjs-big-play-button,
+.video-js .vjs-menu-button .vjs-menu-content {
+    background-color: var(--white);
+}
+
+/* Slider - used for Volume bar and Progress bar */
+.video-js .vjs-slider {
+    background-color: rgba(58, 55, 198, 0.5);
+}
+
+/* The slider bar color is used for the progress bar and the volume bar
+   (the first two can be removed after a fix that's coming) */
+.video-js .vjs-volume-level,
+.video-js .vjs-play-progress,
+.video-js .vjs-slider-bar {
+    background: var(--blue-with-a-hint-of-purple);
+}
+
+/* The main progress bar also has a bar that shows how much has been loaded. */
+.video-js .vjs-load-progress {
+    background: rgba(58, 55, 198, 0.5);
+}
+
+/* The load progress bar also has internal divs that represent
+   smaller disconnected loaded time ranges */
+.video-js .vjs-load-progress div {
+    background: rgba(58, 55, 198, 0.75);
+}
+
+/*------------------------------------------------------------------------*/
+/* ATTEMPT TO CREATE CONTROLLER FROM GROUND UP; ABANDONED DUE TO VIDEO.JS */
+/*------------------------------------------------------------------------*/
+/*.video-controller-bar {*/
+/*    position: relative;*/
+/*    display: flex;*/
+/*    justify-content: space-evenly;*/
+/*    align-items: center;*/
+/*    top: -8px;*/
+/*    width: 100%;*/
+/*    height: 43px;*/
+/*    box-shadow: var(--std-box-shadow);*/
+/*    !* Why is this not working??? *!*/
+/*    z-index: 2;*/
+/*}*/
+
+/*.video-controller-bar #play-pause-btn {*/
+/*    width: 20px;*/
+/*    height: 20px;*/
+/*    border: none;*/
+/*    background: url("../assets/play.png") no-repeat;*/
+/*    background-size: contain;*/
+/*}*/
+
+/*.video-controller-bar #time-scroll-bar {*/
+/*    width: 400px;*/
+/*}*/
+
+/*.video-controller-bar .other-video-tools img {*/
+/*    display: inline-block;*/
+/*}*/
+
+/*.video-controller-bar .other-video-tools #tag-btn {*/
+/*    width: 17px;*/
+/*    height: 17px;*/
+/*    border: none;*/
+/*    background: url("../assets/tag.png") no-repeat;*/
+/*    background-size: contain;*/
+/*}*/
+
+/*.video-controller-bar .other-video-tools #settings-btn {*/
+/*    width: 18px;*/
+/*    height: 18px;*/
+/*    border: none;*/
+/*    background: url("../assets/settings.png") no-repeat;*/
+/*    background-size: contain;*/
+/*}*/
+
+/*.video-controller-bar .other-video-tools #volume-btn {*/
+/*    width: 16px;*/
+/*    height: 16px;*/
+/*    border: none;*/
+/*    background: url("../assets/volume.png") no-repeat;*/
+/*    background-size: contain;*/
+/*}*/
+
+/*.video-controller-bar .other-video-tools #fullscreen-btn {*/
+/*    width: 16px;*/
+/*    height: 16px;*/
+/*    border: none;*/
+/*    background: url("../assets/fullscreen.png") no-repeat;*/
+/*    background-size: contain;*/
+/*}*/
+
+.tool-tab-bar {
+    display: flex;
+}
+
+.tool-tab {
+    cursor: pointer;
+    flex: 1;
+    display: inline-block;
+    text-align: center;
+    font-size: 14px;
+    line-height: 45px;
+    height: 45px;
+    border-radius: 1px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    background-color: var(--white);
+    transition: 0.2s;
+}
+.tool-tab:hover {
+    background-color: var(--very-light-blue);
+}
+
+.selected-tool-tab {
+    box-shadow: none;
+}
+
+.card-below-video {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    background-color: var(--white);
+    z-index: -1;
+    margin-top: 15px;
+    margin-bottom: 50px;
+}
+
+.card-below-video-content {
+    padding: 20px;
+}
+
+.lecturer-photo {
+    border-radius: 50%;
+    margin: 5px;
+}
+
+.topic-tag {
+    cursor: pointer;
+    display: inline-block;
+    padding: 2px 10px;
+    margin: 20px 7px 20px 0px;
+    border-radius: 1px;
+    line-height: 28px;
+    font-size: 13px;
+    font-family: 'Avenir-Medium', sans-serif;
+    text-align: center;
+    color: var(--white);
+    background-color: var(--blue-with-a-hint-of-purple);
+    transition: 0.2s;
+}
+.topic-tag:hover {
+    opacity: 0.7;
+}
+
+.overview-text {
+    font-size: 15px;
+}

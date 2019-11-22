@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Lexture - KNN</title>
-    <link rel="stylesheet" href="bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+    <!--Video.js-->
+    <link href="https://vjs.zencdn.net/7.5.5/video-js.css" rel="stylesheet">
+    <!--Custom-->
+    <link rel="stylesheet" href="stylesheets/video.css">
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light" id="lexture-navbar">
-    <a class="navbar-brand mx-5" href="index.html">
+    <a class="navbar-brand ml-3" href="index.html">
         <img src="assets/logo.png" height="40" alt="">
     </a>
 
@@ -20,134 +24,99 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <form class="form-inline mx-auto">
             <input class="form-control mr-0 rounded-0" id="lexture-searchbar" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-light px-2 rounded-0" id="search-btn" type="submit"><span id="search-icon"></span></button>
+            <button class="btn btn-light px-2 rounded-0" id="search-btn" type="submit"><img src="assets/search.png" height="21" alt="Search"></button>
         </form>
 
-        <a class="navbar-brand mx-5" href="index.html">
-            <img src="assets/profile.png" height="30" alt="">
+        <a class="navbar-brand mr-3 ml-5" href="index.html">
+            <img src="assets/profile.png" height="45" alt="Profile">
         </a>
     </div>
 </nav>
 
+<div class="breadcrumb-bar">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb" id="lexture-breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Algorithms</a></li>
+            <li class="breadcrumb-item active" aria-current="page">KNN</li>
+        </ol>
+    </nav>
+</div>
+
 <div class="container">
-    <h3 class="mt-5">Welcome back, Queena</h3>
-    <!-- Using this div to shift everything below right a bit-->
-    <div class="ml-5">
-
-        <!-- MY COURSES -->
-        <div class="subsection">
-
-            <div class="top-bar d-flex justify-content-between">
-                <h5 class="title">My courses:</h5>
-                <a class="h6 view-all" href=""><u>View all</u></a>
-            </div>
-
-            <div class="video-nav d-flex justify-content-between align-items-center">
-
-                <button class="btn btn-outline-secondary nav-btn rounded"><</button>
-
-                <div class="card" style="width: 16rem;">
-                    <img src="assets/thumbnail.png" class="card-img-top" alt="video thumbnail">
-                    <div class="card-body">
-                        <p class="course-title mt-0">Course Title</p>
-                        <div class="course-info d-flex justify-content-between">
-                            <p class="course-lecturer mb-0">Professor</p>
-                            <p class="course-length mb-0">1h 23m</p>
-                        </div>
-                    </div>
+    <div class="left-section">
+        <div class="card text-search-timestamp-card">
+            <div class="card-body">
+                <div class="card-body-left-align">
+                    <div class="play-btn"></div>
+                    <p class="text-search-snippet text-truncate">will be on the <span class="search-term-highlight">test</span> for the next quiz next Tuesday.</p>
                 </div>
-
-                <div class="card" style="width: 16rem;">
-                    <img src="assets/thumbnail.png" class="card-img-top" alt="video thumbnail">
-                    <div class="card-body">
-                        <p class="course-title mt-0">Course Title</p>
-                        <div class="course-info d-flex justify-content-between">
-                            <p class="course-lecturer mb-0">Professor</p>
-                            <p class="course-length mb-0">1h 23m</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card" style="width: 16rem;">
-                    <img src="assets/thumbnail.png" class="card-img-top" alt="video thumbnail">
-                    <div class="card-body">
-                        <p class="course-title mt-0">Course Title</p>
-                        <div class="course-info d-flex justify-content-between">
-                            <p class="course-lecturer mb-0">Professor</p>
-                            <p class="course-length mb-0">1h 23m</p>
-                        </div>
-                    </div>
-                </div>
-
-                <button class="btn btn-outline-secondary nav-btn rounded">></button>
-
-            </div>
-
-        </div>
-
-        <!-- TOPICS RECOMMENDED FOR YOU -->
-        <div class="subsection">
-            <div class="top-bar justify-content-between">
-                <h5 class="title">Topics recommended for you:</h5>
-                <div class="justify-content-start">
-                    <button class="btn topic-btn mr-4">AML</button>
-                    <button class="btn topic-btn mr-4">Algorithms</button>
-                    <button class="btn topic-btn mr-4">Security</button>
-                </div>
+                <p class="text-search-timestamp">13:37</p>
             </div>
         </div>
-
-        <!-- COURSES RELATED TO YOUR SEARCH -->
-        <div class="subsection">
-
-            <div class="top-bar d-flex justify-content-between">
-                <h5 class="title">Courses related to your search: <u>Algorithms</u></h5>
-                <a class="h6 view-all" href=""><u>View all</u></a>
+        <div class="card text-search-timestamp-card selected-timestamp-card">
+            <div class="card-body">
+                <div class="card-body-left-align">
+                    <div class="play-btn"></div>
+                    <p class="text-search-snippet text-truncate">won't be on the <span class="search-term-highlight">test</span>, it's just fun to talk about.</p>
+                </div>
+                <p class="text-search-timestamp">42:01</p>
             </div>
+        </div>
+        <div class="card text-search-timestamp-card">
+            <div class="card-body">
+                <div class="card-body-left-align">
+                    <div class="play-btn"></div>
+                    <p class="text-search-snippet text-truncate">to study for the <span class="search-term-highlight">test</span> that's coming out this Friday.</p>
+                </div>
+                <p class="text-search-timestamp">59:21</p>
+            </div>
+        </div>
+    </div>
 
-            <div class="video-nav d-flex justify-content-between align-items-center">
-
-                <button class="btn btn-outline-secondary nav-btn rounded"><</button>
-
-                <div class="card" style="width: 16rem;">
-                    <img src="assets/thumbnail.png" class="card-img-top" alt="video thumbnail">
-                    <div class="card-body">
-                        <p class="course-title mt-0">Course Title</p>
-                        <div class="course-info d-flex justify-content-between">
-                            <p class="course-lecturer mb-0">Professor</p>
-                            <p class="course-length mb-0">1h 23m</p>
-                        </div>
+    <div class="right-section">
+        <video class="video-js" controls preload="auto" data-setup="{}">
+            <source src="https://lexture.nyc3.digitaloceanspaces.com/sample_lectures/berkeley_cs61a_1.mp4" type="video/mp4">
+            <p class="vjs-no-js">Your browser does not support HTML5 video.</p>
+        </video>
+<!--            ABANDONED ATTEMPT AT CREATING VIDEO CONTROLLER FROM GROUND UP-->
+<!--            <div class="video-controller-bar">-->
+<!--                <button type="button" id="play-pause-btn"></button>-->
+<!--                <input type="range" id="time-scroll-bar" value="0">-->
+<!--                <div class="other-video-tools">-->
+<!--                    <button type="button" id="tag-btn"></button>-->
+<!--                    <button type="button" id="settings-btn"></button>-->
+<!--                    <button type="button" id="volume-btn"></button>-->
+<!--                    <button type="button" id=="fullscreen-btn"></button>-->
+<!--                </div>-->
+<!--            </div>-->
+        <div class="video-tools">
+            <div class="card-below-video">
+                <div class="tool-tab-bar">
+                    <div class="tool-tab selected-tool-tab">Overview
+                    </div><div class="tool-tab">Transcript
+                    </div><div class="tool-tab">Q&A
+                    </div><div class="tool-tab">My Tags
                     </div>
                 </div>
-
-                <div class="card" style="width: 16rem;">
-                    <img src="assets/thumbnail.png" class="card-img-top" alt="video thumbnail">
-                    <div class="card-body">
-                        <p class="course-title mt-0">Course Title</p>
-                        <div class="course-info d-flex justify-content-between">
-                            <p class="course-lecturer mb-0">Professor</p>
-                            <p class="course-length mb-0">1h 23m</p>
-                        </div>
+                <div class="card-below-video-content">
+                    <div class="course-lecturer">Course Lecturer:
+                        <img class="lecturer-photo" src="assets/kieran.png" alt="" width="35">
+                        Kieran Taylor</div>
+                    <div class="tags-row">
+                        <div class="topic-tag">Algorithms</div>
+                        <div class="topic-tag">Machine Learning</div>
+                        <div class="topic-tag">Important</div>
+                    </div>
+                    <div class="overview-text">
+                        Kieran is a proficient speaker of Chinese and the world's leading authority on professional bar fighting.
+                        He was born in a volcano as it erupted, raised by Shaolin masters, and has the power of three legendary pokemon combined.
                     </div>
                 </div>
-
-                <div class="card" style="width: 16rem;">
-                    <img src="assets/thumbnail.png" class="card-img-top" alt="video thumbnail">
-                    <div class="card-body">
-                        <p class="course-title mt-0">Course Title</p>
-                        <div class="course-info d-flex justify-content-between">
-                            <p class="course-lecturer mb-0">Professor</p>
-                            <p class="course-length mb-0">1h 23m</p>
-                        </div>
-                    </div>
-                </div>
-
-                <button class="btn btn-outline-secondary nav-btn rounded">></button>
-
             </div>
         </div>
     </div>
 </div>
-
+<!--Video.js-->
+<script src="https://vjs.zencdn.net/7.5.5/video.js"></script>
 </body>
 </html>
