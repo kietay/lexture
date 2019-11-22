@@ -1,0 +1,28 @@
+{
+  "courseId": "12345",
+  "title": "Sample course",
+  "description": "An example of a course on lexture",
+  "instructor": "Mahatma Gandhi",
+  "semester": "Spring 2040",
+  "videos": [
+    {
+      "videoId": "12345",
+      "title": "A lesson in doing stuff",
+      "topics": ["Spirituality", "Salsa dance"],
+      "url": "INSERT URL HERE",
+      "captions": [
+        {
+          "languageCode": "en",
+          "captionsText": [
+            {
+              "text": "Hi everyone welcome to my lecture",
+              "start_timestamp": "2040-11-21T20:55:41+00:00",
+              "end_timestamp": "2040-11-21T21:55:41+00:00"
+            }
+          ]
+        }
+      ],
+      "length": 3600
+    }
+  ]
+}
