@@ -11,7 +11,7 @@ export const searchTranscripts = async query => {
     .limit(20)
     .exec()
 
-  const mapped = res.map(async r => {
+  const videoDetailsFetched = res.map(async r => {
     const vid = await fetchVideoDetails(r.videoId)
 
     return {
@@ -23,10 +23,7 @@ export const searchTranscripts = async query => {
     }
   })
 
-  return await Promise.all(mapped)
-
-  //   return mapped
-  //   return await Video.findOne({ videoId: '12345' }).exec()
+  return await Promise.all(videoDetailsFetched)
 }
 
 export const fetchVideoDetails = videoId => {
