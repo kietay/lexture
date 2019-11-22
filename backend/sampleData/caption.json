@@ -1,0 +1,14 @@
+[
+  {
+    "videoId": "12345",
+    "text": "All right. How are you doing? You hear me?",
+    "startTimestamp": "00:00:02.000",
+    "endTimestamp": "00:00:03.000"
+  },
+  {
+    "videoId": "12345",
+    "text": " Hear me. Yeah, good. Okay. Well, it's a computer science 61a the best computer science class in the world and I'm allowed to say that because it's not because of me it's because of this book which is called structure and interpretation of computer programs, which unco incidentally is also the name, of course that you're taking best computer science book ever written you're going to learn an awful lot. Okay.",
+    "startTimestamp": "00:00:05.000",
+    "endTimestamp": "00:00:34.000"
+  }
+]

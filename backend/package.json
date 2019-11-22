@@ -29,6 +29,7 @@
     "express": "^4.17.1",
     "fluent-ffmpeg": "^2.1.2",
     "lodash": "^4.17.15",
+    "mongoose": "^5.7.12",
     "uuid": "^3.3.3",
     "video-converter": "^1.0.0"
   },
