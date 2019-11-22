@@ -1,73 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Old+Standard+TT|Open+Sans&display=swap');
-@font-face {
-    font-family: 'Avenir-Book';
-    src: url("../assets/AvenirLTStd-Book.otf");
-}
-@font-face {
-    font-family: 'Avenir-Roman';
-    src: url("../assets/AvenirLTStd-Roman.otf");
-}
-@font-face {
-    font-family: 'Avenir-Medium';
-    src: url("../assets/AvenirLTStd-Medium.otf");
-}
-
-:root {
-    --dark: #252c32;
-    --light-periwinkle: #d3ddff;
-    --powder-blue: #b8d5ff;
-    --powder-blue-two: #b9d2ff;
-    --white: #ffffff;
-    --black: #000000;
-    --very-light-blue-50: rgba(221, 232, 255, 0.5);
-    --blue-with-a-hint-of-purple: #3b37c6;
-    --pale-grey: #dee2ee;
-    --white-two: #f2f2f2;
-    --pastel-blue: #9eb5ff;
-    --very-light-blue: #edf1ff;
-    --white-three: #f7f7f7;
-    --std-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
-}
-
-html, body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-
-    color: #333333;
-    font-family: 'Avenir-Book', sans-serif;
-
-    background-color: var(--color-bg);
-}
-
-#lexture-navbar {
-    height: 132px;
-}
-
-#lexture-searchbar {
-    width: 312px;
-    height: 40px;
-    border-radius: 1px;
-    border: solid 1px var(--black);
-    border-right: none;
-    font-size: 18px;
-    font-weight: normal;
-    padding-left: 20px;
-}
-
-#lexture-searchbar::placeholder {
-    color: var(--pale-grey);
-}
-
-#search-btn {
-    width: 40px;
-    height: 40px;
-    background: var(--color-bg) url("../assets/search.png") no-repeat center;
-    background-size: 30px 30px;
-    border-radius: 1px;
-    border: solid 1px var(--black);
-}
-
 #lexture-breadcrumb {
     height: 46px;
     border-radius: 0;
@@ -76,10 +6,6 @@ html, body {
     border-right: none;
     background-color: var(--white);
     margin-bottom: 44px;
-}
-
-.container {
-    display: flex;
 }
 
 .left-section {
@@ -99,13 +25,16 @@ html, body {
     height: 57px;
     border-radius: 1px;
     border: none;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     background-color: var(--white);
     margin-bottom: 14px;
     transition: 0.2s;
 }
+
 .text-search-timestamp-card:hover {
     background-color: var(--very-light-blue);
+    transform: translateY(-3px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
 }
 
 .selected-timestamp-card {
@@ -158,6 +87,7 @@ html, body {
   https://codepen.io/heff/pen/EarCt/left/?editors=010
 */
 .video-js {
+    position: relative;
     /* The base font size controls the size of everything, not just text.
        All dimensions use em-based sizes so that the scale along with the font size.
        Try increasing it to 15px and see what happens. */
@@ -228,70 +158,6 @@ html, body {
     background: rgba(58, 55, 198, 0.75);
 }
 
-/*------------------------------------------------------------------------*/
-/* ATTEMPT TO CREATE CONTROLLER FROM GROUND UP; ABANDONED DUE TO VIDEO.JS */
-/*------------------------------------------------------------------------*/
-/*.video-controller-bar {*/
-/*    position: relative;*/
-/*    display: flex;*/
-/*    justify-content: space-evenly;*/
-/*    align-items: center;*/
-/*    top: -8px;*/
-/*    width: 100%;*/
-/*    height: 43px;*/
-/*    box-shadow: var(--std-box-shadow);*/
-/*    !* Why is this not working??? *!*/
-/*    z-index: 2;*/
-/*}*/
-
-/*.video-controller-bar #play-pause-btn {*/
-/*    width: 20px;*/
-/*    height: 20px;*/
-/*    border: none;*/
-/*    background: url("../assets/play.png") no-repeat;*/
-/*    background-size: contain;*/
-/*}*/
-
-/*.video-controller-bar #time-scroll-bar {*/
-/*    width: 400px;*/
-/*}*/
-
-/*.video-controller-bar .other-video-tools img {*/
-/*    display: inline-block;*/
-/*}*/
-
-/*.video-controller-bar .other-video-tools #tag-btn {*/
-/*    width: 17px;*/
-/*    height: 17px;*/
-/*    border: none;*/
-/*    background: url("../assets/tag.png") no-repeat;*/
-/*    background-size: contain;*/
-/*}*/
-
-/*.video-controller-bar .other-video-tools #settings-btn {*/
-/*    width: 18px;*/
-/*    height: 18px;*/
-/*    border: none;*/
-/*    background: url("../assets/settings.png") no-repeat;*/
-/*    background-size: contain;*/
-/*}*/
-
-/*.video-controller-bar .other-video-tools #volume-btn {*/
-/*    width: 16px;*/
-/*    height: 16px;*/
-/*    border: none;*/
-/*    background: url("../assets/volume.png") no-repeat;*/
-/*    background-size: contain;*/
-/*}*/
-
-/*.video-controller-bar .other-video-tools #fullscreen-btn {*/
-/*    width: 16px;*/
-/*    height: 16px;*/
-/*    border: none;*/
-/*    background: url("../assets/fullscreen.png") no-repeat;*/
-/*    background-size: contain;*/
-/*}*/
-
 .tool-tab-bar {
     display: flex;
 }
@@ -308,13 +174,17 @@ html, body {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
     background-color: var(--white);
     transition: 0.2s;
+    z-index: 2;
 }
+
 .tool-tab:hover {
     background-color: var(--very-light-blue);
+    transform: translateY(-2px);
 }
 
 .selected-tool-tab {
     box-shadow: none;
+    z-index: 1;
 }
 
 .card-below-video {
@@ -342,16 +212,125 @@ html, body {
     border-radius: 1px;
     line-height: 28px;
     font-size: 13px;
-    font-family: 'Avenir-Medium', sans-serif;
+    font-weight: 700;
     text-align: center;
     color: var(--white);
     background-color: var(--blue-with-a-hint-of-purple);
     transition: 0.2s;
 }
+
 .topic-tag:hover {
     opacity: 0.7;
+    transform: translateY(-2px);
 }
 
 .overview-text {
     font-size: 15px;
+}
+
+#transcript-card {
+    display: none;
+}
+
+#transcript-language-select {
+    width: 150px;
+}
+
+.transcript-text {
+    font-size: 15px;
+}
+
+#qna-card {
+    display: none;
+}
+
+#qna-search-form {
+    display: flex;
+    justify-content: space-between;
+}
+
+#qna-search-bar {
+    display: inline-block;
+    width: 280px;
+    height: 40px;
+    border-radius: 1px;
+    border: solid 1px var(--black);
+    border-right: none;
+    font-size: 18px;
+    font-weight: normal;
+    padding-left: 20px;
+}
+
+#qna-search-bar::placeholder {
+    color: var(--pale-grey);
+}
+
+#qna-search-btn {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: var(--color-bg) url("../assets/search.png") no-repeat center;
+    background-size: 30px 30px;
+    border-radius: 1px;
+    border: solid 1px var(--black);
+}
+
+#qna-submission-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#qna-submission-bar {
+    display: inline-block;
+    flex: 4;
+    height: 40px;
+    border-radius: 1px;
+    margin: 0 15px;
+    border: solid 1px var(--black);
+    font-size: 18px;
+    font-weight: normal;
+    padding-left: 20px;
+}
+
+#qna-submission-bar::placeholder {
+    color: var(--pale-grey);
+}
+
+#qna-submission-btn {
+    display: inline-block;
+    flex: 1;
+    height: 40px;
+    background-color: var(--light-periwinkle);
+    border-radius: 1px;
+    border: none;
+}
+
+#qna-others-entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.question-text {
+    width: 400px;
+    display: inline-block;
+}
+
+#qna-comment-btn {
+    width: 19px;
+    height: 19px;
+    background: url("../assets/comment.png") no-repeat;
+    background-size: contain;
+}
+
+#qna-like-btn {
+    width: 19px;
+    height: 19px;
+    background: url("../assets/like.png") no-repeat;
+    background-size: contain;
+}
+
+#mytags-card {
+    display: none;
 }

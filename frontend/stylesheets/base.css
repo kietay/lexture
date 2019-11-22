@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css?family=Old+Standard+TT|Nunito+Sans:400,700&display=swap');
+@font-face {
+    font-family: 'Avenir-Book';
+    src: url("../assets/AvenirLTStd-Book.otf");
+}
+@font-face {
+    font-family: 'Avenir-Roman';
+    src: url("../assets/AvenirLTStd-Roman.otf");
+}
+@font-face {
+    font-family: 'Avenir-Medium';
+    src: url("../assets/AvenirLTStd-Medium.otf");
+}
+
+:root {
+    --dark: #252c32;
+    --light-periwinkle: #d3ddff;
+    --powder-blue: #b8d5ff;
+    --powder-blue-two: #b9d2ff;
+    --white: #ffffff;
+    --black: #000000;
+    --very-light-blue-50: rgba(221, 232, 255, 0.5);
+    --blue-with-a-hint-of-purple: #3b37c6;
+    --pale-grey: #dee2ee;
+    --white-two: #f2f2f2;
+    --pastel-blue: #9eb5ff;
+    --very-light-blue: #edf1ff;
+    --white-three: #f7f7f7;
+    --std-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+    --hover-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    color: #333333;
+    font-family: 'Nunito Sans', sans-serif;
+    background-color: var(--color-bg);
+}
+
+#lexture-navbar {
+    height: 132px;
+}
+
+#lexture-search-bar {
+    width: 312px;
+    height: 40px;
+    border-radius: 1px;
+    border: solid 1px var(--black);
+    border-right: none;
+    font-size: 18px;
+    font-weight: normal;
+    padding-left: 20px;
+}
+
+#lexture-search-bar::placeholder {
+    color: var(--pale-grey);
+}
+
+#lexture-search-btn {
+    width: 40px;
+    height: 40px;
+    background: var(--color-bg) url("../assets/search.png") no-repeat center;
+    background-size: 30px 30px;
+    border-radius: 1px;
+    border: solid 1px var(--black);
+}
+
+.container {
+    display: flex;
+}

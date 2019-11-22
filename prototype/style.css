@@ -34,13 +34,13 @@ html, body {
     box-shadow: 0 0 40px rgba(122, 120, 226, 0.8);
 }
 
-#lexture-searchbar {
+#lexture-search-bar {
     width: 450px;
     height: 38px;
     border: solid 1px var(--color1);
 }
 
-#search-btn {
+#lexture-search-btn {
     width: 38px;
     height: 38px;
     background: var(--color-bg) url("assets/search-colored.png") no-repeat center;
