@@ -1,13 +1,13 @@
 import mongoose from 'mongoose'
 import languages from './Enums/languages'
 
-const Captions = new mongoose.Schema({
+const captions = new mongoose.Schema({
   text: String,
   startTimestamp: String,
   endTimestamp: String,
 })
 
-const Video = new mongoose.Schema({
+const video = new mongoose.Schema({
   videoId: {
     type: String,
     required: true,
@@ -27,7 +27,7 @@ const Video = new mongoose.Schema({
         type: String,
         enum: languages,
       },
-      captionsText: [Captions],
+      captionsText: [captions],
     },
   ],
   lengthSeconds: {
@@ -36,7 +36,7 @@ const Video = new mongoose.Schema({
   },
 })
 
-const Course = new mongoose.Schema({
+const course = new mongoose.Schema({
   courseId: {
     type: String,
     required: true,
@@ -57,7 +57,9 @@ const Course = new mongoose.Schema({
     type: String,
     required: false,
   },
-  videos: [Video],
+  videos: [video],
 })
 
-export default Course
+course.index({ 'videos.captions.captionsText.text': 'text' })
+
+export default mongoose.model('Course', course)
