@@ -71,16 +71,30 @@ export const convertVid = async fp => {
   return outPath
 }
 
-export const transcriptionToDataModel = transResponse =>
+export const transcriptionToDataModel = (transResponse, videoId) =>
   transResponse.results.map(r => {
-    const alt = r.alternatives[0]
-    const startTime = formatTime(alt.words[0].startTime)
-    const endTime = formatTime(alt.words.slice(-1)[0].endTime)
+    try {
+      const alt = r.alternatives[0]
+      const endElem = alt.words.slice(-1)[0]
+        ? alt.words.slice(-1)[0]
+        : alt.words[0]
+      const startTime = formatTime(alt.words[0].startTime)
+      const endTime = formatTime(endElem.endTime)
 
-    return {
-      text: alt.transcript,
-      startTimestamp: startTime,
-      endTimestamp: endTime,
+      return {
+        videoId: videoId,
+        text: alt.transcript,
+        startTimestamp: startTime,
+        endTimestamp: endTime,
+      }
+    } catch (err) {
+      console.log(`Unable to transcribe ${JSON.stringify(r.alternatives[0])}`)
+      return {
+        videoId: videoId,
+        text: 'n/a',
+        startTimestamp: '00:00:00.000',
+        endTimestamp: '00:00:00.000',
+      }
     }
   })
 
@@ -96,14 +110,17 @@ export const transcriptionToVtt = transResponse =>
   })
 
 export const formatTime = time => {
-  const hrs = time.hours ? time.hours : '0'
-  const mins = time.minutes ? time.minutes : '0'
+  const secs = time.seconds % 60
+  const mins = time.minutes ? time.minutes : Math.floor(time.seconds / 60) % 60
+  const hrs = time.hours
+    ? time.hours
+    : Math.floor(Math.floor(time.seconds / 60) / 60)
   return (
     String(hrs).padStart(2, '0') +
     ':' +
     String(mins).padStart(2, '0') +
     ':' +
-    String(time.seconds).padStart(2, '0') +
+    String(secs).padStart(2, '0') +
     '.000'
   )
 }

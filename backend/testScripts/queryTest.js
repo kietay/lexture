@@ -11,6 +11,6 @@ mongoose
   })
   .catch(err => console.log(err))
 
-const x = searchTranscripts('hear me')
+const x = searchTranscripts('adaboost')
 
 x.then(y => console.log(JSON.stringify(y)))
