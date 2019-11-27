@@ -67,6 +67,53 @@ html, body {
     border: solid 1px var(--black);
 }
 
+.jumbotron {
+    height: 458px;
+    background: url("../assets/jumbotron.png") no-repeat right;
+    background-size: cover;
+}
+
 .container {
     display: flex;
+}
+
+.circle-lg {
+    position: absolute;
+    width: 50px;
+    height: 113px;
+    background: url("../assets/bg-circle.png") no-repeat;
+    background-size: contain;
+    transform: translate(0, -40px);
+}
+
+.triangle-lg {
+    position: absolute;
+    width: 92px;
+    height: 131px;
+    background: url("../assets/bg-triangle.png") no-repeat;
+    background-size: contain;
+    transform: translate(20px, -17px);
+    right: 0;
+}
+
+.line {
+    position: absolute;
+    height: 2px;
+    left: 0;
+    background-color: var(--black);
+}
+
+#line1 {
+    width: 161px;
+    transform: translate(0, 45px);
+}
+
+#line2 {
+    width: 277px;
+    transform: translate(184px, 273px);
+}
+
+#line3 {
+    width: 313px;
+    transform: translate(500px, 130px);
 }

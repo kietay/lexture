@@ -1,0 +1,69 @@
+html, body {
+    overflow-x: hidden;
+}
+
+.top-bar {
+    position: relative;
+}
+
+.result-count {
+    margin-left: 400px;
+    font-size: 24px;
+    color: var(--black);
+}
+
+.filter-checkbox {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.left-search-section {
+    flex: 2;
+}
+
+.filter-title {
+    margin-top: 27px;
+    margin-bottom: 15px;
+}
+
+.form-check-label {
+    margin-left: 7px;
+    font-size: 18px;
+}
+
+.right-search-section {
+    flex: 5;
+}
+
+.video-search-entry {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.video-search-entry-left {
+    flex: 2;
+}
+
+.video-search-entry-right {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.view-all-search-results {
+    position: relative;
+    color: var(--black);
+}
+.view-all-search-results:hover {
+    color: var(--black);
+}
+
+.view-all-triangle {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: url("../assets/bg-home-triangle.png") no-repeat;
+    background-size: contain;
+    transform: rotate(-90deg) translate(20px, 70px);
+}
