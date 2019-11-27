@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Lexture - Berkeley CS 61A - Week 1: Functions</title>
+    <title>Lexture - {{course}} | {{title}}</title>
     <link rel="icon"
           type="image/png"
           href="assets/favicon.png">
@@ -46,50 +46,31 @@
 <div class="breadcrumb-bar">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb" id="lexture-breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Berkeley CS 61A</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Week 1: Functions</li>
+            <!--Replace link with course page when finished.-->
+            <li class="breadcrumb-item"><a href="#">{{course}}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{title}}</li>
         </ol>
     </nav>
 </div>
 
 <div class="container">
     <div class="left-section">
-        <div class="card text-search-timestamp-card" id="timestamp-card-1">
+        {{#textSearchResults}}
+        <div class="card text-search-timestamp-card">
             <div class="card-body">
                 <div class="card-body-left-align">
                     <div class="play-btn"></div>
-                    <p class="text-search-snippet text-truncate">will be on the <span
-                            class="search-term-highlight">test</span> for the next quiz next Tuesday.</p>
+                    <p class="text-search-snippet text-truncate">{{textSearchSnippet}}
                 </div>
-                <p class="text-search-timestamp">00:42</p>
+                <p class="text-search-timestamp">{{textSearchTimeStamp}}</p>
             </div>
         </div>
-        <div class="card text-search-timestamp-card" id="timestamp-card-2">
-            <div class="card-body">
-                <div class="card-body-left-align">
-                    <div class="play-btn"></div>
-                    <p class="text-search-snippet text-truncate">won't be on the <span class="search-term-highlight">test</span>,
-                        it's just fun to talk about.</p>
-                </div>
-                <p class="text-search-timestamp">04:20</p>
-            </div>
-        </div>
-        <div class="card text-search-timestamp-card" id="timestamp-card-3">
-            <div class="card-body">
-                <div class="card-body-left-align">
-                    <div class="play-btn"></div>
-                    <p class="text-search-snippet text-truncate">to study for the <span class="search-term-highlight">test</span>
-                        that's coming out this Friday.</p>
-                </div>
-                <p class="text-search-timestamp">42:00</p>
-            </div>
-        </div>
+        {{/textSearchResults}}
     </div>
 
     <div class="right-section">
         <video id="lecture-video" class="video-js vjs-big-play-centered" controls preload="auto" data-setup="{}">
-            <source src="https://lexture.nyc3.digitaloceanspaces.com/sample_lectures/berkeley_cs61a_1.mp4"
-                    type="video/mp4">
+            <source src="{{videoUrl}}" type="video/mp4">
             <p class="vjs-no-js">Your browser does not support HTML5 video.</p>
             <!--            <track kind="captions" src="http://example.com/path/to/captions.vtt" srclang="en" label="English" default>-->
         </video>
@@ -107,36 +88,29 @@
             <div class="card-below-video-content" id="overview-card">
                 <div class="course-lecturer">Course Lecturer:
                     <img class="lecturer-photo" src="assets/kieran.png" alt="" width="35">
-                    Kieran Taylor
+                    {{lecturer}}
                 </div>
                 <div class="tags-row">
-                    <div class="topic-tag">Algorithms</div>
-                    <div class="topic-tag">Introduction</div>
-                    <div class="topic-tag">Computer Science</div>
+                    {{#tags}}
+                    <div class="topic-tag">{{tag}}</div>
+                    {{/tags}}
                 </div>
                 <div class="overview-text">
-                    Kieran is a proficient speaker of Chinese and the world's leading authority on professional bar
-                    fighting.
-                    He was born in a volcano as it erupted, raised by Shaolin masters, and has the power of three
-                    legendary pokemon combined.
+                    {{overview}}
                 </div>
             </div>
             <div class="card-below-video-content" id="transcript-card">
                 <form>
                     <div class="form-group">
                         <select class="form-control" id="transcript-language-select">
-                            <option>English</option>
-                            <option>中文</option>
-                            <option>Español</option>
-                            <option>Binary</option>
+                            {{#languages}}
+                            <option>{{language}}</option>
+                            {{/languages}}
                         </select>
                     </div>
                 </form>
                 <div class="transcript-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eget malesuada velit. Donec auctor
-                    est sapien, luctus lobortis libero congue eu. Nullam commodo placerat sagittis. Phasellus finibus
-                    nisi erat, et dictum sapien molestie id. Cras in bibendum risus. Fusce rhoncus magna mi, tristique
-                    ornare ipsum consectetur ut.
+                    {{transcriptText}}
                 </div>
             </div>
             <div class="card-below-video-content" id="qna-card">
@@ -203,10 +177,12 @@
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
 <!--Bootstrap JS-->
-<script src="javascript/bootstrap.min.js"></script>
+<script src="../javascript/bootstrap.min.js"></script>
 <!--Video.js-->
 <script src="https://vjs.zencdn.net/7.5.5/video.js"></script>
 <!--Custom JS-->
-<script src="javascript/video.js"></script>
+<script src="../javascript/video.js"></script>
+<!--Custom JS-->
+<script src="video-mustache.js"></script>
 </body>
 </html>

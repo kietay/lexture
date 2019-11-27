@@ -42,16 +42,10 @@ $(document).ready(function () {
     });
 
     // Select search results (timestamp card)
-    var video = videojs("berkeley-cs61a-1");
-    var currTimestampCard = $("#timestamp-card-1");
-    $("#timestamp-card-1").click(function () {
-        currTimestampCard = selectTimestampCard(currTimestampCard, $("#timestamp-card-1"), video);
-    });
-    $("#timestamp-card-2").click(function () {
-        currTimestampCard = selectTimestampCard(currTimestampCard, $("#timestamp-card-2"), video);
-    });
-    $("#timestamp-card-3").click(function () {
-        currTimestampCard = selectTimestampCard(currTimestampCard, $("#timestamp-card-3"), video);
+    var video = videojs("lecture-video");
+    var currTimestampCard = null;
+    $(".text-search-timestamp-card").click(function () {
+        currTimestampCard = selectTimestampCard(currTimestampCard, $(this), video);
     });
 
     // Switch between tabs
