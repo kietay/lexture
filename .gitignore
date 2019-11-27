@@ -3,7 +3,9 @@
 *.env
 */dist
 oplog*
-*.DS_Store
+*.flac
+
+*DS_Store
 
 
 # Byte-compiled / optimized / DLL files
