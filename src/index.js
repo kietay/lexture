@@ -3,6 +3,7 @@ import cors from 'cors'
 import express from 'express'
 import mustache from 'mustache-express'
 import path from 'path'
+import upload from './api/upload'
 
 const app = express()
 
@@ -25,14 +26,10 @@ app.get('/ssearch', (req, res) => {
   res.sendFile(path.join(__dirname + '/views/search-results.html'))
 })
 
-app.get('/upload', (req, res) => {
-  res.sendFile(path.join(__dirname + '/views/upload.html'))
-})
+app.use('/upload', upload)
 
 app.get('/uploadinfo', (req, res) => {
   res.sendFile(path.join(__dirname + '/views/upload-info.html'))
 })
 
-app.listen(3000, () =>
-  console.log(`Example app listening on port ${process.env.PORT}!`)
-)
+app.listen(3000, () => console.log(`Example app listening on port ${process.env.PORT}!`))

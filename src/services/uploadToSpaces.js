@@ -9,10 +9,12 @@ const s3 = new aws.S3({
   endpoint: spacesEndpoint,
 })
 
-export const uploadDir = courseId => {
+export const courseUploadDir = courseId => {
   const uploadName = uuid.v4() + '.mp4'
   return `content/${courseId}/videos/${uploadName}`
 }
+
+export const tempDir = 'temp/'
 
 export const uploadMulter = uploadPath =>
   multer({
