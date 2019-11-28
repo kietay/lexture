@@ -3,7 +3,7 @@ const router = express.Router()
 import multer from 'multer'
 import { videoFilter } from '../utils/filters'
 import path from 'path'
-import { upp, courseUploadDir } from '../services/spaces'
+import spaces from '../services/spaces'
 
 router.get('/', (req, res) => {
   res.sendFile(path.join(__dirname + '/../views/upload.html'))
@@ -35,7 +35,7 @@ router.post('/new-video', (req, res) => {
 
     console.debug(req.file)
 
-    upp(req.file.path).to(courseUploadDir('exampleCourse'))
+    spaces.upload(req.file.path).to(spaces.courseDir('exampleCourse'))
 
     res.redirect('/uploadinfo')
   })
