@@ -1,6 +1,7 @@
 import express from 'express'
 const router = express.Router()
 import multer from 'multer'
+import multers3 from 'multer-s3'
 import { videoFilter } from '../utils/filters'
 import path from 'path'
 import spaces from '../services/spaces'
@@ -39,6 +40,10 @@ router.post('/new-video', (req, res) => {
 
     res.redirect('/uploadinfo')
   })
+})
+
+router.get('/video-details', (req, res) => {
+  res.send(req)
 })
 
 export default router

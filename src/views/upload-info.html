@@ -2,10 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>Lexture - Upload Video</title>
     <link rel="icon" type="image/png" href="assets/favicon.png" />
     <!--Bootstrap CSS-->
@@ -18,7 +15,7 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light" id="lexture-navbar">
-      <a class="navbar-brand ml-3" href="index.html">
+      <a class="navbar-brand ml-3" href="/">
         <img src="assets/logo.png" height="40" alt="" />
       </a>
 
@@ -43,16 +40,12 @@
             placeholder="Search"
             aria-label="Search"
           />
-          <button
-            class="btn btn-light px-2 rounded-0"
-            id="lexture-search-btn"
-            type="submit"
-          >
+          <button class="btn btn-light px-2 rounded-0" id="lexture-search-btn" type="submit">
             <img src="assets/search.png" height="21" alt="Search" />
           </button>
         </form>
 
-        <a class="navbar-brand mr-3 ml-5" href="index.html">
+        <a class="navbar-brand mr-3 ml-5" href="/">
           <img src="assets/profile.png" height="45" alt="Profile" />
         </a>
       </div>
@@ -60,49 +53,22 @@
 
     <!-- Upload info -->
     <div id="upload-info-container" class="my-4 pb-5 mx-5 px-5">
-      <h3 id="progress-bar-status">
-        Your video is now uploading<span id="progress-bar-status-ellipses"
-          >...</span
-        >
-      </h3>
+      <h3 id="progress-bar-status">Your video is now uploading<span id="progress-bar-status-ellipses">...</span></h3>
       <div class="progress" style="height: 5px;">
-        <div
-          class="progress-bar"
-          id="upload-progress-bar"
-          role="progressbar"
-          style="width: 0%;"
-        ></div>
+        <div class="progress-bar" id="upload-progress-bar" role="progressbar" style="width: 0%;"></div>
       </div>
-      <form class="mt-5" id="video-info-form">
+      <form class="mt-5" id="video-info-form" action="/upload/video-info" method="POST">
         <div class="form-group">
           <label for="title-input">Lecture Title</label>
-          <input
-            class="form-control"
-            type="text"
-            id="title-input"
-            name="title"
-            required
-          />
+          <input class="form-control" type="text" id="title-input" name="title" required />
         </div>
         <div class="form-group">
           <label for="lecturer-input">Lecturer</label>
-          <input
-            class="form-control"
-            type="text"
-            id="lecturer-input"
-            name="lecturer"
-            required
-          />
+          <input class="form-control" type="text" id="lecturer-input" name="lecturer" required />
         </div>
         <div class="form-group">
           <label for="course-input">Course</label>
-          <input
-            class="form-control"
-            type="text"
-            id="course-input"
-            name="course"
-            required
-          />
+          <input class="form-control" type="text" id="course-input" name="course" required />
         </div>
         <div class="form-group">
           <label for="tags-input">Tags</label>
@@ -115,18 +81,11 @@
           ></textarea>
           <small class="form-text text-muted">Separate tags with commas.</small>
         </div>
-        <button
-          type="submit"
-          class="btn btn-primary"
-          id="save-and-publish-btn"
-          disabled
-        >
+        <button type="submit" class="btn btn-primary" id="save-and-publish-btn" disabled>
           Save & Publish
         </button>
         <small class="ml-2" id="submit-btn-status">
-          Waiting for upload to finish<span id="submit-btn-status-ellipses"
-            >...</span
-          ></small
+          Waiting for upload to finish<span id="submit-btn-status-ellipses">...</span></small
         >
       </form>
     </div>
