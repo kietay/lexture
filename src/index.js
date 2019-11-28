@@ -32,4 +32,8 @@ app.get('/uploadinfo', (req, res) => {
   res.sendFile(path.join(__dirname + '/views/upload-info.html'))
 })
 
+app.get('/test', (req, res) => {
+  res.sendFile(path.join(__dirname + '/views/test.html'))
+})
+
 app.listen(3000, () => console.log(`Example app listening on port ${process.env.PORT}!`))

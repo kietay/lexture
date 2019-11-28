@@ -1,7 +1,5 @@
 import aws from 'aws-sdk'
 import uuid from 'uuid'
-import multer from 'multer'
-import multerS3 from 'multer-s3'
 import fs from 'fs'
 
 const spacesEndpoint = new aws.Endpoint('nyc3.digitaloceanspaces.com')
@@ -14,22 +12,21 @@ export const courseUploadDir = courseId => {
   return `content/${courseId}/videos/${uploadName}`
 }
 
-export const tempDir = 'temp/'
+export const tempDir = 'temp/videos'
 
-export const uploadMulter = uploadPath =>
-  multer({
-    storage: multerS3({
-      s3: s3,
-      bucket: 'lexture',
-      acl: 'public-read',
-      key: (request, file, cb) => {
-        console.log(file)
-        cb(null, file.filename)
-      },
-    }),
-  }).array('upload', 1)
+export const uploadToBucket = fp => uploadPath => {
+  const file = fs.createReadStream(fp)
+  file.on('error', err => console.log(err))
+  const uploadParams = { Bucket: 'lexture', Key: uploadPath, Body: file }
 
-export const upload = fp => uploadPath => {
+  s3.upload(uploadParams)
+    .promise()
+    .then(x => console.log('Upload success!'))
+}
+
+export const upp = fp => ({ to: toBucket(fp) })
+
+const toBucket = fp => uploadPath => {
   const file = fs.createReadStream(fp)
   file.on('error', err => console.log(err))
   const uploadParams = { Bucket: 'lexture', Key: uploadPath, Body: file }

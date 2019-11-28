@@ -3,10 +3,7 @@ import Caption from '../models/Caption'
 import Video from '../models/Video'
 
 export const searchTranscripts = async query => {
-  const res = await Caption.find(
-    { $text: { $search: query } },
-    { score: { $meta: 'textScore' } }
-  )
+  const res = await Caption.find({ $text: { $search: query } }, { score: { $meta: 'textScore' } })
     .sort({ score: { $meta: 'textScore' } })
     .limit(20)
     .exec()
@@ -29,4 +26,11 @@ export const searchTranscripts = async query => {
 export const fetchVideoDetails = videoId => {
   console.log(`Looking for ${videoId}`)
   return Video.findOne({ videoId: videoId }).exec()
+}
+
+export const writeCaption = caption => {
+  const cap = new Caption(caption)
+  cap.save(function(err) {
+    if (err) console.log(err)
+  })
 }

@@ -5,6 +5,8 @@
 oplog*
 *.flac
 
+*temp/*
+
 *DS_Store
 
 

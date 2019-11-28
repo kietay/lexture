@@ -1,20 +1,28 @@
 import express from 'express'
 const router = express.Router()
-import uuid from 'uuid'
-import formidable from 'formidable'
 import multer from 'multer'
-import multerS3 from 'multer-s3'
 import { videoFilter } from '../utils/filters'
 import path from 'path'
+import { upp, courseUploadDir } from '../services/spaces'
 
 router.get('/', (req, res) => {
   res.sendFile(path.join(__dirname + '/../views/upload.html'))
 })
 
-router.post('/upload-new-video', (req, res) => {
-  let upload = multer({ storage: storage, fileFilter: helpers.imageFilter }).single('new_video')
+const localUpload = multer({
+  storage: multer.diskStorage({
+    destination: './temp/videos',
+    filename: (req, file, cb) => {
+      const ext = file.mimetype.split('/')[1]
+      const fileName = `${file.fieldname}-${Date.now()}.${ext}`
+      cb(null, fileName)
+    },
+    fileFilter: videoFilter,
+  }),
+})
 
-  upload(req, res, err => {
+router.post('/new-video', (req, res) => {
+  localUpload.single('video')(req, res, err => {
     if (req.fileValidationError) {
       return res.send(req.fileValidationError)
     } else if (!req.file) {
@@ -25,7 +33,11 @@ router.post('/upload-new-video', (req, res) => {
       return res.send(err)
     }
 
-    res.redirect('/')
+    console.debug(req.file)
+
+    upp(req.file.path).to(courseUploadDir('exampleCourse'))
+
+    res.redirect('/uploadinfo')
   })
 })
 
