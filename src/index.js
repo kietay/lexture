@@ -1,13 +1,17 @@
 import 'dotenv/config'
 import cors from 'cors'
 import express from 'express'
+import mustache from 'mustache-express'
 import path from 'path'
 
 const app = express()
 
 app.use(cors())
-
 app.use(express.static(__dirname))
+
+app.engine('html', mustache())
+app.set('view engine', 'html')
+app.set('views', __dirname + '/templates')
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname + '/views/index.html'))
@@ -19,6 +23,14 @@ app.get('/cornell', (req, res) => {
 
 app.get('/ssearch', (req, res) => {
   res.sendFile(path.join(__dirname + '/views/search-results.html'))
+})
+
+app.get('/upload', (req, res) => {
+  res.sendFile(path.join(__dirname + '/views/upload.html'))
+})
+
+app.get('/uploadinfo', (req, res) => {
+  res.sendFile(path.join(__dirname + '/views/upload-info.html'))
 })
 
 app.listen(3000, () =>
