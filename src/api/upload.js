@@ -82,9 +82,9 @@ router.post('/submit-video-details', async (req, res) => {
     .upload(transPath)
     .to(spaces.transcriptDir('exampleCourse'))
 
-  // todo delete video when completed upload
-  // also delete from GCS when transcription done
-  // or delete all files older than x date?
+  fsp.unlink(transPath)
+  fsp.unlink(filePath)
+  fsp.unlink(path.normalize(audioPath))
 
   // todo include video length
 
