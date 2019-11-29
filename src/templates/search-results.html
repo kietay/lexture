@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Lexture - Search Results</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="stylesheets/bootstrap.min.css" />
+    <!--Video.js CSS-->
+    <link href="https://vjs.zencdn.net/7.5.5/video-js.css" rel="stylesheet" />
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="stylesheets/base.css" />
+    <link rel="stylesheet" href="stylesheets/video.css" />
+    <link rel="stylesheet" href="stylesheets/home.css" />
+    <link rel="stylesheet" href="stylesheets/search-results.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light" id="lexture-navbar">
+      <a class="navbar-brand ml-3" href="index.html">
+        <img src="assets/logo.png" height="40" alt="" />
+      </a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <form class="form-inline mx-auto">
+          <input
+            class="form-control mr-0 rounded-0"
+            id="lexture-search-bar"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <button
+            class="btn btn-light px-2 rounded-0"
+            id="lexture-search-btn"
+            type="submit"
+          >
+            <img src="assets/search.png" height="21" alt="Search" />
+          </button>
+        </form>
+
+        <a class="navbar-brand mr-3 ml-5" href="index.html">
+          <img src="assets/profile.png" height="45" alt="Profile" />
+        </a>
+      </div>
+    </nav>
+
+    <div class="top-bar d-flex">
+      <div class="triangle-lg"></div>
+      <h5 class="title">Search results for: <u>test</u></h5>
+      <div class="result-count" href="">20 Results</div>
+    </div>
+
+    <div class="container">
+      <div class="left-search-section">
+        <div class="filter">
+          <h5 class="title filter-title">Lecturer</h5>
+          <div class="form-check filter-checkbox">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="filter-lecturer-1"
+            />
+            <label class="form-check-label" for="filter-lecturer-1"
+              >Kieran Taylor</label
+            >
+          </div>
+          <div class="form-check filter-checkbox">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="filter-lecturer-2"
+            />
+            <label class="form-check-label" for="filter-lecturer-1"
+              >Barack Obama</label
+            >
+          </div>
+        </div>
+        <div class="filter">
+          <h5 class="title filter-title">Time</h5>
+          <div class="form-check filter-checkbox">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="filter-time-1"
+            />
+            <label class="form-check-label" for="filter-teacher-1"
+              >< 15 min</label
+            >
+          </div>
+          <div class="form-check filter-checkbox">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="filter-time-2"
+            />
+            <label class="form-check-label" for="filter-teacher-1"
+              >15 - 30 min</label
+            >
+          </div>
+          <div class="form-check filter-checkbox">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="filter-time-3"
+            />
+            <label class="form-check-label" for="filter-teacher-1"
+              >30 - 60 min</label
+            >
+          </div>
+          <div class="form-check filter-checkbox">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="filter-time-4"
+            />
+            <label class="form-check-label" for="filter-teacher-1"
+              >> 60 min</label
+            >
+          </div>
+        </div>
+        <div class="filter">
+          <h5 class="title filter-title">Transcript</h5>
+          <div class="form-check filter-checkbox">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="filter-transcript-1"
+            />
+            <label class="form-check-label" for="filter-teacher-1"
+              >English</label
+            >
+          </div>
+          <div class="form-check filter-checkbox">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="filter-transcript-2"
+            />
+            <label class="form-check-label" for="filter-teacher-1">中文</label>
+          </div>
+          <div class="form-check filter-checkbox">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="filter-transcript-3"
+            />
+            <label class="form-check-label" for="filter-teacher-1"
+              >Español</label
+            >
+          </div>
+          <div class="form-check filter-checkbox">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="filter-transcript-4"
+            />
+            <label class="form-check-label" for="filter-teacher-1"
+              >Binary</label
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="right-search-section">
+        <!--Search Result-->
+        <div class="video-search-entry d-flex">
+          <div class="video-search-entry-left">
+            <div class="card" style="width: 18rem;">
+              <img
+                src="assets/thumbnail.png"
+                class="card-img-top"
+                alt="video thumbnail"
+              />
+              <img src="assets/filter.png" class="card-img-filter" alt="" />
+              <div class="card-body">
+                <p class="course-title mt-0">Course Title</p>
+                <div class="course-info d-flex justify-content-between">
+                  <p class="course-lecturer mb-0">Professor</p>
+                  <p class="course-length mb-0">1h 23m</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="video-search-entry-right">
+            <div class="tags-row">
+              <div class="topic-tag">Algorithms</div>
+              <div class="topic-tag">Introduction</div>
+              <div class="topic-tag">Computer Science</div>
+            </div>
+            <div
+              class="card text-search-timestamp-card w-auto pt-2"
+              id="timestamp-card-1-1"
+            >
+              <div class="card-body">
+                <div class="card-body-left-align">
+                  <div class="play-btn"></div>
+                  <p class="text-search-snippet text-truncate">
+                    will be on the
+                    <span class="search-term-highlight">test</span> for the next
+                    quiz next Tuesday.
+                  </p>
+                </div>
+                <p class="text-search-timestamp">00:42</p>
+              </div>
+            </div>
+            <div
+              class="card text-search-timestamp-card w-auto pt-2"
+              id="timestamp-card-1-2"
+            >
+              <div class="card-body">
+                <div class="card-body-left-align">
+                  <div class="play-btn"></div>
+                  <p class="text-search-snippet text-truncate">
+                    won't be on the
+                    <span class="search-term-highlight">test</span>, it's just
+                    fun to talk about.
+                  </p>
+                </div>
+                <p class="text-search-timestamp">04:20</p>
+              </div>
+            </div>
+            <a class="view-all-search-results" href="#">
+              <u>View all</u>
+              <div class="view-all-triangle"></div>
+            </a>
+          </div>
+        </div>
+        <!--Search Result-->
+        <div class="video-search-entry d-flex">
+          <div class="video-search-entry-left">
+            <div class="card" style="width: 18rem;">
+              <img
+                src="assets/thumbnail.png"
+                class="card-img-top"
+                alt="video thumbnail"
+              />
+              <img src="assets/filter.png" class="card-img-filter" alt="" />
+              <div class="card-body">
+                <p class="course-title mt-0">Course Title</p>
+                <div class="course-info d-flex justify-content-between">
+                  <p class="course-lecturer mb-0">Professor</p>
+                  <p class="course-length mb-0">1h 23m</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="video-search-entry-right">
+            <div class="tags-row">
+              <div class="topic-tag">Algorithms</div>
+              <div class="topic-tag">Introduction</div>
+              <div class="topic-tag">Computer Science</div>
+            </div>
+            <div
+              class="card text-search-timestamp-card w-auto pt-2"
+              id="timestamp-card-2-1"
+            >
+              <div class="card-body">
+                <div class="card-body-left-align">
+                  <div class="play-btn"></div>
+                  <p class="text-search-snippet text-truncate">
+                    will be on the
+                    <span class="search-term-highlight">test</span> for the next
+                    quiz next Tuesday.
+                  </p>
+                </div>
+                <p class="text-search-timestamp">00:42</p>
+              </div>
+            </div>
+            <div
+              class="card text-search-timestamp-card w-auto pt-2"
+              id="timestamp-card-2-2"
+            >
+              <div class="card-body">
+                <div class="card-body-left-align">
+                  <div class="play-btn"></div>
+                  <p class="text-search-snippet text-truncate">
+                    won't be on the
+                    <span class="search-term-highlight">test</span>, it's just
+                    fun to talk about.
+                  </p>
+                </div>
+                <p class="text-search-timestamp">04:20</p>
+              </div>
+            </div>
+            <a class="view-all-search-results" href="#">
+              <u>View all</u>
+              <div class="view-all-triangle"></div>
+            </a>
+          </div>
+        </div>
+        <!--Search Result-->
+        <div class="video-search-entry d-flex">
+          <div class="video-search-entry-left">
+            <div class="card" style="width: 18rem;">
+              <img
+                src="assets/thumbnail.png"
+                class="card-img-top"
+                alt="video thumbnail"
+              />
+              <img src="assets/filter.png" class="card-img-filter" alt="" />
+              <div class="card-body">
+                <p class="course-title mt-0">Course Title</p>
+                <div class="course-info d-flex justify-content-between">
+                  <p class="course-lecturer mb-0">Professor</p>
+                  <p class="course-length mb-0">1h 23m</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="video-search-entry-right">
+            <div class="tags-row">
+              <div class="topic-tag">Algorithms</div>
+              <div class="topic-tag">Introduction</div>
+              <div class="topic-tag">Computer Science</div>
+            </div>
+            <div
+              class="card text-search-timestamp-card w-auto pt-2"
+              id="timestamp-card-3-1"
+            >
+              <div class="card-body">
+                <div class="card-body-left-align">
+                  <div class="play-btn"></div>
+                  <p class="text-search-snippet text-truncate">
+                    will be on the
+                    <span class="search-term-highlight">test</span> for the next
+                    quiz next Tuesday.
+                  </p>
+                </div>
+                <p class="text-search-timestamp">00:42</p>
+              </div>
+            </div>
+            <div
+              class="card text-search-timestamp-card w-auto pt-2"
+              id="timestamp-card-3-2"
+            >
+              <div class="card-body">
+                <div class="card-body-left-align">
+                  <div class="play-btn"></div>
+                  <p class="text-search-snippet text-truncate">
+                    won't be on the
+                    <span class="search-term-highlight">test</span>, it's just
+                    fun to talk about.
+                  </p>
+                </div>
+                <p class="text-search-timestamp">04:20</p>
+              </div>
+            </div>
+            <a class="view-all-search-results" href="#">
+              <u>View all</u>
+              <div class="view-all-triangle"></div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--jQuery-->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <!--Popper.js-->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <!--Bootstrap JS-->
+    <script src="scripts/bootstrap.min.js"></script>
+    <!--Video.js-->
+    <script src="https://vjs.zencdn.net/7.5.5/video.js"></script>
+    <!--Custom JS-->
+    <script src="scripts/search-results.js"></script>
+  </body>
+</html>

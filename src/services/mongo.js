@@ -10,11 +10,23 @@ export const searchTranscripts = async query => {
 
   const videoDetailsFetched = res.map(async r => {
     const vid = await fetchVideoFromId(r.videoId)
+    const course = await fetchCourseFromVideoId(r.videoId)
+
+    const tags = vid.topics.map(x => ({ tag: x }))
 
     return {
+      courseTitle: course.title,
       videoId: vid.videoId,
       videoTitle: vid.title,
+      instructor: vid.instructor,
+      tags: tags,
       textMention: r.text,
+      textMatches: [
+        {
+          text: r.text,
+          timestamp: r.startTimestamp,
+        },
+      ],
       startTimestamp: r.startTimestamp,
       endTimestamp: r.endTimestamp,
     }
@@ -24,7 +36,6 @@ export const searchTranscripts = async query => {
 }
 
 export const fetchVideoFromId = videoId => {
-  console.log(`Looking for ${videoId}`)
   return Video.findOne({ videoId: videoId }).exec()
 }
 
