@@ -4,6 +4,8 @@ import express from 'express'
 import mustache from 'mustache-express'
 import path from 'path'
 import upload from './api/upload'
+import video from './api/video'
+import mongoose from 'mongoose'
 
 const app = express()
 
@@ -27,6 +29,7 @@ app.get('/ssearch', (req, res) => {
 })
 
 app.use('/upload', upload)
+app.use('/video', video)
 
 app.get('/uploadinfo', (req, res) => {
   res.sendFile(path.join(__dirname + '/views/upload-info.html'))
@@ -36,4 +39,10 @@ app.get('/test', (req, res) => {
   res.sendFile(path.join(__dirname + '/views/test.html'))
 })
 
-app.listen(3000, () => console.log(`Example app listening on port ${process.env.PORT}!`))
+mongoose
+  .connect(process.env.MONGO_ENDPOINT, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log('Connected to mongo')
+    app.listen(3000, () => console.log(`Example app listening on port ${process.env.PORT}!`))
+  })
+  .catch(err => console.log(err))

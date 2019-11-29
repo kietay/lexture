@@ -9,7 +9,7 @@ export const searchTranscripts = async query => {
     .exec()
 
   const videoDetailsFetched = res.map(async r => {
-    const vid = await fetchVideoDetails(r.videoId)
+    const vid = await fetchVideoFromId(r.videoId)
 
     return {
       videoId: vid.videoId,
@@ -23,7 +23,7 @@ export const searchTranscripts = async query => {
   return await Promise.all(videoDetailsFetched)
 }
 
-export const fetchVideoDetails = videoId => {
+export const fetchVideoFromId = videoId => {
   console.log(`Looking for ${videoId}`)
   return Video.findOne({ videoId: videoId }).exec()
 }
@@ -34,3 +34,8 @@ export const writeCaption = caption => {
     if (err) console.log(err)
   })
 }
+
+export const fetchCourseFromVideoId = videoId =>
+  Course.findOne({
+    videos: videoId,
+  })
