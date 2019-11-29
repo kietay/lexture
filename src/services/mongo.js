@@ -30,7 +30,7 @@ export const fetchVideoFromId = videoId => {
 
 export const writeCaption = caption => {
   const cap = new Caption(caption)
-  cap.save(function(err) {
+  cap.save(err => {
     if (err) console.log(err)
   })
 }

@@ -25,6 +25,10 @@ const video = new mongoose.Schema({
     type: Number,
     required: false,
   },
+  instructor: {
+    type: String,
+    required: false,
+  },
 })
 
 export default mongoose.model('Video', video)

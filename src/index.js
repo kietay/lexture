@@ -6,6 +6,7 @@ import path from 'path'
 import upload from './api/upload'
 import video from './api/video'
 import mongoose from 'mongoose'
+import bodyParser from 'body-parser'
 
 const app = express()
 
@@ -15,6 +16,12 @@ app.use(express.static(__dirname))
 app.engine('html', mustache())
 app.set('view engine', 'html')
 app.set('views', __dirname + '/templates')
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true }))
+
+// parse application/json
+app.use(bodyParser.json())
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname + '/views/index.html'))
