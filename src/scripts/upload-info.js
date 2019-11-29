@@ -22,6 +22,7 @@ var ellipsesLoop3 = function() {
 }
 
 // FOR SHOWCASING ONLY -- REMOVE WHEN UPLOADING FUNCTION COMPLETE
+// todo setup endpoint to retrieve upload progress from multer
 var fakeProgress = function(start) {
   var uploadProgressBar = $('#upload-progress-bar')
   var percentage = (new Date() - start) / 50
