@@ -19,7 +19,10 @@ export const searchTranscripts = async query => {
     .limit(20)
 
   const videoDetailsFetched = res.map(async r => {
+    console.log(`Finding video details: ${r.videoId}`)
     const vid = await fetchVideoFromId(r.videoId)
+
+    console.log('Finding course details...')
     const course = await fetchCourseFromVideoId(r.videoId)
 
     const tags = vid.topics.map(x => ({ tag: x }))
@@ -47,11 +50,11 @@ export const searchTranscripts = async query => {
   return await Promise.all(videoDetailsFetched)
 }
 
-export const fetchVideoFromId = videoId => Video.findOne({ videoId: videoId })
+export const fetchVideoFromId = videoId => Video.findOne({ videoId: videoId }).exec()
 
 export const fetchCourseFromVideoId = videoId =>
   Course.findOne({
-    videos: videoId,
-  })
+    videoIds: videoId,
+  }).exec()
 
 export default router

@@ -24,4 +24,6 @@ const course = new mongoose.Schema({
   videoIds: [String],
 })
 
+course.index({ videoIds: 1 })
+
 export default mongoose.model('Course', course)

@@ -15,6 +15,9 @@ import {
 import Video from '../models/Video'
 import Caption from '../models/Caption'
 import fs from 'fs'
+import Course from '../models/Course'
+
+const fsp = fs.promises
 
 router.get('/', (req, res) => {
   res.sendFile(path.join(__dirname + '/../views/upload.html'))
@@ -63,14 +66,15 @@ router.post('/submit-video-details', async (req, res) => {
   const spacesPrefix = 'https://lexture.nyc3.digitaloceanspaces.com/'
 
   const audioPath = await convertVid(filePath)
-  const transRes = await transcribeAudio(audioPath)
+  console.log('Video converted, transcribing audio')
+  const transRes = await transcribeAudio(path.normalize(audioPath))
 
   const transDm = transcriptionToDataModel(transRes, videoId)
   const transVtt = transcriptionToVtt(transRes)
 
   const transPath = 'temp/transcripts/' + videoId
 
-  await fs.writeFile(transPath, transVtt, err => {
+  await fsp.writeFile(transPath, transVtt, err => {
     if (err) console.log(err)
   })
 
@@ -80,6 +84,9 @@ router.post('/submit-video-details', async (req, res) => {
 
   // todo delete video when completed upload
   // also delete from GCS when transcription done
+  // or delete all files older than x date?
+
+  // todo include video length
 
   const data = {
     videoId: videoId,
@@ -100,9 +107,12 @@ router.post('/submit-video-details', async (req, res) => {
 
   vid.save().catch(err => console.log(err))
 
-  const cap = new Caption(transDm)
+  console.log(`Finding course: ${req.body.course}`)
+  const course = await Course.findOne({ courseId: req.body.course })
+  course.videoIds.push(videoId)
+  course.save()
 
-  cap.save().catch(err => console.log(err))
+  transDm.forEach(c => new Caption(c).save().catch(err => console.log(err)))
 })
 
 export default router

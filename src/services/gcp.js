@@ -11,13 +11,11 @@ const FFPMPEG_PATH = '/usr/local/bin/ffmpeg'
 export const transcribeAudio = async fp => {
   const gcsUri = await uploadToGcs(fp)
 
-  const client = new speech.SpeechClient()
-  //   const file = fs.readFileSync(fp)
+  console.log('Audio file upload to GCS')
 
-  //   const audioBytes = file.toString('base64')
+  const client = new speech.SpeechClient()
 
   const audio = {
-    // content: audioBytes,
     uri: gcsUri,
   }
 
@@ -34,11 +32,11 @@ export const transcribeAudio = async fp => {
     config: config,
   }
 
+  console.log('Starting transcription')
+
   const [operation] = await client.longRunningRecognize(request)
   const [response] = await operation.promise()
-  const transcription = response.results
-    .map(result => result.alternatives[0].transcript)
-    .join('\n')
+  const transcription = response.results.map(result => result.alternatives[0].transcript).join('\n')
 
   console.log(`Transcription: ${transcription}`)
 
@@ -49,24 +47,41 @@ export const uploadToGcs = async fp => {
   const fileName = path.basename(fp)
   const storage = new Storage()
   const bucketName = 'lexture'
-  await storage.bucket(bucketName).upload(fileName, {})
+  await storage.bucket(bucketName).upload(fp, {})
   console.log(`File uploaded to GCS: ${fp}`)
 
   return `gs://${bucketName}/` + fileName
 }
 
 export const convertVid = async fp => {
-  const outPath = `temp_audio_${uuid.v4()}.flac`
+  const outPath = __dirname + '/../../temp/audio/' + `temp_audio_${uuid.v4()}.flac`
 
   const command = ffmpeg({
     source: fp,
-  })
-    .audioChannels(1)
-    .output(outPath)
+  }).audioChannels(1)
 
   console.log(`Converting video file to audio: ${fp}`)
 
-  await command.run()
+  command.saveToFile(outPath)
+
+  await new Promise((resolve, reject) => {
+    ffmpeg({
+      source: fp,
+    })
+      .audioChannels(1)
+      .on('progress', progress => {
+        console.log(`[ffmpeg] ${JSON.stringify(progress)}`)
+      })
+      .on('error', err => {
+        console.log(`[ffmpeg] error: ${err.message}`)
+        reject(err)
+      })
+      .on('end', () => {
+        console.log('[ffmpeg] finished')
+        resolve()
+      })
+      .saveToFile(outPath)
+  })
 
   return outPath
 }
@@ -75,9 +90,7 @@ export const transcriptionToDataModel = (transResponse, videoId) =>
   transResponse.results.map(r => {
     try {
       const alt = r.alternatives[0]
-      const endElem = alt.words.slice(-1)[0]
-        ? alt.words.slice(-1)[0]
-        : alt.words[0]
+      const endElem = alt.words.slice(-1)[0] ? alt.words.slice(-1)[0] : alt.words[0]
       const startTime = formatTime(alt.words[0].startTime)
       const endTime = formatTime(endElem.endTime)
 
@@ -112,9 +125,7 @@ export const transcriptionToVtt = transResponse =>
 export const formatTime = time => {
   const secs = time.seconds % 60
   const mins = time.minutes ? time.minutes : Math.floor(time.seconds / 60) % 60
-  const hrs = time.hours
-    ? time.hours
-    : Math.floor(Math.floor(time.seconds / 60) / 60)
+  const hrs = time.hours ? time.hours : Math.floor(Math.floor(time.seconds / 60) / 60)
   return (
     String(hrs).padStart(2, '0') +
     ':' +
