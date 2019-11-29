@@ -36,7 +36,7 @@ router.post('/new-video', (req, res) => {
 
     console.debug(req.file)
 
-    spaces.upload(req.file.path).to(spaces.courseDir('exampleCourse'))
+    const spacesName = spaces.upload(req.file.path).to(spaces.courseDir('exampleCourse'))
 
     res.redirect('/uploadinfo')
   })
