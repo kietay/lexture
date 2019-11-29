@@ -6,7 +6,12 @@ import { videoFilter } from '../utils/filters'
 import path from 'path'
 import uuid from 'uuid'
 import spaces from '../services/spaces'
-import { convertVid, transcribeAudio, transcriptionToDataModel, transcriptionToVtt } from '../services/gcp'
+import {
+  convertVid,
+  transcribeAudio,
+  transcriptionToDataModel,
+  transcriptionToVtt,
+} from '../services/gcp'
 import Video from '../models/Video'
 import Caption from '../models/Caption'
 import fs from 'fs'
@@ -69,7 +74,9 @@ router.post('/submit-video-details', async (req, res) => {
     if (err) console.log(err)
   })
 
-  const transcriptSpacesPath = await spaces.upload(transPath).to(spaces.transcriptDir('exampleCourse'))
+  const transcriptSpacesPath = await spaces
+    .upload(transPath)
+    .to(spaces.transcriptDir('exampleCourse'))
 
   // todo delete video when completed upload
   // also delete from GCS when transcription done
