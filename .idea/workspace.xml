@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48be9c45-2d4e-4a3d-8e51-dd4e7beca43a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/templates/template-notes.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/templates/video-mustache.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/templates/video-mustache.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/berkeley-cs61a-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/berkeley-cs61a-1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/javascript/upload-info.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/javascript/upload-info.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/javascript/video.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/javascript/video.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/search-results.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/search-results.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/upload-info.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/upload-info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/templates/video-mustache.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/templates/video-mustache.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,41 +16,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/templates/video-mustache.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3772">
-              <caret line="164" lean-forward="true" selection-start-line="164" selection-end-line="164" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/templates/video-mustache.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="415">
-              <caret line="42" column="32" lean-forward="true" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/frontend/berkeley-cs61a-1.html">
+        <entry file="file://$PROJECT_DIR$/src/views/templates/video-mustache.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1503">
-              <caret line="140" column="18" lean-forward="true" selection-start-line="140" selection-start-column="18" selection-end-line="140" selection-end-column="18" />
+            <state relative-caret-position="402">
+              <caret line="48" column="50" selection-start-line="48" selection-start-column="50" selection-end-line="48" selection-end-column="50" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/templates/template-notes.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="302">
-                <caret line="15" column="18" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="18" />
-              </first_editor>
-              <second_editor />
+        <entry file="file://$PROJECT_DIR$/src/views/search-results.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="430">
+              <caret line="65" column="56" lean-forward="true" selection-start-line="65" selection-start-column="56" selection-end-line="65" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -120,6 +92,8 @@
         <option value="$PROJECT_DIR$/frontend/templates/template-notes.md" />
         <option value="$PROJECT_DIR$/frontend/templates/video-mustache.html" />
         <option value="$PROJECT_DIR$/frontend/templates/video-mustache.js" />
+        <option value="$PROJECT_DIR$/src/views/templates/video-mustache.js" />
+        <option value="$PROJECT_DIR$/src/views/search-results.html" />
       </list>
     </option>
   </component>
@@ -143,7 +117,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -154,35 +127,26 @@
             <path>
               <item name="lexture" type="b2602c69:ProjectViewProjectNode" />
               <item name="lexture" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="lexture" type="b2602c69:ProjectViewProjectNode" />
               <item name="lexture" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="javascript" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="lexture" type="b2602c69:ProjectViewProjectNode" />
               <item name="lexture" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="stylesheets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lexture" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lexture" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lexture" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lexture" type="462c0819:PsiDirectoryNode" />
-              <item name="prototype" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -198,6 +162,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
@@ -239,15 +204,18 @@
       <updated>1574111796748</updated>
       <workItem from="1574111800553" duration="12120000" />
       <workItem from="1574364653655" duration="47220000" />
-      <workItem from="1574789569205" duration="13233000" />
+      <workItem from="1574789569205" duration="13351000" />
+      <workItem from="1574895687239" duration="146000" />
+      <workItem from="1574960573049" duration="865000" />
+      <workItem from="1575018505456" duration="296000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72573000" />
+    <option name="totallyTimeSpent" value="73998000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="706" extended-state="6" />
+    <frame x="0" y="23" width="1280" height="706" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2494043" />
@@ -276,30 +244,20 @@
     <entry file="file://$PROJECT_DIR$/main.js" />
     <entry file="file://$PROJECT_DIR$/index.html" />
     <entry file="file://$PROJECT_DIR$/style.css" />
-    <entry file="file://$PROJECT_DIR$/frontend/stylesheets/bootstrap.min.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/stylesheets/bootstrap.min.css" />
     <entry file="file://$PROJECT_DIR$/prototype/assets/search.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/assets/logo.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/assets/profile.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/assets/search.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/assets/logo.png" />
+    <entry file="file://$PROJECT_DIR$/frontend/assets/profile.png" />
+    <entry file="file://$PROJECT_DIR$/frontend/assets/search.png" />
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-462" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/test-video.html" />
-    <entry file="file://$PROJECT_DIR$/frontend/javascript/bootstrap.min.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/javascript/bootstrap.min.js" />
     <entry file="file://$PROJECT_DIR$/prototype/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
@@ -314,137 +272,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/javascript/search-results.js">
+    <entry file="file://$PROJECT_DIR$/frontend/javascript/search-results.js" />
+    <entry file="file://$PROJECT_DIR$/frontend/stylesheets/home.css" />
+    <entry file="file://$PROJECT_DIR$/frontend/stylesheets/base.css" />
+    <entry file="file://$PROJECT_DIR$/frontend/stylesheets/search-results.css" />
+    <entry file="file://$PROJECT_DIR$/frontend/stylesheets/video.css" />
+    <entry file="file://$PROJECT_DIR$/frontend/javascript/home.js" />
+    <entry file="file://$PROJECT_DIR$/frontend/stylesheets/upload.css" />
+    <entry file="file://$PROJECT_DIR$/frontend/upload.html" />
+    <entry file="file://$PROJECT_DIR$/frontend/upload-info.html" />
+    <entry file="file://$PROJECT_DIR$/frontend/javascript/upload-info.js" />
+    <entry file="file://$PROJECT_DIR$/frontend/index.html" />
+    <entry file="file://$PROJECT_DIR$/frontend/search-results.html" />
+    <entry file="file://$PROJECT_DIR$/frontend/javascript/video.js" />
+    <entry file="file://$PROJECT_DIR$/frontend/berkeley-cs61a-1.html" />
+    <entry file="file://$PROJECT_DIR$/frontend/templates/template-notes.md" />
+    <entry file="file://$PROJECT_DIR$/frontend/templates/video-mustache.html" />
+    <entry file="file://$PROJECT_DIR$/frontend/templates/video-mustache.js" />
+    <entry file="file://$PROJECT_DIR$/src/views/templates/video-mustache.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="40" selection-start-line="2" selection-start-column="40" selection-end-line="2" selection-end-column="40" />
+        <state relative-caret-position="184">
+          <caret line="8" column="43" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="43" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/stylesheets/home.css">
+    <entry file="file://$PROJECT_DIR$/src/views/search-results.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3657">
-          <caret line="159" column="1" selection-start-line="159" selection-start-column="1" selection-end-line="159" selection-end-column="1" />
+        <state relative-caret-position="430">
+          <caret line="65" column="56" lean-forward="true" selection-start-line="65" selection-start-column="56" selection-end-line="65" selection-end-column="56" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/stylesheets/base.css">
+    <entry file="file://$PROJECT_DIR$/src/views/templates/video-mustache.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2208">
-          <caret line="96" column="1" selection-start-line="96" selection-start-column="1" selection-end-line="96" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/stylesheets/search-results.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="43" column="11" selection-start-line="43" selection-start-column="11" selection-end-line="43" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/stylesheets/video.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="21" column="29" lean-forward="true" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/javascript/home.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="4" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/stylesheets/upload.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/upload.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="71" column="30" selection-start-line="71" selection-start-column="30" selection-end-line="71" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/upload-info.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="58" column="97" lean-forward="true" selection-start-line="58" selection-start-column="97" selection-end-line="58" selection-end-column="97" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/javascript/upload-info.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="56" column="119" selection-start-line="56" selection-start-column="119" selection-end-line="56" selection-end-column="119" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1104">
-          <caret line="48" column="27" lean-forward="true" selection-start-line="48" selection-start-column="27" selection-end-line="48" selection-end-column="27" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/search-results.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="62" column="83" selection-start-line="62" selection-start-column="83" selection-end-line="62" selection-end-column="83" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/javascript/video.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="65" column="3" selection-start-line="26" selection-end-line="65" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/templates/template-notes.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="302">
-            <caret line="15" column="18" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="18" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/templates/video-mustache.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3772">
-          <caret line="164" lean-forward="true" selection-start-line="164" selection-end-line="164" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/templates/video-mustache.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="42" column="32" lean-forward="true" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/berkeley-cs61a-1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1503">
-          <caret line="140" column="18" lean-forward="true" selection-start-line="140" selection-start-column="18" selection-end-line="140" selection-end-column="18" />
+        <state relative-caret-position="402">
+          <caret line="48" column="50" selection-start-line="48" selection-start-column="50" selection-end-line="48" selection-end-column="50" />
         </state>
       </provider>
     </entry>
