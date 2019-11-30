@@ -55,6 +55,6 @@
     "semi": false,
     "singleQuote": true,
     "formatOnSave": true,
-    "printWidth": 120
+    "printWidth": 100
   }
 }

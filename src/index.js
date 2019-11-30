@@ -5,8 +5,11 @@ import mustache from 'mustache-express'
 import path from 'path'
 import upload from './api/upload'
 import video from './api/video'
+import search from './api/search'
 import mongoose from 'mongoose'
 import bodyParser from 'body-parser'
+
+mongoose.set('useCreateIndex', true)
 
 const app = express()
 
@@ -37,6 +40,7 @@ app.get('/ssearch', (req, res) => {
 
 app.use('/upload', upload)
 app.use('/video', video)
+app.use('/search', search)
 
 app.get('/uploadinfo', (req, res) => {
   res.sendFile(path.join(__dirname + '/views/upload-info.html'))

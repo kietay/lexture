@@ -14,6 +14,11 @@ const courseUploadDir = courseId => {
   return `content/${courseId}/videos/${uploadName}`
 }
 
+const transcriptUploadDir = courseId => {
+  const uploadName = uuid.v4() + '.vtt'
+  return `content/${courseId}/transcripts/${uploadName}`
+}
+
 const tempDir = 'temp/videos'
 
 const upload = fp => ({ to: toBucket(fp) })
@@ -45,5 +50,6 @@ const multerUpload = multer({
 export default {
   upload: upload,
   courseDir: courseUploadDir,
+  transcriptDir: transcriptUploadDir,
   multerUpload: multerUpload,
 }

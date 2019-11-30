@@ -77,7 +77,7 @@ $(document).ready(function() {
 
     axios({
       method: 'post',
-      url: '/upload/test',
+      url: '/upload/submit-video-details',
       data: data,
     })
   })
