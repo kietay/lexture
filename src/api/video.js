@@ -1,7 +1,7 @@
 import express from 'express'
 const router = express.Router()
 import Video from '../models/Video'
-import { fetchCourseFromVideoId } from '../services/mongo'
+import { fetchCourseFromVideoId } from './search'
 
 router.get('/', async (req, res) => {
   const vid = await Video.findOne()

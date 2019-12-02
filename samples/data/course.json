@@ -1,8 +1,8 @@
 {
-  "courseId": "12345",
+  "courseId": "cs5112",
   "title": "Sample course",
   "description": "An example of a course on lexture",
   "instructor": "Mahatma Gandhi",
   "semester": "Spring 2040",
-  "videos": ["12345"]
+  "videoIds": []
 }
