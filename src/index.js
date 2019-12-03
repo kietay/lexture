@@ -27,15 +27,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname + '/views/index.html'))
-})
-
-app.get('/cornell', (req, res) => {
-  res.sendFile(path.join(__dirname + '/views/cornell-cs61a-1.html'))
-})
-
-app.get('/ssearch', (req, res) => {
-  res.sendFile(path.join(__dirname + '/views/search-results.html'))
+  res.sendFile(path.join(__dirname + '/viewsOld/index.html'))
 })
 
 app.use('/upload', upload)
@@ -43,11 +35,7 @@ app.use('/video', video)
 app.use('/search', search)
 
 app.get('/uploadinfo', (req, res) => {
-  res.sendFile(path.join(__dirname + '/views/upload-info.html'))
-})
-
-app.get('/test', (req, res) => {
-  res.sendFile(path.join(__dirname + '/views/test.html'))
+  res.sendFile(path.join(__dirname + '/viewsOld/upload-info.html'))
 })
 
 mongoose

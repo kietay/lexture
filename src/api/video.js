@@ -1,7 +1,7 @@
 import express from 'express'
 const router = express.Router()
 import Video from '../models/Video'
-import { fetchCourseFromVideoId } from './search'
+import { fetchCourseFromVideoId, fetchVideoMatchingTranscripts } from './search'
 
 router.get('/', async (req, res) => {
   const videoId = req.query.videoid
@@ -18,6 +18,9 @@ router.get('/', async (req, res) => {
 
   const languages = vid.captions.map(x => ({ language: x.language }))
 
+  const searchTerm = req.query.searchq ? req.query.searchq : ''
+  const matchingTranscripts = await fetchVideoMatchingTranscripts(videoId, searchTerm)
+
   const data = {
     course: course.title,
     title: vid.title,
@@ -25,9 +28,8 @@ router.get('/', async (req, res) => {
     lecturer: course.instructor,
     tags: tags,
     languages: languages,
+    textSearchResults: null,
   }
-
-  // todo render transcript text by fetching from mongo
 
   res.render('video.html', data)
 })
