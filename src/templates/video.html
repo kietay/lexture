@@ -234,6 +234,19 @@
 
     videojs("lecture-video").ready(function () {
         var video = videojs("lecture-video");
+        console.log('Video ready')
+
+        if (video.bufferedPercent() == 1) {
+             // Get query string parameters and set video timestamp
+             var urlParams = new URLSearchParams(window.location.search);
+             if (urlParams.has("t") && video.bufferedPercent() > 0.1) {
+                 var timestampParam = urlParams.get("t");
+                 var timestamp = parseInt(timestampParam);
+                 console.log("Jumping to timestamp for cached video: " + timestamp);
+                 video.currentTime(timestamp);
+                 video.play();
+            } 
+        }
 
         video.on('progress', function() {
              // Get query string parameters and set video timestamp
@@ -244,7 +257,7 @@
                  console.log("Jumping to timestamp: " + timestamp);
                  video.currentTime(timestamp);
                  video.play();
-            }
+            } 
         }) 
     })
 
