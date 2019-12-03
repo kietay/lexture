@@ -120,6 +120,19 @@
     <!--Video.js-->
     <script src="https://vjs.zencdn.net/7.5.5/video.js"></script>
     <!--Custom JS-->
-    <script src="scripts/search-results.js"></script>
+    <script>
+        $(document).ready(function () {
+            {{#searchResultEntries}}
+                $("#video-card-{{id}}").click(function () {
+                    window.location.href = "{{url}}";
+                });
+                {{#transcriptSearchResults}}
+                    $("#timestamp-card-{{id}}-{{iid}}").click(function () {
+                        window.location.href = "{{url}}?t={{timeParam}}";
+                    });
+                {{/transcriptSearchResults}}
+            {{/searchResultEntries}}
+        });
+    </script>
   </body>
 </html>

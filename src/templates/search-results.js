@@ -35,12 +35,14 @@ var variableData = {
                 {
                     iid: 1,
                     snippet: "will be on the <span class='search-term-highlight'>test</span> for the next quiz next Tuesday.",
-                    timestamp: "00:42"
+                    timestamp: "00:42",
+                    timeParam: "42"
                 },
                 {
                     iid: 2,
                     snippet: "won't be on the <span class='search-term-highlight'>test</span>, it's just fun to talk about.",
-                    timestamp: "04:20"
+                    timestamp: "04:20",
+                    timeParam: "260"
                 }
             ],
             url: "http://lexture.com/video1.html"
@@ -60,12 +62,14 @@ var variableData = {
                 {
                     iid: 1,
                     snippet: "might be on the <span class='search-term-highlight'>test</span> for the next quiz next Tuesday.",
-                    timestamp: "00:24"
+                    timestamp: "00:24",
+                    timeParam: "24"
                 },
                 {
                     iid: 2,
                     snippet: "might not be on the <span class='search-term-highlight'>test</span>, it's just fun to talk about.",
-                    timestamp: "02:40"
+                    timestamp: "02:40",
+                    timeParam: "160"
                 }
             ],
             url: "http://lexture.com/video2.html"
