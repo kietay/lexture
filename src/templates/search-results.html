@@ -1,150 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>Lexture - Search Results</title>
-    <link rel="icon" type="image/png" href="assets/favicon.png"/>
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
     <!--Bootstrap CSS-->
-    <link rel="stylesheet" href="stylesheets/bootstrap.min.css"/>
+    <link rel="stylesheet" href="stylesheets/bootstrap.min.css" />
     <!--Video.js CSS-->
-    <link href="https://vjs.zencdn.net/7.5.5/video-js.css" rel="stylesheet"/>
+    <link href="https://vjs.zencdn.net/7.5.5/video-js.css" rel="stylesheet" />
     <!--Custom CSS-->
-    <link rel="stylesheet" href="stylesheets/base.css"/>
-    <link rel="stylesheet" href="stylesheets/video.css"/>
-    <link rel="stylesheet" href="stylesheets/home.css"/>
-    <link rel="stylesheet" href="stylesheets/search-results.css"/>
-</head>
-<body>
-{{navbar}}
+    <link rel="stylesheet" href="stylesheets/base.css" />
+    <link rel="stylesheet" href="stylesheets/video.css" />
+    <link rel="stylesheet" href="stylesheets/home.css" />
+    <link rel="stylesheet" href="stylesheets/search-results.css" />
+  </head>
+  <body>
+    {{navbar}}
 
-<div class="top-bar d-flex">
-    <div class="triangle-lg"></div>
-    <h5 class="title">Search results for: <u>{{searchTerm}}</u></h5>
-    <div class="result-count" href="">{{resultCount}} Results</div>
-</div>
-
-<div class="container">
-    <div class="left-search-section">
-        <div class="filter">
-            <h5 class="title filter-title">Lecturer</h5>
-            {{#filterTypes.lecturers}}
-            <div class="form-check filter-checkbox">
-                <input
-                        type="checkbox"
-                        class="form-check-input"
-                        id="filter-lecturer-{{id}}"
-                />
-                <label class="form-check-label" for="filter-lecturer-{{id}}"
-                >{{name}}</label
-                >
-            </div>
-            {{/filterTypes.lecturers}}
-        </div>
-        <div class="filter">
-            <h5 class="title filter-title">Time</h5>
-            {{#filterTypes.times}}
-            <div class="form-check filter-checkbox">
-                <input
-                        type="checkbox"
-                        class="form-check-input"
-                        id="filter-time-{{id}}"
-                />
-                <label class="form-check-label" for="filter-teacher-{{id}}"
-                >{{range}}</label
-                >
-            </div>
-            {{/filterTypes.times}}
-        </div>
-        <div class="filter">
-            <h5 class="title filter-title">Transcript</h5>
-            {{#filterTypes.transcripts}}
-            <div class="form-check filter-checkbox">
-                <input
-                        type="checkbox"
-                        class="form-check-input"
-                        id="filter-transcript-{{id}}"
-                />
-                <label class="form-check-label" for="filter-teacher-{{id}}"
-                >{{language}}</label
-                >
-            </div>
-            {{/filterTypes.transcripts}}
-        </div>
+    <div class="top-bar d-flex">
+      <div class="triangle-lg"></div>
+      <h5 class="title">Search results for: <u>{{searchTerm}}</u></h5>
+      <div class="result-count" href="">{{resultCount}} Results</div>
     </div>
 
-    <div class="right-search-section">
+    <div class="container">
+      <div class="left-search-section">
+        <div class="filter">
+          <h5 class="title filter-title">Lecturer</h5>
+          {{#filterTypes.lecturers}}
+          <div class="form-check filter-checkbox">
+            <input type="checkbox" class="form-check-input" id="filter-lecturer-{{id}}" />
+            <label class="form-check-label" for="filter-lecturer-{{id}}">{{name}}</label>
+          </div>
+          {{/filterTypes.lecturers}}
+        </div>
+        <div class="filter">
+          <h5 class="title filter-title">Time</h5>
+          {{#filterTypes.times}}
+          <div class="form-check filter-checkbox">
+            <input type="checkbox" class="form-check-input" id="filter-time-{{id}}" />
+            <label class="form-check-label" for="filter-teacher-{{id}}">{{range}}</label>
+          </div>
+          {{/filterTypes.times}}
+        </div>
+        <div class="filter">
+          <h5 class="title filter-title">Transcript</h5>
+          {{#filterTypes.transcripts}}
+          <div class="form-check filter-checkbox">
+            <input type="checkbox" class="form-check-input" id="filter-transcript-{{id}}" />
+            <label class="form-check-label" for="filter-teacher-{{id}}">{{language}}</label>
+          </div>
+          {{/filterTypes.transcripts}}
+        </div>
+      </div>
+
+      <div class="right-search-section">
         <!--Search Result-->
-        {{%searchResultEntries}}
+        {{#searchResultEntries}}
         <div class="video-search-entry d-flex">
-            <div class="video-search-entry-left">
-                <div class="card" style="width: 18rem;">
-                    <img
-                            src="assets/thumbnail.png"
-                            class="card-img-top"
-                            alt="video thumbnail"
-                    />
-                    <img src="assets/filter.png" class="card-img-filter" alt=""/>
-                    <div class="card-body">
-                        <p class="course-title mt-0">{{title}}</p>
-                        <div class="course-info d-flex justify-content-between">
-                            <p class="course-lecturer mb-0">{{lecturer}}</p>
-                            <p class="course-length mb-0">{{time}}</p>
-                        </div>
-                    </div>
+          <div class="video-search-entry-left">
+            <div class="card" style="width: 18rem;">
+              <img src="assets/thumbnail.png" class="card-img-top" alt="video thumbnail" />
+              <img src="assets/filter.png" class="card-img-filter" alt="" />
+              <div class="card-body">
+                <p class="course-title mt-0">{{title}}</p>
+                <div class="course-info d-flex justify-content-between">
+                  <p class="course-lecturer mb-0">{{lecturer}}</p>
+                  <p class="course-length mb-0">{{time}}</p>
                 </div>
+              </div>
             </div>
-            <div class="video-search-entry-right">
-                <div class="tags-row">
-                    {{%topics}}
-                    <div class="topic-tag">{{tag}}</div>
-                    {{/topics}}
-                </div>
-                {{%transcriptSearchResults}}
-                <div
-                        class="card text-search-timestamp-card w-auto pt-2"
-                        id="timestamp-card-{{id}}-{{iid}}"
-                >
-                    <div class="card-body">
-                        <div class="card-body-left-align">
-                            <div class="play-btn"></div>
-                            <p class="text-search-snippet text-truncate">
-                                {{snippet}}
-                            </p>
-                        </div>
-                        <p class="text-search-timestamp">{{timestamp}}</p>
-                    </div>
-                </div>
-                {{/transcriptSearchResults}}
-                <a class="view-all-search-results" href="{{url}}">
-                    <u>View all</u>
-                    <div class="view-all-triangle"></div>
-                </a>
+          </div>
+          <div class="video-search-entry-right">
+            <div class="tags-row">
+              {{#topics}}
+              <div class="topic-tag">{{tag}}</div>
+              {{/topics}}
             </div>
+            {{#transcriptSearchResults}}
+            <div
+              class="card text-search-timestamp-card w-auto pt-2"
+              id="timestamp-card-{{id}}-{{iid}}"
+            >
+              <div class="card-body">
+                <div class="card-body-left-align">
+                  <div class="play-btn"></div>
+                  <p class="text-search-snippet text-truncate">
+                    {{snippet}}
+                  </p>
+                </div>
+                <p class="text-search-timestamp">{{timestamp}}</p>
+              </div>
+            </div>
+            {{/transcriptSearchResults}}
+            <a class="view-all-search-results" href="{{url}}">
+              <u>View all</u>
+              <div class="view-all-triangle"></div>
+            </a>
+          </div>
         </div>
         {{/searchResultEntries}}
+      </div>
     </div>
-</div>
-<!--jQuery-->
-<script
-        src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-        crossorigin="anonymous"
-></script>
-<!--Popper.js-->
-<script
-        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"
-></script>
-<!--Bootstrap JS-->
-<script src="scripts/bootstrap.min.js"></script>
-<!--Video.js-->
-<script src="https://vjs.zencdn.net/7.5.5/video.js"></script>
-<!--Custom JS-->
-<script src="scripts/search-results.js"></script>
-</body>
+    <!--jQuery-->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <!--Popper.js-->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <!--Bootstrap JS-->
+    <script src="scripts/bootstrap.min.js"></script>
+    <!--Video.js-->
+    <script src="https://vjs.zencdn.net/7.5.5/video.js"></script>
+    <!--Custom JS-->
+    <script src="scripts/search-results.js"></script>
+  </body>
 </html>
