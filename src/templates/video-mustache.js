@@ -17,6 +17,13 @@ var variableData = {
             }
         ],
     videoUrl: "https://lexture.nyc3.digitaloceanspaces.com/sample_lectures/berkeley_cs61a_1.mp4",
+    subtitleTracks: [
+        {
+            url: "http://example.com/path/to/captions.vtt",
+            lang: "en",
+            label: "English"
+        }
+    ],
     lecturer: "Kieran Taylor",
     tags: [
         {tag: "Algorithms"},
@@ -31,8 +38,14 @@ var variableData = {
         {language: "Español"},
         {language: "Binary"}
     ],
-    transcriptText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eget malesuada velit. Donec " +
-        "auctor est sapien, luctus lobortis libero congue eu. Nullam commodo placerat sagittis. Phasellus finibus " +
-        "nisi erat, et dictum sapien molestie id. Cras in bibendum risus. Fusce rhoncus magna mi, tristique ornare " +
-        "ipsum consectetur ut."
+    transcriptText: [
+        {
+            timestamp: "00:00",
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        },
+        {
+            timestamp: "00:10",
+            text: "Proin eget malesuada velit."
+        }
+    ]
 };

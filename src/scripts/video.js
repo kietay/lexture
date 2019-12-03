@@ -2,7 +2,7 @@ function jumpToTime(timestampCard, video) {
     var timeText = timestampCard.find(".text-search-timestamp").text();
     var timeArr = timeText.split(":");
     var timestamp = parseInt(timeArr[0]) * 60 + parseInt(timeArr[1]);
-    console.log("Jumping to timestamp: "+timestamp);
+    console.log("Jumping to timestamp: " + timestamp);
     video.currentTime(timestamp);
     video.play();
 }
@@ -24,28 +24,35 @@ function switchTab(currTab, currCard, targetTab, targetCard) {
     return [targetTab, targetCard];
 }
 
+function transcriptJumpToTime(timestampText, video) {
+    var timeArr = timestampText.split(":");
+    var timestamp = parseInt(timeArr[0]) * 60 + parseInt(timeArr[1]);
+    console.log("Jumping to timestamp: " + timestamp);
+    video.currentTime(timestamp);
+    video.play();
+}
+
 $(document).ready(function () {
-    console.log("Document DOM ready!");
 
     // Enable popovers
     $('[data-toggle="popover"]').popover({
         placement: 'bottom',
-        delay: {
-            "show": 500,
-            "hide": 100
-        }
+        container: 'body'
     }).click(function () {
         setTimeout(function () {
             $('.popover').fadeOut('slow');
-        }, 4000);
-
+        }, 2000);
     });
 
-    // Select search results (timestamp card)
     var video = videojs("lecture-video");
+    // Click text-search-timestamp-card -> highlight timestamp card, jump to timestamp
     var currTimestampCard = null;
     $(".text-search-timestamp-card").click(function () {
         currTimestampCard = selectTimestampCard(currTimestampCard, $(this), video);
+    });
+    // Click transcript -> jump to timestamp
+    $(".transcript-line").click(function () {
+        transcriptJumpToTime($(this).data("content"), video);
     });
 
     // Switch between tabs

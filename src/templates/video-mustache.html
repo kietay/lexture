@@ -1,62 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <meta
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <title>Lexture - {{course}} | {{title}}</title>
-    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link rel="icon" type="image/png" href="assets/favicon.png"/>
     <!--Bootstrap CSS-->
-    <link rel="stylesheet" href="stylesheets/bootstrap.min.css" />
+    <link rel="stylesheet" href="stylesheets/bootstrap.min.css"/>
     <!--Video.js CSS-->
-    <link href="https://vjs.zencdn.net/7.5.5/video-js.css" rel="stylesheet" />
+    <link href="https://vjs.zencdn.net/7.5.5/video-js.css" rel="stylesheet"/>
     <!--Custom CSS-->
-    <link rel="stylesheet" href="stylesheets/base.css" />
-    <link rel="stylesheet" href="stylesheets/video.css" />
+    <link rel="stylesheet" href="stylesheets/base.css"/>
+    <link rel="stylesheet" href="stylesheets/video.css"/>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light" id="lexture-navbar">
-    <a class="navbar-brand ml-3" href="index.html">
-        <img src="assets/logo.png" height="40" alt="" />
-    </a>
-
-    <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-    >
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <form class="form-inline mx-auto">
-            <input
-                    class="form-control mr-0 rounded-0"
-                    id="lexture-search-bar"
-                    type="search"
-                    placeholder="Search"
-                    aria-label="Search"
-            />
-            <button
-                    class="btn btn-light px-2 rounded-0"
-                    id="lexture-search-btn"
-                    type="submit"
-            >
-                <img src="assets/search.png" height="21" alt="Search" />
-            </button>
-        </form>
-
-        <a class="navbar-brand mr-3 ml-5" href="index.html">
-            <img src="assets/profile.png" height="45" alt="Profile" />
-        </a>
-    </div>
-</nav>
+{{navbar}}
 
 <div class="breadcrumb-bar">
     <nav aria-label="breadcrumb">
@@ -94,9 +55,11 @@
                 preload="auto"
                 data-setup="{}"
         >
-            <source src="{{videoUrl}}" type="video/mp4" />
+            <source src="{{videoUrl}}" type="video/mp4"/>
             <p class="vjs-no-js">Your browser does not support HTML5 video.</p>
-            <!--            <track kind="captions" src="http://example.com/path/to/captions.vtt" srclang="en" label="English" default>-->
+            {{#subtitleTracks}}
+            <track kind="captions" src="{{url}}" srclang="{{lang}}" label="{{label}}">
+            {{/subtitleTracks}}
         </video>
         <div class="card-below-video">
             <div class="tool-tab-bar">
@@ -138,7 +101,10 @@
                     </div>
                 </form>
                 <div class="transcript-text">
-                    {{transcriptText}}
+                    {{#transcriptText}}
+                    <span class="transcript-line" data-trigger="hover" data-toggle="popover"
+                          data-content="{{timestamp}}">{{text}}</span>
+                    {{/transcriptText}}
                 </div>
             </div>
             <div class="card-below-video-content" id="qna-card">
@@ -156,7 +122,7 @@
                                 id="qna-search-btn"
                                 type="submit"
                         >
-                            <img src="assets/search.png" height="21" alt="Search" />
+                            <img src="assets/search.png" height="21" alt="Search"/>
                         </button>
                     </div>
                     <div class="form-group">
@@ -176,7 +142,7 @@
                     </div>
                 </form>
                 <form id="qna-submission-form">
-                    <img src="assets/profile.png" height="35" alt="Profile" />
+                    <img src="assets/profile.png" height="35" alt="Profile"/>
                     <input
                             class="form-control rounded-0"
                             id="qna-submission-bar"
@@ -229,6 +195,71 @@
 <!--Custom JS-->
 <script src="../scripts/video.js"></script>
 <!--Custom JS-->
-<script src="video-mustache.js"></script>
+<script>
+    function jumpToTime(timestampCard, video) {
+        var timeText = timestampCard.find(".text-search-timestamp").text();
+        var timeArr = timeText.split(":");
+        var timestamp = parseInt(timeArr[0]) * 60 + parseInt(timeArr[1]);
+        console.log("Jumping to timestamp: " + timestamp);
+        video.currentTime(timestamp);
+        video.play();
+    }
+
+    function selectTimestampCard(currTimestampCard, targetTimestampCard, video) {
+        if (currTimestampCard) {
+            currTimestampCard.removeClass("selected-timestamp-card");
+        }
+        targetTimestampCard.addClass("selected-timestamp-card");
+        jumpToTime(targetTimestampCard, video);
+        return targetTimestampCard;
+    }
+
+    function switchTab(currTab, currCard, targetTab, targetCard) {
+        currTab.removeClass("selected-tool-tab");
+        targetTab.addClass("selected-tool-tab");
+        currCard.css("display", "none");
+        targetCard.css("display", "block");
+        return [targetTab, targetCard];
+    }
+
+    $(document).ready(function () {
+        // Enable popovers
+        $('[data-toggle="popover"]').popover({
+            placement: 'bottom',
+            delay: {
+                "show": 500,
+                "hide": 100
+            }
+        }).click(function () {
+            setTimeout(function () {
+                $('.popover').fadeOut('slow');
+            }, 4000);
+
+        });
+
+        // Select search results (timestamp card)
+        var video = videojs("lecture-video");
+        var currTimestampCard = null;
+        $(".text-search-timestamp-card").click(function () {
+            currTimestampCard = selectTimestampCard(currTimestampCard, $(this), video);
+        });
+
+        // Switch between tabs
+        var currTab = $("#overview-tab");
+        var currCard = $("#overview-card");
+        $("#overview-tab").click(function () {
+            [currTab, currCard] = switchTab(currTab, currCard, $("#overview-tab"), $("#overview-card"));
+        });
+        $("#transcript-tab").click(function () {
+            [currTab, currCard] = switchTab(currTab, currCard, $("#transcript-tab"), $("#transcript-card"));
+        });
+        $("#qna-tab").click(function () {
+            [currTab, currCard] = switchTab(currTab, currCard, $("#qna-tab"), $("#qna-card"));
+        });
+        $("#mytags-tab").click(function () {
+            [currTab, currCard] = switchTab(currTab, currCard, $("#mytags-tab"), $("#mytags-card"));
+        });
+    });
+</script>
 </body>
 </html>

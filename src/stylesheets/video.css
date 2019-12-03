@@ -240,6 +240,14 @@
     font-size: 15px;
 }
 
+.transcript-line {
+    cursor: pointer;
+    transition: 0.3s;
+}
+.transcript-line:hover {
+    background-color: var(--light-periwinkle);
+}
+
 #qna-card {
     display: none;
 }

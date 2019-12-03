@@ -18,7 +18,7 @@ var variableData = {
             {id: 3, language: "Español"},
             {id: 4, language: "Binary"}
         ]
-    }
+    },
     searchResultEntries: [
         {
             id: 1,
@@ -34,12 +34,12 @@ var variableData = {
                 // I haven't programmed the mechanic for only the top 2 results to be shown.
                 {
                     iid: 1,
-                    snippet: "will be on the <span class="search-term-highlight">test</span> for the next quiz next Tuesday.",
+                    snippet: "will be on the <span class='search-term-highlight'>test</span> for the next quiz next Tuesday.",
                     timestamp: "00:42"
                 },
                 {
                     iid: 2,
-                    snippet: "won't be on the <span class="search-term-highlight">test</span>, it's just fun to talk about.",
+                    snippet: "won't be on the <span class='search-term-highlight'>test</span>, it's just fun to talk about.",
                     timestamp: "04:20"
                 }
             ],
@@ -59,16 +59,16 @@ var variableData = {
                 // I haven't programmed the mechanic for only the top 2 results to be shown.
                 {
                     iid: 1,
-                    snippet: "might be on the <span class="search-term-highlight">test</span> for the next quiz next Tuesday.",
+                    snippet: "might be on the <span class='search-term-highlight'>test</span> for the next quiz next Tuesday.",
                     timestamp: "00:24"
                 },
                 {
                     iid: 2,
-                    snippet: "might not be on the <span class="search-term-highlight">test</span>, it's just fun to talk about.",
+                    snippet: "might not be on the <span class='search-term-highlight'>test</span>, it's just fun to talk about.",
                     timestamp: "02:40"
                 }
             ],
             url: "http://lexture.com/video2.html"
         }
     ]
-}
+};
