@@ -13,10 +13,33 @@ router.get('/', async (req, res) => {
   })
 })
 
+const aggregateTranscripts = ( query, limit ) =>
+  Caption.aggregate([
+    {
+      "$match": { "$text": { "$search": query } },
+    },
+    {
+      "$group": {
+        _id: 'videoId',
+        videoId: { "$first": "$videoId" },
+        transcript: {
+          "$push": {
+            text: "$text",
+            startTimestamp: "$startTimestamp",
+            endTimestamp: "$endTimestamp",
+          },
+        },
+        text: { "$addToSet": "$text" },
+      },
+    },
+  ]).limit(limit)
+
 export const searchTranscripts = async query => {
   const res = await Caption.find({ $text: { $search: query } }, { score: { $meta: 'textScore' } })
     .sort({ score: { $meta: 'textScore' } })
     .limit(20)
+
+  const rezzo = await aggregateTranscripts(query, 20)
 
   const videoDetailsFetched = res.map(async r => {
     console.log(`Finding video details: ${r.videoId}`)
@@ -28,12 +51,12 @@ export const searchTranscripts = async query => {
     const tags = vid.topics.map(x => ({ tag: x }))
 
     return {
-      courseTitle: course.title,
+      courseTitle: vid.title,
       videoId: vid.videoId,
       videoTitle: vid.title,
       // todo this should be fixed to take from course
       courseInstructor: vid.instructor,
-      tags: tags,
+      topics: tags,
       videoLength: String(vid.lengthSeconds),
       textMention: r.text,
       textMatches: [
