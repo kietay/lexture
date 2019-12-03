@@ -58,7 +58,10 @@ export const searchTranscripts = async query => {
 
   if (res.length == 0) return []
 
+  let vidId = 0
+
   const videoDetailsFetched = res.map(async r => {
+    vidId += 1
     console.log(`Finding video details: ${r.videoId}`)
     const vid = await fetchVideoFromId(r.videoId)
 
@@ -67,11 +70,18 @@ export const searchTranscripts = async query => {
 
     const topics = vid.topics.map(x => ({ tag: x }))
 
-    const textMatches = r.textMatches.map(x => ({
+    let textId = 1
+
+    const textMatches = r.textMatches.map(x => {
+      textId += 1
+      return {
+      id: vidId,
+      iid: textId,
       snippet: transcriptToSnippet(x, query),
       timestamp: secondsToTimeString(x.startTimestamp),
-      timeseconds: x.startTimestamp
-    }))
+      timeParam: x.startTimestamp,
+      videoId: r.videoId
+    }})
 
     console.log('Text matches:')
     console.log(JSON.stringify(textMatches))
@@ -80,6 +90,7 @@ export const searchTranscripts = async query => {
 
     return {
       videoId: vid.videoId,
+      id: vidId,
       title: vid.title,
       // todo this should be fixed to take from course
       lecturer: vid.instructor,
