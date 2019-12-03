@@ -120,7 +120,7 @@ export const transcriptionToVtt = transResponse =>
     const endTime = formatTime(alt.words.slice(-1)[0].endTime)
 
     return `${lineNum}\n${startTime} --> ${endTime}\n${alt.transcript}\n\n`
-  })
+  }).join("")
 
 export const formatTime = time => {
   const secs = time.seconds % 60

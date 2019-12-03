@@ -63,9 +63,7 @@ export const searchTranscripts = async query => {
   if (res.length == 0) return []
 
   let vidId = 0
-
   const videoDetailsFetched = res.map(async r => {
-    vidId += 1
     console.log(`Finding video details: ${r.videoId}`)
     const vid = await fetchVideoFromId(r.videoId)
 
@@ -75,6 +73,7 @@ export const searchTranscripts = async query => {
     const topics = vid.topics.map(x => ({ tag: x }))
 
     let textId = 1
+    vidId += 1
 
     const textMatches = r.textMatches.map(x => {
       textId += 1
@@ -84,6 +83,7 @@ export const searchTranscripts = async query => {
       snippet: transcriptToSnippet(x, query),
       timestamp: secondsToColonTime(x.startTimestamp),
       timeParam: x.startTimestamp,
+      timeseconds: x.startTimestamp,
       videoId: r.videoId
     }})
 
