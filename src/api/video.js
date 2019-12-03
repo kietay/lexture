@@ -41,7 +41,7 @@ router.get('/', async (req, res) => {
     textSearchResults: snippets,
   }
 
-  res.render('video.html', data)
+  res.render('video', data)
 })
 
 // downloadTranscript("content/exampleCourse/transcripts/f8087006-ba4b-457e-90c4-1c1b1f473487.vtt").then(data => console.log(data))

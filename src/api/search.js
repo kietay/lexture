@@ -53,6 +53,8 @@ export const searchTranscripts = async query => {
 
   const res = await aggregateTranscripts(query, 20)
 
+  if (res.length == 0) return []
+
   const videoDetailsFetched = res.map(async r => {
     console.log(`Finding video details: ${r.videoId}`)
     const vid = await fetchVideoFromId(r.videoId)
@@ -106,7 +108,7 @@ export const transcriptToSnippet = (x, searchTerm) => {
     console.log(`Txt: ${txt}`)
     console.log(`Search term: ${searchTerm}`)
     const ind = txt.toLowerCase().indexOf(searchTerm.toLowerCase())
-    if (ind == -1) return xscripts.substring(0, 50)
+    if (ind == -1) return `...${txt.substring(0, 30)}...`
 
     const startInd = ind > 14 ? ind - 15 : 0
     const wordEndInd = ind + searchTerm.length
