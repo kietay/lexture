@@ -8,10 +8,25 @@ router.get('/', async (req, res) => {
   const videos = await searchTranscripts(req.query.searchq)
 
   res.render('search-results', {
-    textQuery: req.query.searchq,
+    searchTerm: req.query.searchq,
     searchResultEntries: videos,
+    resultCount: videos.length,
+    filterTypes: {
+      lecturers: getAllUniqueLecturer(videos),
+      // todo fix hardcoding
+      times: [{range: "< 10 mins"}, {range:"10-60 mins"}, {range:"> 1 hr"}],
+      transcripts: [{language: "en"}]
+    }
   })
 })
+
+const getAllUniqueLecturer = (videos) => {
+  let lecturers = []
+  videos.forEach(vid => {
+    if (!lecturers.includes(vid.lecturer)) lecturers.push({name: vid.lecturer})
+  })
+  return lecturers
+}
 
 const aggregateTranscripts = ( query, limit ) =>
   Caption.aggregate([
@@ -80,6 +95,7 @@ export const fetchCourseFromVideoId = videoId =>
     videoIds: videoId,
   }).exec()
 
+  // this should maybe do in time order
 export const fetchVideoMatchingTranscripts = (videoId, query) =>
   Caption.find({ $text: { $search: query }, videoId: videoId }, { score: { $meta: 'textScore' } })
     .sort({ score: { $meta: 'textScore' } })
@@ -88,6 +104,8 @@ export const fetchVideoMatchingTranscripts = (videoId, query) =>
 export const transcriptToSnippet = (x, searchTerm) => {
   // todo fix this - this is horrendous, just for formatting the query strings
     const txt = x.text
+    console.log(`Txt: ${txt}`)
+    console.log(`Search term: ${searchTerm}`)
     const ind = txt.toLowerCase().indexOf(searchTerm.toLowerCase())
     if (ind == -1) return xscripts.substring(0, 50)
 
@@ -114,7 +132,7 @@ export const transcriptToSnippet = (x, searchTerm) => {
     )
   }
 
-  const secondsToTimeString = (seconds) =>
+export const secondsToTimeString = (seconds) =>
   { // day, h, m and s
     var days     = Math.floor(seconds / (24*60*60));
         seconds -= days    * (24*60*60);

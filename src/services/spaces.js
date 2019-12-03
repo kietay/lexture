@@ -26,11 +26,9 @@ const upload = fp => ({ to: toBucket(fp) })
 const toBucket = fp => uploadPath => {
   const file = fs.createReadStream(fp)
   file.on('error', err => console.log(err))
-  const uploadParams = {
-    Bucket: 'lexture',
-    Key: uploadPath,
-    Body: file,
-    acl: 'public-read',
+  const uploadParams = { 
+    Bucket: 'lexture', Key: uploadPath, Body: file,
+    ACL: 'public-read',
   }
 
   s3.upload(uploadParams)
