@@ -111,16 +111,21 @@ export const transcriptionToDataModel = (transResponse, videoId) =>
     }
   })
 
-export const transcriptionToVtt = transResponse =>
-  transResponse.results.map((r, ind) => {
+export const transcriptionToVtt = transResponse => {
+    const header = `WEBVTT\n\n`
+  const body = transResponse.results.map((r, ind) => {
     const lineNum = ind + 1
     const alt = r.alternatives[0]
 
     const startTime = formatTime(alt.words[0].startTime)
     const endTime = formatTime(alt.words.slice(-1)[0].endTime)
 
+
     return `${lineNum}\n${startTime} --> ${endTime}\n${alt.transcript}\n\n`
   }).join("")
+
+  return header + body
+}
 
 export const formatTime = time => {
   const secs = time.seconds % 60

@@ -83,7 +83,7 @@ router.post('/submit-video-details', async (req, res) => {
     .upload(transPath)
     .to(spaces.transcriptDir('exampleCourse'))
 
-  fsp.unlink(transPath)
+  // fsp.unlink(transPath)
   fsp.unlink(filePath)
   fsp.unlink(path.normalize(audioPath))
 
@@ -99,7 +99,8 @@ router.post('/submit-video-details', async (req, res) => {
     captions: [
       {
         language: 'en',
-        url: transcriptSpacesPath,
+        // url: transcriptSpacesPath,
+        url: transPath
       },
     ],
   }

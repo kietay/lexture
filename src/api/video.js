@@ -1,7 +1,7 @@
 import express from 'express'
 const router = express.Router()
 import Video from '../models/Video'
-import Caption from '../models/Video'
+import Caption from '../models/Caption'
 import { fetchCourseFromVideoId, fetchVideoMatchingTranscripts, transcriptToSnippet, secondsToTimeString, secondsToColonTime } from './search'
 import {downloadTranscript} from '../services/spaces'
 
@@ -15,7 +15,6 @@ router.get('/', async (req, res) => {
   }
 
   const course = await fetchCourseFromVideoId(vid.videoId)
-  const transcript = downloadTranscript(vid.captions[0].url)
 
   const tags = vid.topics.map(x => ({ tag: x }))
 
@@ -37,9 +36,13 @@ router.get('/', async (req, res) => {
     {
       lang: 'en',
       label: 'English',
-      url: "https://lexture.nyc3.digitaloceanspaces.com/" + vid.captions[0].url
+      url: "/transcript?turl=" + vid.captions[0].url
     }
   ]
+
+  const transcript = await fetchTranscriptText(vid.videoId)
+
+  console.log(`transcript: ${JSON.stringify(transcript)}`)
 
   const data = {
     course: course.title,
@@ -49,14 +52,22 @@ router.get('/', async (req, res) => {
     tags: tags,
     languages: languages,
     textSearchResults: snippets,
-    subtitleTracks: subs
+    subtitleTracks: subs,
+    transcriptText: transcript,
   }
 
   res.render('video', data)
 })
 
-const fetchTranscript = async videoId => {
-  const captions = Caption.find({videoId: videoId}).sort({})
+const fetchTranscriptText = async videoId => {
+  const captions = await Caption.find({videoId: videoId}).sort({startTimestamp: 1})
+
+  console.log(`Captions: ${JSON.stringify(captions)}`)
+
+  return captions.map(x => ({
+    text: x.text,
+    timestamp: secondsToColonTime(x.startTimestamp)
+  }))
 }
 
 // downloadTranscript("content/exampleCourse/transcripts/6633efce-5e46-416a-ac02-e155d3f65728.vtt").then(data => console.log(data))

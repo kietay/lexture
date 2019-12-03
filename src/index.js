@@ -38,6 +38,11 @@ app.get('/uploadinfo', (req, res) => {
   res.sendFile(path.join(__dirname + '/viewsOld/upload-info.html'))
 })
 
+app.get('/transcript', (req, res) => {
+  const url = req.query.turl
+  res.sendFile(path.normalize(path.join(__dirname + '/../' + url)))
+})
+
 mongoose
   .connect(process.env.MONGO_ENDPOINT, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
