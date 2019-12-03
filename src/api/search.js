@@ -25,8 +25,12 @@ router.get('/', async (req, res) => {
 
 const getAllUniqueLecturer = (videos) => {
   let lecturers = []
+  let foundAlready = []
   videos.forEach(vid => {
-    if (!lecturers.includes(vid.lecturer)) lecturers.push({name: vid.lecturer, lecturerTag: vid.lecturer.split(" ").join("_")})
+    if (!foundAlready.includes(vid.lecturer)) {
+      lecturers.push({name: vid.lecturer, lecturerTag: vid.lecturer.split(" ").join("_")})
+      foundAlready.push(vid.lecturer)
+    }
   })
   return lecturers
 }
@@ -58,7 +62,10 @@ export const searchTranscripts = async query => {
 
   if (res.length == 0) return []
 
+  let vidId = 0
+
   const videoDetailsFetched = res.map(async r => {
+    vidId += 1
     console.log(`Finding video details: ${r.videoId}`)
     const vid = await fetchVideoFromId(r.videoId)
 
@@ -67,11 +74,18 @@ export const searchTranscripts = async query => {
 
     const topics = vid.topics.map(x => ({ tag: x }))
 
-    const textMatches = r.textMatches.map(x => ({
+    let textId = 1
+
+    const textMatches = r.textMatches.map(x => {
+      textId += 1
+      return {
+      id: vidId,
+      iid: textId,
       snippet: transcriptToSnippet(x, query),
-      timestamp: secondsToTimeString(x.startTimestamp),
-      timeseconds: x.startTimestamp
-    }))
+      timestamp: secondsToColonTime(x.startTimestamp),
+      timeParam: x.startTimestamp,
+      videoId: r.videoId
+    }})
 
     console.log('Text matches:')
     console.log(JSON.stringify(textMatches))
@@ -80,6 +94,7 @@ export const searchTranscripts = async query => {
 
     return {
       videoId: vid.videoId,
+      id: vidId,
       title: vid.title,
       // todo this should be fixed to take from course
       lecturer: vid.instructor,
@@ -148,5 +163,18 @@ export const secondsToTimeString = (seconds) =>
         seconds -= minutes * (60);
     return ((0<days)?(days+" day, "):"")+((hours > 0)?(hours+"h, "):"")+minutes+"m, "+seconds+"s";
   }
+
+Number.prototype.pad = function(size) {
+  let s = String(this);
+  while (s.length < (size)) {s = "0" + s;}
+  return s
+}
+
+export const secondsToColonTime = seconds => {
+  const secs = seconds % 60
+  const mins = Math.floor(seconds / 60)
+
+  return `${mins.pad(2)}:${secs.pad(2)}`
+}
 
 export default router

@@ -1,7 +1,7 @@
 import express from 'express'
 const router = express.Router()
 import Video from '../models/Video'
-import { fetchCourseFromVideoId, fetchVideoMatchingTranscripts, transcriptToSnippet, secondsToTimeString } from './search'
+import { fetchCourseFromVideoId, fetchVideoMatchingTranscripts, transcriptToSnippet, secondsToTimeString, secondsToColonTime } from './search'
 import {downloadTranscript} from '../services/spaces'
 
 router.get('/', async (req, res) => {
@@ -26,7 +26,7 @@ router.get('/', async (req, res) => {
 
   const snippets = matchingTranscripts.map(x => ({
     snippet: transcriptToSnippet(x, searchTerm),
-    timestamp: secondsToTimeString(x.startTimestamp)
+    timestamp: secondsToColonTime(x.startTimestamp)
   }))
   
   console.log("snippets:")

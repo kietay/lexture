@@ -60,7 +60,7 @@
         {{#searchResultEntries}}
         <div class="video-search-entry {{lecturerTag}}">
           <div class="video-search-entry-left">
-            <div class="card" style="width: 18rem;">
+            <div class="card" style="width: 18rem;" id="video-card-{{id}}">
               <img src="assets/thumbnail.png" class="card-img-top" alt="video thumbnail" />
               <img src="assets/filter.png" class="card-img-filter" alt="" />
               <div class="card-body">
@@ -136,11 +136,11 @@
         // Link to video (with time parameters for timestamp cards)
         {{#searchResultEntries}}
           $("#video-card-{{id}}").click(function () {
-              window.location.href = "{{url}}";
+              window.location.href = "/video?videoid={{videoId}}&searchq={{searchTerm}}";
           });
           {{#transcriptSearchResults}}
               $("#timestamp-card-{{id}}-{{iid}}").click(function () {
-                  window.location.href = "{{url}}?t={{timeParam}}";
+                  window.location.href = "/video?t={{timeParam}}&videoid={{videoId}}&searchq={{searchTerm}}";
               });
           {{/transcriptSearchResults}}
         {{/searchResultEntries}}
