@@ -3,8 +3,8 @@ var variableData = {
     resultCount: 20,
     filterTypes: {
         lecturers: [
-            {id: 1, name: "Kieran Taylor"},
-            {id: 2, name: "Barack Obama"}
+            {id: 1, name: "Kieran Taylor", lecturerTag: "kieranTaylor"},
+            {id: 2, name: "Barack Obama", lecturerTag: "barackObama"}
         ],
         times: [
             {id: 1, range: "< 15 min"},
@@ -23,10 +23,9 @@ var variableData = {
         {
             id: 1,
             title: "Video Title 1",
-            lecturer: "Professor 1",
-            lecturerTag: "prof1",
+            lecturer: "Kieran Taylor",
+            lecturerTag: "kieranTaylor",
             time: "1h 23m",
-            // timeTag: "time1",
             topics: [
                 {tag: "Algorithms"},
                 {tag: "Introductions"},
@@ -52,10 +51,9 @@ var variableData = {
         {
             id: 2,
             title: "Video Title 2",
-            lecturer: "Professor 2",
-            lecturerTag: "prof2",
+            lecturer: "Barack Obama",
+            lecturerTag: "barackObama",
             time: "2h 34m",
-            // timeTag: "time2",
             topics: [
                 {tag: "Machine Learning"},
                 {tag: "Nearest Neighbors"},
