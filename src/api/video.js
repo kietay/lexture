@@ -4,7 +4,14 @@ import Video from '../models/Video'
 import { fetchCourseFromVideoId } from './search'
 
 router.get('/', async (req, res) => {
-  const vid = await Video.findOne()
+  const videoId = req.query.videoid
+  const vid = await Video.findOne({ videoId: videoId })
+
+  if (!vid) {
+    res.status(404).send('VideoId not found!')
+    return false
+  }
+
   const course = await fetchCourseFromVideoId(vid.videoId)
 
   const tags = vid.topics.map(x => ({ tag: x }))
@@ -22,7 +29,7 @@ router.get('/', async (req, res) => {
 
   // todo render transcript text by fetching from mongo
 
-  res.render('video-mustache.html', data)
+  res.render('video.html', data)
 })
 
 export default router
