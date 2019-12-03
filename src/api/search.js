@@ -8,7 +8,6 @@ router.get('/', async (req, res) => {
   const videos = await searchTranscripts(req.query.searchq)
 
   const lecturers = getAllUniqueLecturer(videos)
-  console.log(`Unique lecturers: ${JSON.stringify(lecturers)}`)
 
   res.render('search-results', {
     searchTerm: req.query.searchq,
@@ -86,11 +85,6 @@ export const searchTranscripts = async query => {
       timeseconds: x.startTimestamp,
       videoId: r.videoId
     }})
-
-    console.log('Text matches:')
-    console.log(JSON.stringify(textMatches))
-
-    console.log('Returning search results')
 
     return {
       videoId: vid.videoId,

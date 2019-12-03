@@ -67,6 +67,7 @@ export const convertVid = async fp => {
   await new Promise((resolve, reject) => {
     ffmpeg({
       source: fp,
+      niceness: 15
     })
       .audioChannels(1)
       .on('progress', progress => {
