@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="../stylesheets/bootstrap.min.css" />
     <!--Video.js CSS-->
     <link href="https://vjs.zencdn.net/7.5.5/video-js.css" rel="stylesheet" />
+    <!--LightSlider CSS-->
+    <link type="text/css" rel="stylesheet" href="css/lightslider.css" />
     <!--Custom CSS-->
     <link rel="stylesheet" href="../stylesheets/base.css" />
     <link rel="stylesheet" href="../stylesheets/home.css" />
@@ -210,5 +212,16 @@
     <script src="https://vjs.zencdn.net/7.5.5/video.js"></script>
     <!--Custom JS-->
     <script src="../scripts/home.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('.video-nav').lightSlider({
+          item:3,
+          loop:false,
+          slideMove:3,
+          easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
+          speed:600
+        });
+      });
+    </script>
   </body>
 </html>

@@ -233,6 +233,7 @@
     }
 
     videojs("lecture-video").ready(function () {
+        var foundTimestamp = false
         var video = videojs("lecture-video");
         console.log('Video ready')
 
@@ -251,7 +252,8 @@
         video.on('progress', function() {
              // Get query string parameters and set video timestamp
              var urlParams = new URLSearchParams(window.location.search);
-             if (urlParams.has("t") && video.bufferedPercent() > 0.1) {
+             if (urlParams.has("t") && video.bufferedPercent() > 0.1 && foundTimestamp === false) {
+                 foundTimestamp = true
                  var timestampParam = urlParams.get("t");
                  var timestamp = parseInt(timestampParam);
                  console.log("Jumping to timestamp: " + timestamp);
