@@ -30,35 +30,35 @@
           <h5 class="title filter-title">Lecturer</h5>
           {{#filterTypes.lecturers}}
           <div class="form-check filter-checkbox">
-            <input type="checkbox" class="form-check-input" id="filter-lecturer-{{id}}" />
+            <input type="checkbox" value="{{lecturerTag}}" class="form-check-input" id="filter-lecturer-{{id}}" checked/>
             <label class="form-check-label" for="filter-lecturer-{{id}}">{{name}}</label>
           </div>
           {{/filterTypes.lecturers}}
         </div>
-        <div class="filter">
-          <h5 class="title filter-title">Time</h5>
-          {{#filterTypes.times}}
-          <div class="form-check filter-checkbox">
-            <input type="checkbox" class="form-check-input" id="filter-time-{{id}}" />
-            <label class="form-check-label" for="filter-teacher-{{id}}">{{range}}</label>
-          </div>
-          {{/filterTypes.times}}
-        </div>
-        <div class="filter">
-          <h5 class="title filter-title">Transcript</h5>
-          {{#filterTypes.transcripts}}
-          <div class="form-check filter-checkbox">
-            <input type="checkbox" class="form-check-input" id="filter-transcript-{{id}}" />
-            <label class="form-check-label" for="filter-teacher-{{id}}">{{language}}</label>
-          </div>
-          {{/filterTypes.transcripts}}
-        </div>
+<!--        <div class="filter">-->
+<!--          <h5 class="title filter-title">Time</h5>-->
+<!--          {{#filterTypes.times}}-->
+<!--          <div class="form-check filter-checkbox">-->
+<!--            <input type="checkbox" value="{{timeTag}}" class="form-check-input" id="filter-time-{{id}}" checked/>-->
+<!--            <label class="form-check-label" for="filter-teacher-{{id}}">{{range}}</label>-->
+<!--          </div>-->
+<!--          {{/filterTypes.times}}-->
+<!--        </div>-->
+<!--        <div class="filter">-->
+<!--          <h5 class="title filter-title">Transcript</h5>-->
+<!--          {{#filterTypes.transcripts}}-->
+<!--          <div class="form-check filter-checkbox">-->
+<!--            <input type="checkbox" class="form-check-input" id="filter-transcript-{{id}}" />-->
+<!--            <label class="form-check-label" for="filter-teacher-{{id}}">{{language}}</label>-->
+<!--          </div>-->
+<!--          {{/filterTypes.transcripts}}-->
+<!--        </div>-->
       </div>
 
       <div class="right-search-section">
         <!--Search Result-->
         {{#searchResultEntries}}
-        <div class="video-search-entry d-flex">
+        <div class="video-search-entry {{lecturerTag}} {{timeTag}}">
           <div class="video-search-entry-left">
             <div class="card" style="width: 18rem;">
               <img src="assets/thumbnail.png" class="card-img-top" alt="video thumbnail" />
@@ -121,18 +121,30 @@
     <script src="https://vjs.zencdn.net/7.5.5/video.js"></script>
     <!--Custom JS-->
     <script>
-        $(document).ready(function () {
-            {{#searchResultEntries}}
-                $("#video-card-{{id}}").click(function () {
-                    window.location.href = "{{url}}";
-                });
-                {{#transcriptSearchResults}}
-                    $("#timestamp-card-{{id}}-{{iid}}").click(function () {
-                        window.location.href = "{{url}}?t={{timeParam}}";
-                    });
-                {{/transcriptSearchResults}}
-            {{/searchResultEntries}}
-        });
+      $(document).ready(function () {
+        // Filter results by checked boxes
+        $('.filter :checkbox').click(function() {
+          $('.video-search-entry').css('display', 'none')
+          $('.filter :checkbox:checked').each(function() {
+            $('.' + $(this).val()).css('display', 'flex')
+          })
+          var numResults = $('.video-search-entry').filter(function() {
+            return $(this).css('display') === 'flex'
+          }).length
+          $('.result-count').text(numResults + ' Results')
+        })
+        // Link to video (with time parameters for timestamp cards)
+        {{#searchResultEntries}}
+          $("#video-card-{{id}}").click(function () {
+              window.location.href = "{{url}}";
+          });
+          {{#transcriptSearchResults}}
+              $("#timestamp-card-{{id}}-{{iid}}").click(function () {
+                  window.location.href = "{{url}}?t={{timeParam}}";
+              });
+          {{/transcriptSearchResults}}
+        {{/searchResultEntries}}
+      });
     </script>
   </body>
 </html>

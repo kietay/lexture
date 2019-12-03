@@ -2,10 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>Lexture - Berkeley CS 61A - Week 1: Functions</title>
     <link rel="icon" type="image/png" href="../assets/favicon.png" />
     <!--Bootstrap CSS-->
@@ -43,11 +40,7 @@
             placeholder="Search"
             aria-label="Search"
           />
-          <button
-            class="btn btn-light px-2 rounded-0"
-            id="lexture-search-btn"
-            type="submit"
-          >
+          <button class="btn btn-light px-2 rounded-0" id="lexture-search-btn" type="submit">
             <img src="../assets/search.png" height="21" alt="Search" />
           </button>
         </form>
@@ -77,8 +70,7 @@
               <div class="play-btn"></div>
               <p class="text-search-snippet text-truncate">
                 will be on the
-                <span class="search-term-highlight">test</span> for the next
-                quiz next Tuesday.
+                <span class="search-term-highlight">test</span> for the next quiz next Tuesday.
               </p>
             </div>
             <p class="text-search-timestamp">00:42</p>
@@ -89,8 +81,8 @@
             <div class="card-body-left-align">
               <div class="play-btn"></div>
               <p class="text-search-snippet text-truncate">
-                won't be on the <span class="search-term-highlight">test</span>,
-                it's just fun to talk about.
+                won't be on the <span class="search-term-highlight">test</span>, it's just fun to
+                talk about.
               </p>
             </div>
             <p class="text-search-timestamp">04:20</p>
@@ -102,13 +94,27 @@
               <div class="play-btn"></div>
               <p class="text-search-snippet text-truncate">
                 to study for the
-                <span class="search-term-highlight">test</span> that's coming
-                out this Friday.
+                <span class="search-term-highlight">test</span> that's coming out this Friday.
               </p>
             </div>
             <p class="text-search-timestamp">42:00</p>
           </div>
         </div>
+
+<!--I added this section thinking it'd be a good thing to have when there are no search results on the left half.-->
+<!--However, thinking some more, I think I'd rather just put this function into the transcription section below.-->
+<!--        <form class="form-inline mx-auto mt-4">-->
+<!--          <input-->
+<!--                  class="form-control mr-0 rounded-0"-->
+<!--                  id="video-search-bar"-->
+<!--                  type="search"-->
+<!--                  placeholder="Search in this video"-->
+<!--                  aria-label="Search"-->
+<!--          />-->
+<!--          <button class="btn btn-light px-2 rounded-0" id="video-search-btn" type="submit">-->
+<!--            <img src="../assets/search.png" height="21" alt="Search" />-->
+<!--          </button>-->
+<!--        </form>-->
       </div>
 
       <div class="right-section">
@@ -138,12 +144,7 @@
           <div class="card-below-video-content" id="overview-card">
             <div class="course-lecturer">
               Course Lecturer:
-              <img
-                class="lecturer-photo"
-                src="../assets/kieran.png"
-                alt=""
-                width="35"
-              />
+              <img class="lecturer-photo" src="../assets/kieran.png" alt="" width="35" />
               Kieran Taylor
             </div>
             <div class="tags-row">
@@ -152,10 +153,9 @@
               <div class="topic-tag">Computer Science</div>
             </div>
             <div class="overview-text">
-              Kieran is a proficient speaker of Chinese and the world's leading
-              authority on professional bar fighting. He was born in a volcano
-              as it erupted, raised by Shaolin masters, and has the power of
-              three legendary pokemon combined.
+              Kieran is a proficient speaker of Chinese and the world's leading authority on
+              professional bar fighting. He was born in a volcano as it erupted, raised by Shaolin
+              masters, and has the power of three legendary pokemon combined.
             </div>
           </div>
           <div class="card-below-video-content" id="transcript-card">
@@ -170,13 +170,55 @@
               </div>
             </form>
             <div class="transcript-text">
-              <span class="transcript-line" data-trigger="hover" data-toggle="popover" data-content="00:00">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-              <span class="transcript-line" data-trigger="hover" data-toggle="popover" data-content="00:10">Proin eget malesuada velit.</span>
-              <span class="transcript-line" data-trigger="hover" data-toggle="popover" data-content="00:20">Donec auctor est sapien, luctus lobortis libero congue eu.</span>
-              <span class="transcript-line" data-trigger="hover" data-toggle="popover" data-content="00:30">Nullam commodo placerat sagittis.</span>
-              <span class="transcript-line" data-trigger="hover" data-toggle="popover" data-content="00:40">Phasellus finibus nisi erat, et dictum sapien molestie id.</span>
-              <span class="transcript-line" data-trigger="hover" data-toggle="popover" data-content="00:50">Cras in bibendum risus.</span>
-              <span class="transcript-line" data-trigger="hover" data-toggle="popover" data-content="01:00">Fusce rhoncus magna mi, tristique ornare ipsum consectetur ut.</span>
+              <span
+                class="transcript-line"
+                data-trigger="hover"
+                data-toggle="popover"
+                data-content="00:00"
+                >Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span
+              >
+              <span
+                class="transcript-line"
+                data-trigger="hover"
+                data-toggle="popover"
+                data-content="00:10"
+                >Proin eget malesuada velit.</span
+              >
+              <span
+                class="transcript-line"
+                data-trigger="hover"
+                data-toggle="popover"
+                data-content="00:20"
+                >Donec auctor est sapien, luctus lobortis libero congue eu.</span
+              >
+              <span
+                class="transcript-line"
+                data-trigger="hover"
+                data-toggle="popover"
+                data-content="00:30"
+                >Nullam commodo placerat sagittis.</span
+              >
+              <span
+                class="transcript-line"
+                data-trigger="hover"
+                data-toggle="popover"
+                data-content="00:40"
+                >Phasellus finibus nisi erat, et dictum sapien molestie id.</span
+              >
+              <span
+                class="transcript-line"
+                data-trigger="hover"
+                data-toggle="popover"
+                data-content="00:50"
+                >Cras in bibendum risus.</span
+              >
+              <span
+                class="transcript-line"
+                data-trigger="hover"
+                data-toggle="popover"
+                data-content="01:00"
+                >Fusce rhoncus magna mi, tristique ornare ipsum consectetur ut.</span
+              >
             </div>
           </div>
           <div class="card-below-video-content" id="qna-card">
@@ -189,11 +231,7 @@
                   placeholder="Search"
                   aria-label="Search"
                 />
-                <button
-                  class="btn btn-light px-2 rounded-0"
-                  id="qna-search-btn"
-                  type="submit"
-                >
+                <button class="btn btn-light px-2 rounded-0" id="qna-search-btn" type="submit">
                   <img src="../assets/search.png" height="21" alt="Search" />
                 </button>
               </div>

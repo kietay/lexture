@@ -22,9 +22,11 @@ var variableData = {
     searchResultEntries: [
         {
             id: 1,
-            title: "Course Title 1",
+            title: "Video Title 1",
             lecturer: "Professor 1",
+            lecturerTag: "prof1",
             time: "1h 23m",
+            // timeTag: "time1",
             topics: [
                 {tag: "Algorithms"},
                 {tag: "Introductions"},
@@ -49,9 +51,11 @@ var variableData = {
         },
         {
             id: 2,
-            title: "Course Title 2",
+            title: "Video Title 2",
             lecturer: "Professor 2",
+            lecturerTag: "prof2",
             time: "2h 34m",
+            // timeTag: "time2",
             topics: [
                 {tag: "Machine Learning"},
                 {tag: "Nearest Neighbors"},

@@ -158,6 +158,30 @@
     background: rgba(58, 55, 198, 0.75);
 }
 
+#video-search-bar {
+    width: 300px;
+    height: 40px;
+    border-radius: 1px;
+    border: solid 1px var(--black);
+    border-right: none;
+    font-size: 18px;
+    font-weight: normal;
+    padding-left: 20px;
+}
+
+#video-search-bar::placeholder {
+    color: var(--pale-grey);
+}
+
+#video-search-btn {
+    width: 40px;
+    height: 40px;
+    background: var(--color-bg) url("../assets/search.png") no-repeat center;
+    background-size: 30px 30px;
+    border-radius: 1px;
+    border: solid 1px var(--black);
+}
+
 .tool-tab-bar {
     display: flex;
 }
