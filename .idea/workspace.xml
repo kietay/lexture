@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48be9c45-2d4e-4a3d-8e51-dd4e7beca43a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/viewsOld/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewsOld/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stylesheets/video.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/stylesheets/video.css" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -16,19 +17,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/templates/video.html">
+        <entry file="file://$PROJECT_DIR$/src/viewsOld/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4535">
-              <caret line="248" column="9" lean-forward="true" selection-start-line="248" selection-start-column="9" selection-end-line="248" selection-end-column="9" />
+            <state relative-caret-position="308">
+              <caret line="223" column="9" lean-forward="true" selection-start-line="223" selection-start-column="9" selection-end-line="223" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/viewsOld/index.html">
+        <entry file="file://$PROJECT_DIR$/src/stylesheets/video.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5129">
-              <caret line="223" column="9" lean-forward="true" selection-start-line="223" selection-start-column="9" selection-end-line="223" selection-end-column="9" />
+            <state relative-caret-position="410">
+              <caret line="98" column="13" selection-start-line="98" selection-start-column="13" selection-end-line="98" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -41,15 +42,6 @@
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/templates/video.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="43" column="76" lean-forward="true" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="76" />
             </state>
           </provider>
         </entry>
@@ -142,16 +134,16 @@
         <option value="$PROJECT_DIR$/src/templates/video-mustache.html" />
         <option value="$PROJECT_DIR$/src/templates/search-results-mustache.html" />
         <option value="$PROJECT_DIR$/src/templates/search-results-mustache.js" />
-        <option value="$PROJECT_DIR$/src/stylesheets/video.css" />
         <option value="$PROJECT_DIR$/src/templates/video.js" />
         <option value="$PROJECT_DIR$/src/stylesheets/search-results.css" />
         <option value="$PROJECT_DIR$/src/viewsOld/search-results.html" />
         <option value="$PROJECT_DIR$/src/templates/search-results.js" />
-        <option value="$PROJECT_DIR$/src/templates/video.html" />
         <option value="$PROJECT_DIR$/src/scripts/video.js" />
         <option value="$PROJECT_DIR$/src/viewsOld/cornell-cs61a-1.html" />
         <option value="$PROJECT_DIR$/src/templates/search-results.html" />
         <option value="$PROJECT_DIR$/src/viewsOld/index.html" />
+        <option value="$PROJECT_DIR$/src/templates/video.html" />
+        <option value="$PROJECT_DIR$/src/stylesheets/video.css" />
       </list>
     </option>
   </component>
@@ -192,12 +184,6 @@
               <item name="lexture" type="b2602c69:ProjectViewProjectNode" />
               <item name="lexture" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lexture" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lexture" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="scripts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="lexture" type="b2602c69:ProjectViewProjectNode" />
@@ -284,12 +270,12 @@
       <workItem from="1574895687239" duration="146000" />
       <workItem from="1574960573049" duration="865000" />
       <workItem from="1575018505456" duration="296000" />
-      <workItem from="1575252998638" duration="29423000" />
+      <workItem from="1575252998638" duration="30007000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="103421000" />
+    <option name="totallyTimeSpent" value="104005000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="706" extended-state="6" />
@@ -460,13 +446,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/stylesheets/video.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="161" column="13" selection-start-line="161" selection-start-column="13" selection-end-line="161" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/stylesheets/search-results.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="291">
@@ -499,6 +478,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/scripts/navbar.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scripts/home.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/video.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="820">
+          <caret line="259" column="46" lean-forward="true" selection-start-line="259" selection-start-column="46" selection-end-line="259" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/video.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="43" column="76" lean-forward="true" selection-start-line="43" selection-start-column="76" selection-end-line="43" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/search-results.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="185">
@@ -516,34 +519,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/video.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="43" column="76" lean-forward="true" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/scripts/navbar.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/scripts/home.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/video.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4535">
-          <caret line="248" column="9" lean-forward="true" selection-start-line="248" selection-start-column="9" selection-end-line="248" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/viewsOld/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5129">
+        <state relative-caret-position="308">
           <caret line="223" column="9" lean-forward="true" selection-start-line="223" selection-start-column="9" selection-end-line="223" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stylesheets/video.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="98" column="13" selection-start-line="98" selection-start-column="13" selection-end-line="98" selection-end-column="13" />
         </state>
       </provider>
     </entry>
