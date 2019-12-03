@@ -1,7 +1,8 @@
 import express from 'express'
 const router = express.Router()
 import Video from '../models/Video'
-import { fetchCourseFromVideoId, fetchVideoMatchingTranscripts } from './search'
+import { fetchCourseFromVideoId, fetchVideoMatchingTranscripts, transcriptToSnippet, secondsToTimeString } from './search'
+import {downloadTranscript} from '../services/spaces'
 
 router.get('/', async (req, res) => {
   const videoId = req.query.videoid
@@ -19,7 +20,16 @@ router.get('/', async (req, res) => {
   const languages = vid.captions.map(x => ({ language: x.language }))
 
   const searchTerm = req.query.searchq ? req.query.searchq : ''
+  console.log(`Searching for ${searchTerm}`)
   const matchingTranscripts = await fetchVideoMatchingTranscripts(videoId, searchTerm)
+  matchingTranscripts.forEach(x => console.log(x.text))
+
+  const snippets = matchingTranscripts.map(x => ({
+    snippet: transcriptToSnippet(x, searchTerm),
+    timestamp: secondsToTimeString(x.startTimestamp)
+  }))
+  
+  console.log("snippets:")
 
   const data = {
     course: course.title,
@@ -28,10 +38,12 @@ router.get('/', async (req, res) => {
     lecturer: course.instructor,
     tags: tags,
     languages: languages,
-    textSearchResults: null,
+    textSearchResults: snippets,
   }
 
-  res.render('video.html', data)
+  res.render('video', data)
 })
+
+// downloadTranscript("content/exampleCourse/transcripts/f8087006-ba4b-457e-90c4-1c1b1f473487.vtt").then(data => console.log(data))
 
 export default router

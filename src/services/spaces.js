@@ -26,11 +26,9 @@ const upload = fp => ({ to: toBucket(fp) })
 const toBucket = fp => uploadPath => {
   const file = fs.createReadStream(fp)
   file.on('error', err => console.log(err))
-  const uploadParams = {
-    Bucket: 'lexture',
-    Key: uploadPath,
-    Body: file,
-    acl: 'public-read',
+  const uploadParams = { 
+    Bucket: 'lexture', Key: uploadPath, Body: file,
+    ACL: 'public-read',
   }
 
   s3.upload(uploadParams)
@@ -38,6 +36,20 @@ const toBucket = fp => uploadPath => {
     .then(x => console.log('Upload success!'))
 
   return uploadPath
+}
+
+export const downloadTranscript = async (url) => {
+
+  console.log(`Getting transcript from ${url}`)
+
+  const params = {
+    Bucket: 'lexture',
+    Key: url
+  }
+
+  const data = await s3.getObject(params).promise()
+  return data.Body.toString()
+
 }
 
 const multerUpload = multer({
@@ -57,4 +69,5 @@ export default {
   courseDir: courseUploadDir,
   transcriptDir: transcriptUploadDir,
   multerUpload: multerUpload,
+  downloadTranscript: downloadTranscript
 }
