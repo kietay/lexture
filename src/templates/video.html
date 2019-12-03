@@ -232,19 +232,23 @@
         video.play();
     }
 
-    $(document).ready(function () {
+    videojs("lecture-video").ready(function () {
         var video = videojs("lecture-video");
 
-        // Get query string parameters and set video timestamp
-        var urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.has("t")) {
-            var timestampParam = urlParams.get("t");
-            var timestamp = parseInt(timestampParam);
-            console.log("Jumping to timestamp: " + timestamp);
-            video.currentTime(timestamp);
-            video.play();
-        }
+        video.on('progress', function() {
+             // Get query string parameters and set video timestamp
+             var urlParams = new URLSearchParams(window.location.search);
+             if (urlParams.has("t") && video.bufferedPercent() > 0.1) {
+                 var timestampParam = urlParams.get("t");
+                 var timestamp = parseInt(timestampParam);
+                 console.log("Jumping to timestamp: " + timestamp);
+                 video.currentTime(timestamp);
+                 video.play();
+            }
+        }) 
+    })
 
+    $(document).ready(function () {
         // Enable popovers
         $('[data-toggle="popover"]').popover({
             placement: 'bottom',
