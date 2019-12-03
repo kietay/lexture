@@ -73,7 +73,6 @@ export const searchTranscripts = async query => {
     console.log('Returning search results')
 
     return {
-      courseTitle: vid.title,
       videoId: vid.videoId,
       title: vid.title,
       // todo this should be fixed to take from course
@@ -122,11 +121,11 @@ export const transcriptToSnippet = (x, searchTerm) => {
       startTag +
       txt.substring(startInd, ind) +
       // todo fix this to render the html tag
-      //`<span class="search-term-highlight">` +
-      "*" +
+      `<span class="search-term-highlight">` +
+      // "*" +
       highlightWord +
-      "*" +
-      // '</span>' +
+      // "*" +
+      '</span>' +
       txt.substring(wordEndInd, endInd) +
       endTag
     )

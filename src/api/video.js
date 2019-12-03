@@ -2,6 +2,7 @@ import express from 'express'
 const router = express.Router()
 import Video from '../models/Video'
 import { fetchCourseFromVideoId, fetchVideoMatchingTranscripts, transcriptToSnippet, secondsToTimeString } from './search'
+import {downloadTranscript} from '../services/spaces'
 
 router.get('/', async (req, res) => {
   const videoId = req.query.videoid
@@ -42,5 +43,7 @@ router.get('/', async (req, res) => {
 
   res.render('video.html', data)
 })
+
+// downloadTranscript("content/exampleCourse/transcripts/f8087006-ba4b-457e-90c4-1c1b1f473487.vtt").then(data => console.log(data))
 
 export default router

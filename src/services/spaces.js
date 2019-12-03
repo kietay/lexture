@@ -38,6 +38,20 @@ const toBucket = fp => uploadPath => {
   return uploadPath
 }
 
+export const downloadTranscript = async (url) => {
+
+  console.log(`Getting transcript from ${url}`)
+
+  const params = {
+    Bucket: 'lexture',
+    Key: url
+  }
+
+  const data = await s3.getObject(params).promise()
+  return data.Body.toString()
+
+}
+
 const multerUpload = multer({
   storage: multerS3({
     s3: s3,
@@ -55,4 +69,5 @@ export default {
   courseDir: courseUploadDir,
   transcriptDir: transcriptUploadDir,
   multerUpload: multerUpload,
+  downloadTranscript: downloadTranscript
 }
