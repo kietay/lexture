@@ -66,7 +66,7 @@
         {{#searchResultEntries}}
         <div class="video-search-entry {{lecturerTag}}">
           <div class="video-search-entry-left">
-            <div class="card video-card" style="width: 18rem;" id="video-card-{{id}}" data-videoId="{{videoId}}">
+            <div class="card video-card" style="width: 18rem;" id="video-card-{{id}}" data-videoid="{{videoId}}">
               <img src="assets/thumbnail.png" class="card-img-top" alt="video thumbnail" />
               <img src="assets/filter.png" class="card-img-filter" alt="" />
               <div class="card-body">
@@ -88,7 +88,7 @@
             <div
               class="card text-search-timestamp-card w-auto pt-2"
               id="timestamp-card-{{id}}-{{iid}}"
-              data-videoId="{{videoId}}"
+              data-videoid="{{videoId}}"
               data-timeseconds="{{timeseconds}}"
             >
               <div class="card-body">
@@ -145,11 +145,11 @@
         })
         // Link to video (with time parameters for timestamp cards)
         $(".video-card").click(function () {
-          videoId = $(this).data("videoId")
+          videoId = $(this).data("videoid")
           window.location.href = "/video?videoid="+videoId+"&searchq={{searchTerm}}"
         });
         $(".text-search-timestamp-card").click(function () {
-          videoId = $(this).data("videoId")
+          videoId = $(this).data("videoid")
           timeseconds = $(this).data("timeseconds")
           window.location.href = "/video?videoid="+videoId+"&searchq={{searchTerm}}&t="+timeseconds;
         });
