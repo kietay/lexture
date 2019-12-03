@@ -25,8 +25,12 @@ router.get('/', async (req, res) => {
 
 const getAllUniqueLecturer = (videos) => {
   let lecturers = []
+  let foundAlready = []
   videos.forEach(vid => {
-    if (!lecturers.includes(vid.lecturer)) lecturers.push({name: vid.lecturer, lecturerTag: vid.lecturer.split(" ").join("_")})
+    if (!foundAlready.includes(vid.lecturer)) {
+      lecturers.push({name: vid.lecturer, lecturerTag: vid.lecturer.split(" ").join("_")})
+      foundAlready.push(vid.lecturer)
+    }
   })
   return lecturers
 }
