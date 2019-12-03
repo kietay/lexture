@@ -7,6 +7,9 @@ import Video from '../models/Video'
 router.get('/', async (req, res) => {
   const videos = await searchTranscripts(req.query.searchq)
 
+  const lecturers = getAllUniqueLecturer(videos)
+  console.log(`Unique lecturers: ${JSON.stringify(lecturers)}`)
+
   res.render('search-results', {
     searchTerm: req.query.searchq,
     searchResultEntries: videos,
@@ -23,7 +26,7 @@ router.get('/', async (req, res) => {
 const getAllUniqueLecturer = (videos) => {
   let lecturers = []
   videos.forEach(vid => {
-    if (!lecturers.includes(vid.lecturer)) lecturers.push({name: vid.lecturer})
+    if (!lecturers.includes(vid.lecturer)) lecturers.push({name: vid.lecturer, lecturerTag: vid.lecturer.split(" ").join("_")})
   })
   return lecturers
 }
@@ -66,7 +69,8 @@ export const searchTranscripts = async query => {
 
     const textMatches = r.textMatches.map(x => ({
       snippet: transcriptToSnippet(x, query),
-      timestamp: secondsToTimeString(x.startTimestamp)
+      timestamp: secondsToTimeString(x.startTimestamp),
+      timeseconds: x.startTimestamp
     }))
 
     console.log('Text matches:')
@@ -79,6 +83,7 @@ export const searchTranscripts = async query => {
       title: vid.title,
       // todo this should be fixed to take from course
       lecturer: vid.instructor,
+      lecturerTag: vid.instructor.split(" ").join("_"),
       topics: topics,
       // todo fix this hardcoding
       time: "10 mins",
