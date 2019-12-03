@@ -5,6 +5,7 @@ import path from 'path'
 import ffmpeg from 'fluent-ffmpeg'
 import uuid from 'uuid'
 import { getConsoleOutput } from '@jest/console'
+import hbjs from 'handbrake-js'
 
 const FFPMPEG_PATH = '/usr/local/bin/ffmpeg'
 
@@ -65,23 +66,39 @@ export const convertVid = async fp => {
   command.saveToFile(outPath)
 
   await new Promise((resolve, reject) => {
-    ffmpeg({
-      source: fp,
-      niceness: 15
-    })
-      .audioChannels(1)
-      .on('progress', progress => {
-        console.log(`[ffmpeg] ${JSON.stringify(progress)}`)
-      })
-      .on('error', err => {
-        console.log(`[ffmpeg] error: ${err.message}`)
-        reject(err)
-      })
-      .on('end', () => {
-        console.log('[ffmpeg] finished')
-        resolve()
-      })
-      .saveToFile(outPath)
+    // ffmpeg({
+    //   source: fp,
+    //   niceness: 15
+    // })
+    //   .audioChannels(1)
+    //   .on('progress', progress => {
+    //     console.log(`[ffmpeg] ${JSON.stringify(progress)}`)
+    //   })
+    //   .on('error', err => {
+    //     console.log(`[ffmpeg] error: ${err.message}`)
+    //     reject(err)
+    //   })
+    //   .on('end', () => {
+    //     console.log('[ffmpeg] finished')
+    //     resolve()
+    //   })
+    //   .saveToFile(outPath)
+
+ 
+      hbjs.spawn({ input: fp, output: outPath })
+        .on('error', err => {
+          // invalid user input, no video found etc
+        })
+        .on('progress', progress => {
+          console.log(
+            'Percent complete: %s, ETA: %s',
+            progress.percentComplete,
+            progress.eta
+          )
+        })
+        .on('end', () => {
+          resolve()
+        })
   })
 
   return outPath
