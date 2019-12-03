@@ -78,7 +78,7 @@ export const searchTranscripts = async query => {
       id: vidId,
       iid: textId,
       snippet: transcriptToSnippet(x, query),
-      timestamp: secondsToTimeString(x.startTimestamp),
+      timestamp: secondsToColonTime(x.startTimestamp),
       timeParam: x.startTimestamp,
       videoId: r.videoId
     }})
@@ -159,5 +159,18 @@ export const secondsToTimeString = (seconds) =>
         seconds -= minutes * (60);
     return ((0<days)?(days+" day, "):"")+((hours > 0)?(hours+"h, "):"")+minutes+"m, "+seconds+"s";
   }
+
+Number.prototype.pad = function(size) {
+  let s = String(this);
+  while (s.length < (size)) {s = "0" + s;}
+  return s
+}
+
+export const secondsToColonTime = seconds => {
+  const secs = seconds % 60
+  const mins = Math.floor(seconds / 60)
+
+  return `${mins.pad(2)}:${secs.pad(2)}`
+}
 
 export default router
