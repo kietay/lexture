@@ -88,8 +88,10 @@
             <div
               class="card text-search-timestamp-card w-auto pt-2"
               id="timestamp-card-{{id}}-{{iid}}"
+              data-videoId="{{videoId}}"
+              data-timeseconds="{{timeseconds}}
             >
-              <div class="card-body" data-videoId="{{videoId}}" data-timeseconds="{{timeseconds}}">
+              <div class="card-body">
                 <div class="card-body-left-align">
                   <div class="play-btn"></div>
                   <p class="text-search-snippet text-truncate">
@@ -146,7 +148,7 @@
           videoId = $(this).data("videoId")
           window.location.href = "/video?videoid="+videoId+"&searchq={{searchTerm}}"
         });
-        $(".text-search-timestamp").click(function () {
+        $(".text-search-timestamp-card").click(function () {
           videoId = $(this).data("videoId")
           timeseconds = $(this).data("timeseconds")
           window.location.href = "/video?videoid="+videoId+"&searchq={{searchTerm}}&t="+timeseconds;
