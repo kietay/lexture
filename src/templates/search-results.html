@@ -30,29 +30,35 @@
           <h5 class="title filter-title">Lecturer</h5>
           {{#filterTypes.lecturers}}
           <div class="form-check filter-checkbox">
-            <input type="checkbox" value="{{lecturerTag}}" class="form-check-input" id="filter-lecturer-{{id}}" checked/>
+            <input
+              type="checkbox"
+              value="{{lecturerTag}}"
+              class="form-check-input"
+              id="filter-lecturer-{{id}}"
+              checked
+            />
             <label class="form-check-label" for="filter-lecturer-{{id}}">{{name}}</label>
           </div>
           {{/filterTypes.lecturers}}
         </div>
-<!--        <div class="filter">-->
-<!--          <h5 class="title filter-title">Time</h5>-->
-<!--          {{#filterTypes.times}}-->
-<!--          <div class="form-check filter-checkbox">-->
-<!--            <input type="checkbox" value="{{timeTag}}" class="form-check-input" id="filter-time-{{id}}" checked/>-->
-<!--            <label class="form-check-label" for="filter-teacher-{{id}}">{{range}}</label>-->
-<!--          </div>-->
-<!--          {{/filterTypes.times}}-->
-<!--        </div>-->
-<!--        <div class="filter">-->
-<!--          <h5 class="title filter-title">Transcript</h5>-->
-<!--          {{#filterTypes.transcripts}}-->
-<!--          <div class="form-check filter-checkbox">-->
-<!--            <input type="checkbox" class="form-check-input" id="filter-transcript-{{id}}" />-->
-<!--            <label class="form-check-label" for="filter-teacher-{{id}}">{{language}}</label>-->
-<!--          </div>-->
-<!--          {{/filterTypes.transcripts}}-->
-<!--        </div>-->
+        <!--        <div class="filter">-->
+        <!--          <h5 class="title filter-title">Time</h5>-->
+        <!--          {{#filterTypes.times}}-->
+        <!--          <div class="form-check filter-checkbox">-->
+        <!--            <input type="checkbox" value="{{timeTag}}" class="form-check-input" id="filter-time-{{id}}" checked/>-->
+        <!--            <label class="form-check-label" for="filter-teacher-{{id}}">{{range}}</label>-->
+        <!--          </div>-->
+        <!--          {{/filterTypes.times}}-->
+        <!--        </div>-->
+        <!--        <div class="filter">-->
+        <!--          <h5 class="title filter-title">Transcript</h5>-->
+        <!--          {{#filterTypes.transcripts}}-->
+        <!--          <div class="form-check filter-checkbox">-->
+        <!--            <input type="checkbox" class="form-check-input" id="filter-transcript-{{id}}" />-->
+        <!--            <label class="form-check-label" for="filter-teacher-{{id}}">{{language}}</label>-->
+        <!--          </div>-->
+        <!--          {{/filterTypes.transcripts}}-->
+        <!--        </div>-->
       </div>
 
       <div class="right-search-section">
@@ -60,7 +66,7 @@
         {{#searchResultEntries}}
         <div class="video-search-entry {{lecturerTag}}">
           <div class="video-search-entry-left">
-            <div class="card" style="width: 18rem;" id="video-card-{{id}}">
+            <div class="card video-card" style="width: 18rem;" id="video-card-{{id}}" data-videoId="{{videoId}}">
               <img src="assets/thumbnail.png" class="card-img-top" alt="video thumbnail" />
               <img src="assets/filter.png" class="card-img-filter" alt="" />
               <div class="card-body">
@@ -83,14 +89,16 @@
               class="card text-search-timestamp-card w-auto pt-2"
               id="timestamp-card-{{id}}-{{iid}}"
             >
-              <div class="card-body">
+              <div class="card-body" data-videoId="{{videoId}}" data-timeseconds="{{timeseconds}}">
                 <div class="card-body-left-align">
                   <div class="play-btn"></div>
                   <p class="text-search-snippet text-truncate">
                     {{{snippet}}}
                   </p>
                 </div>
-                <p class="text-search-timestamp" data-timeseconds={{timeseconds}}>{{timestamp}}</p>
+                <p class="text-search-timestamp">
+                  {{timestamp}}
+                </p>
               </div>
             </div>
             {{/transcriptSearchResults}}
@@ -134,16 +142,25 @@
           $('.result-count').text(numResults + ' Results')
         })
         // Link to video (with time parameters for timestamp cards)
-        {{#searchResultEntries}}
-          $("#video-card-{{id}}").click(function () {
-              window.location.href = "/video?videoid={{videoId}}&searchq={{searchTerm}}";
-          });
-          {{#transcriptSearchResults}}
-              $("#timestamp-card-{{id}}-{{iid}}").click(function () {
-                  window.location.href = "/video?t={{timeParam}}&videoid={{videoId}}&searchq={{searchTerm}}";
-              });
-          {{/transcriptSearchResults}}
-        {{/searchResultEntries}}
+        $(".video-card").click(function () {
+          videoId = $(this).data("videoId")
+          window.location.href = "/video?videoid="+videoId+"&searchq={{searchTerm}}"
+        });
+        $(".text-search-timestamp").click(function () {
+          videoId = $(this).data("videoId")
+          timeseconds = $(this).data("timeseconds")
+          window.location.href = "/video?videoid="+videoId+"&searchq={{searchTerm}}&t="+timeseconds;
+        });
+        // {{#searchResultEntries}}
+        //   $("#video-card-{{id}}").click(function () {
+        //       window.location.href = "/video?videoid={{videoId}}&searchq={{searchTerm}}";
+        //   });
+          // {{#transcriptSearchResults}}
+          //     $("#timestamp-card-{{id}}-{{iid}}").click(function () {
+          //         window.location.href = "/video?t={{timeParam}}&videoid={{videoId}}&searchq={{searchTerm}}";
+          //     });
+          // {{/transcriptSearchResults}}
+        // {{/searchResultEntries}}
       });
     </script>
   </body>

@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48be9c45-2d4e-4a3d-8e51-dd4e7beca43a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/templates/search-results.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/search-results.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/search-results.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/search-results.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/viewsOld/cornell-cs61a-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewsOld/cornell-cs61a-1.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -18,10 +18,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/templates/video.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="217">
+              <caret line="300" column="8" lean-forward="true" selection-start-line="300" selection-start-column="8" selection-end-line="303" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/templates/search-results.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="376">
-              <caret line="142" column="65" lean-forward="true" selection-start-line="142" selection-start-column="65" selection-end-line="142" selection-end-column="65" />
+            <state relative-caret-position="227">
+              <caret line="144" column="12" selection-start-line="144" selection-start-column="12" selection-end-line="144" selection-end-column="12" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -30,10 +39,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/templates/video.html">
+        <entry file="file://$PROJECT_DIR$/src/viewsOld/cornell-cs61a-1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="376">
-              <caret line="287" column="7" lean-forward="true" selection-start-line="200" selection-start-column="4" selection-end-line="287" selection-end-column="7" />
+            <state relative-caret-position="-664">
+              <caret line="346" column="41" lean-forward="true" selection-start-line="346" selection-start-column="41" selection-end-line="346" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -41,30 +50,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/templates/search-results.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-226">
+            <state relative-caret-position="21">
               <caret line="27" column="27" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/viewsOld/search-results.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="277" column="57" lean-forward="true" selection-start-line="277" selection-start-column="57" selection-end-line="277" selection-end-column="57" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/viewsOld/cornell-cs61a-1.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="348" column="60" lean-forward="true" selection-start-line="348" selection-start-column="60" selection-end-line="348" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -145,10 +132,10 @@
         <option value="$PROJECT_DIR$/src/stylesheets/search-results.css" />
         <option value="$PROJECT_DIR$/src/viewsOld/search-results.html" />
         <option value="$PROJECT_DIR$/src/templates/search-results.js" />
-        <option value="$PROJECT_DIR$/src/templates/search-results.html" />
         <option value="$PROJECT_DIR$/src/templates/video.html" />
         <option value="$PROJECT_DIR$/src/scripts/video.js" />
         <option value="$PROJECT_DIR$/src/viewsOld/cornell-cs61a-1.html" />
+        <option value="$PROJECT_DIR$/src/templates/search-results.html" />
       </list>
     </option>
   </component>
@@ -281,12 +268,12 @@
       <workItem from="1574895687239" duration="146000" />
       <workItem from="1574960573049" duration="865000" />
       <workItem from="1575018505456" duration="296000" />
-      <workItem from="1575252998638" duration="23147000" />
+      <workItem from="1575252998638" duration="26634000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97145000" />
+    <option name="totallyTimeSpent" value="100632000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="706" extended-state="6" />
@@ -491,23 +478,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/search-results.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="142" column="65" lean-forward="true" selection-start-line="142" selection-start-column="65" selection-end-line="142" selection-end-column="65" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/search-results.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-226">
-          <caret line="27" column="27" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/scripts/video.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-7">
@@ -515,16 +485,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/video.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="287" column="7" lean-forward="true" selection-start-line="200" selection-start-column="4" selection-end-line="287" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/viewsOld/search-results.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
+        <state relative-caret-position="160">
           <caret line="277" column="57" lean-forward="true" selection-start-line="277" selection-start-column="57" selection-end-line="277" selection-end-column="57" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -533,10 +496,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/search-results.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="27" column="27" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/viewsOld/cornell-cs61a-1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="348" column="60" lean-forward="true" selection-start-line="348" selection-start-column="60" selection-end-line="348" selection-end-column="60" />
+        <state relative-caret-position="-664">
+          <caret line="346" column="41" lean-forward="true" selection-start-line="346" selection-start-column="41" selection-end-line="346" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/video.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="300" column="8" lean-forward="true" selection-start-line="300" selection-start-column="8" selection-end-line="303" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/search-results.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="144" column="12" selection-start-line="144" selection-start-column="12" selection-end-line="144" selection-end-column="12" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
