@@ -91,8 +91,8 @@ export const transcriptionToDataModel = (transResponse, videoId) =>
     try {
       const alt = r.alternatives[0]
       const endElem = alt.words.slice(-1)[0] ? alt.words.slice(-1)[0] : alt.words[0]
-      const startTime = formatTime(alt.words[0].startTime)
-      const endTime = formatTime(endElem.endTime)
+      const startTime = alt.words[0].startTime.seconds
+      const endTime = endElem.endTime.seconds
 
       return {
         videoId: videoId,
@@ -105,8 +105,8 @@ export const transcriptionToDataModel = (transResponse, videoId) =>
       return {
         videoId: videoId,
         text: 'n/a',
-        startTimestamp: '00:00:00.000',
-        endTimestamp: '00:00:00.000',
+        startTimestamp: 0,
+        endTimestamp: 0,
       }
     }
   })
