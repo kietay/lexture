@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>Lexture</title>
+    <title>Lexture - Cornell CS5112</title>
     <link rel="icon" type="image/png" href="../assets/favicon.png" />
     <!--Bootstrap CSS-->
     <link rel="stylesheet" href="../stylesheets/bootstrap.min.css" />
@@ -11,7 +11,7 @@
     <link href="https://vjs.zencdn.net/7.5.5/video-js.css" rel="stylesheet" />
     <!--Custom CSS-->
     <link rel="stylesheet" href="../stylesheets/base.css" />
-    <link rel="stylesheet" href="../stylesheets/home.css" />
+    <link rel="stylesheet" href="../stylesheets/course.css" />
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light" id="lexture-navbar">
@@ -55,27 +55,31 @@
       </div>
     </nav>
 
-    <div class="jumbotron jumbotron-fluid">
-      <div class="line" id="line1"></div>
-      <div class="line" id="line2"></div>
-      <div class="container">
-        <h1 id="welcome-text">Welcome<br />back,<br />Brian</h1>
-      </div>
-    </div>
-
     <div class="container flex-column">
-      <!-- MY COURSES -->
-      <div class="subsection">
-        <div class="top-bar d-flex justify-content-between">
-          <div class="triangle"></div>
-          <h5 class="title">My courses:</h5>
-          <a class="view-all" href=""><u>View all</u></a>
-        </div>
+      <div class="course-name"><h4 class="font-weight-bold">CS5112 Algorithms</h4></div>
 
-        <div class="video-nav d-flex justify-content-between align-items-center">
+      <div class="course-overview">
+        <h5 class="subsection-title">Course Overview</h5>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eget malesuada velit. Donec
+          auctor est sapien, luctus lobortis libero congue eu. Nullam commodo placerat sagittis.
+          Phasellus finibus nisi erat, et dictum sapien molestie id. Cras in bibendum risus. Fusce
+          rhoncus magna mi, tristique ornare ipsum consectetur ut.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eget malesuada velit. Donec
+          auctor est sapien, luctus lobortis libero congue eu.
+        </p>
+      </div>
+
+      <div class="current-lectures">
+        <h5 class="subsection-title">Current Lectures</h5>
+
+        <div class="d-flex justify-content-between align-items-center">
+
           <button class="nav-btn left-arrow"></button>
 
-          <div class="card" style="width: 18rem;">
+          <div class="card">
             <img src="../assets/thumbnail.png" class="card-img-top" alt="video thumbnail" />
             <img src="../assets/filter.png" class="card-img-filter" alt="" />
             <div class="card-body">
@@ -87,7 +91,7 @@
             </div>
           </div>
 
-          <div class="card" style="width: 18rem;">
+          <div class="card">
             <img src="../assets/thumbnail.png" class="card-img-top" alt="video thumbnail" />
             <img src="../assets/filter.png" class="card-img-filter" alt="" />
             <div class="card-body">
@@ -99,7 +103,7 @@
             </div>
           </div>
 
-          <div class="card" style="width: 18rem;">
+          <div class="card">
             <img src="../assets/thumbnail.png" class="card-img-top" alt="video thumbnail" />
             <img src="../assets/filter.png" class="card-img-filter" alt="" />
             <div class="card-body">
@@ -112,84 +116,9 @@
           </div>
 
           <button class="nav-btn"></button>
+
         </div>
       </div>
-
-      <!-- TOPICS RECOMMENDED FOR YOU -->
-      <div class="subsection">
-        <div class="top-bar justify-content-between">
-          <div class="circle"></div>
-          <h5 class="title">Topics recommended for you:</h5>
-          <div class="justify-content-start ml-5">
-            <button class="topic-btn">AML</button>
-            <button class="topic-btn">Algorithms</button>
-            <button class="topic-btn">Security</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- COURSES RELATED TO YOUR SEARCH -->
-      <div class="subsection">
-        <div class="top-bar d-flex justify-content-between">
-          <div class="triangle"></div>
-          <h5 class="title">Courses related to your search: <u>Algorithms</u></h5>
-          <a class="view-all" href=""><u>View all</u></a>
-        </div>
-
-        <div class="video-nav d-flex justify-content-between align-items-center">
-          <button class="nav-btn left-arrow"></button>
-
-          <div class="card" style="width: 18rem;">
-            <img src="../assets/thumbnail.png" class="card-img-top" alt="video thumbnail" />
-            <img src="../assets/filter.png" class="card-img-filter" alt="" />
-            <div class="card-body">
-              <p class="course-title mt-0">Course Title</p>
-              <div class="course-info d-flex justify-content-between">
-                <p class="course-lecturer mb-0">Professor</p>
-                <p class="course-length mb-0">1h 23m</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="card" style="width: 18rem;">
-            <img src="../assets/thumbnail.png" class="card-img-top" alt="video thumbnail" />
-            <img src="../assets/filter.png" class="card-img-filter" alt="" />
-            <div class="card-body">
-              <p class="course-title mt-0">Course Title</p>
-              <div class="course-info d-flex justify-content-between">
-                <p class="course-lecturer mb-0">Professor</p>
-                <p class="course-length mb-0">1h 23m</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="card" style="width: 18rem;">
-            <img src="../assets/thumbnail.png" class="card-img-top" alt="video thumbnail" />
-            <img src="../assets/filter.png" class="card-img-filter" alt="" />
-            <div class="card-body">
-              <p class="course-title mt-0">Course Title</p>
-              <div class="course-info d-flex justify-content-between">
-                <p class="course-lecturer mb-0">Professor</p>
-                <p class="course-length mb-0">1h 23m</p>
-              </div>
-            </div>
-          </div>
-
-          <button class="nav-btn"></button>
-        </div>
-      </div>
-    </div>
-
-    <!-- BOTTOM OF PAGE -->
-    <div class="page-bottom">
-      <div class="line" id="line3"></div>
-      <img id="page-bottom-pic" src="../assets/bottom-girl.png" alt="" width="239" />
-      <div class="bottom-links">
-        <a href="" target="_blank">Help</a>
-        <a href="" target="_blank">Privacy</a>
-        <a href="" target="_blank">Terms</a>
-      </div>
-      <p class="bottom-right">© Lexture, Inc. 2019</p>
     </div>
 
     <!--jQuery-->
@@ -209,7 +138,6 @@
     <!--Video.js-->
     <script src="https://vjs.zencdn.net/7.5.5/video.js"></script>
     <!--Custom JS-->
-    <script src="../scripts/home.js"></script>
-    <script></script>
+    <script src="../scripts/course.js"></script>
   </body>
 </html>
