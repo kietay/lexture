@@ -6,6 +6,7 @@ import path from 'path'
 import upload from './api/upload'
 import video from './api/video'
 import search from './api/search'
+import course from './api/course'
 import mongoose from 'mongoose'
 import bodyParser from 'body-parser'
 
@@ -33,6 +34,7 @@ app.get('/', (req, res) => {
 app.use('/upload', upload)
 app.use('/video', video)
 app.use('/search', search)
+app.use('/course', course)
 
 app.get('/uploadinfo', (req, res) => {
   res.sendFile(path.join(__dirname + '/viewsOld/upload-info.html'))
