@@ -23,12 +23,11 @@ app.set('views', __dirname + '/templates')
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }))
-
 // parse application/json
 app.use(bodyParser.json())
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname + '/viewsOld/index.html'))
+  res.render('index')
 })
 
 app.use('/upload', upload)
@@ -37,12 +36,7 @@ app.use('/search', search)
 app.use('/course', course)
 
 app.get('/uploadinfo', (req, res) => {
-  res.sendFile(path.join(__dirname + '/viewsOld/upload-info.html'))
-})
-
-app.get('/transcript', (req, res) => {
-  const url = req.query.turl
-  res.sendFile(path.normalize(path.join(__dirname + '/../' + url)))
+  res.render('upload-info')
 })
 
 mongoose

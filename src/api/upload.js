@@ -54,6 +54,10 @@ router.post('/new-video', (req, res) => {
   })
 })
 
+router.get('/upload-info', (req, res) => {
+  res.send(req)
+})
+
 router.get('/video-details', (req, res) => {
   res.send(req)
 })
@@ -100,7 +104,7 @@ router.post('/submit-video-details', async (req, res) => {
       {
         language: 'en',
         // url: transcriptSpacesPath,
-        url: transPath
+        url: transPath,
       },
     ],
   }
