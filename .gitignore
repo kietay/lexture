@@ -6,6 +6,7 @@ oplog*
 *.flac
 
 *temp/*
+cert/*
 
 *DS_Store
 

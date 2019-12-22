@@ -1,21 +1,12 @@
-#upload-form {
-    margin: 90px 80px;
-}
-
-#video-upload-submit {
-    width: 140px;
-    height: 44px;
-    margin-top: 30px;
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--white);
-    background-color: var(--blue-with-a-hint-of-purple);
-    border: none;
-    box-shadow: var(--std-box-shadow);
-    transition: 0.2s;
-}
-
-#video-upload-submit:hover {
-    transform: scale(1.05);
-    box-shadow: var(--hover-box-shadow);
+.signin-button {
+  width: 140px;
+  height: 44px;
+  margin: 90px 80px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--white);
+  background-color: var(--blue-with-a-hint-of-purple);
+  border: none;
+  box-shadow: var(--std-box-shadow);
+  transition: 0.2s;
 }

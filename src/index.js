@@ -7,10 +7,19 @@ import upload from './api/upload'
 import video from './api/video'
 import search from './api/search'
 import course from './api/course'
+import { auth } from './api'
+import { samlStrategy, ensureAuthenticated } from './api/auth'
 import mongoose from 'mongoose'
 import bodyParser from 'body-parser'
+import passport from 'passport'
+import session from 'express-session'
 
 mongoose.set('useCreateIndex', true)
+
+passport.serializeUser((user, done) => done(null, user))
+passport.deserializeUser((user, done) => done(null, user))
+
+passport.use(samlStrategy)
 
 const app = express()
 
@@ -21,12 +30,13 @@ app.engine('html', mustache())
 app.set('view engine', 'html')
 app.set('views', __dirname + '/templates')
 
-// parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }))
-// parse application/json
 app.use(bodyParser.json())
+app.use(session({ secret: process.env.SESSION_SECRET }))
+app.use(passport.initialize())
+app.use(passport.session())
 
-app.get('/', (req, res) => {
+app.get('/', ensureAuthenticated, (req, res) => {
   res.render('index')
 })
 
@@ -34,6 +44,7 @@ app.use('/upload', upload)
 app.use('/video', video)
 app.use('/search', search)
 app.use('/course', course)
+app.use('/auth', auth)
 
 app.get('/uploadinfo', (req, res) => {
   res.render('upload-info')
