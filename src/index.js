@@ -2,7 +2,6 @@ import 'dotenv/config'
 import cors from 'cors'
 import express from 'express'
 import mustache from 'mustache-express'
-import path from 'path'
 import upload from './api/upload'
 import video from './api/video'
 import search from './api/search'
@@ -26,10 +25,6 @@ app.use(
     preflightContinue: false,
   })
 )
-app.all('/*', function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*')
-  next()
-})
 
 app.use(express.static(__dirname))
 
