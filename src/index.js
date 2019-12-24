@@ -42,10 +42,10 @@ app.get('/', ensureAuthenticated, (req, res) => {
   res.render('index')
 })
 
-app.use('/upload', upload)
-app.use('/video', video)
-app.use('/search', search)
-app.use('/course', course)
+app.use('/upload', ensureAuthenticated, upload)
+app.use('/video', ensureAuthenticated, video)
+app.use('/search', ensureAuthenticated, search)
+app.use('/course', ensureAuthenticated, course)
 app.use('/auth', auth)
 
 app.get('/uploadinfo', (req, res) => {
