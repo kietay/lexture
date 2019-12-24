@@ -14,12 +14,17 @@
     <link rel="stylesheet" href="stylesheets/auth.css" />
   </head>
   <body>
+    <script src="../scripts/bootstrap.min.js"></script>
     {{> navbar}}
 
     <div class="jumbotron">
-      <button class="signin-button">
+      <button class="signin-button" id="signin-button" onclick="clickMe()">
         Cornell SSO
       </button>
     </div>
   </body>
+  <!--Axios JS-->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="../scripts/bootstrap.min.js"></script>
+  <script src="../scripts/auth.js"></script>
 </html>

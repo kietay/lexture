@@ -8,22 +8,29 @@ import video from './api/video'
 import search from './api/search'
 import course from './api/course'
 import { auth } from './api'
-import { samlStrategy, ensureAuthenticated } from './api/auth'
+import { samlStrategy, ensureAuthenticated, passport } from './api/auth'
 import mongoose from 'mongoose'
 import bodyParser from 'body-parser'
-import passport from 'passport'
 import session from 'express-session'
 
 mongoose.set('useCreateIndex', true)
 
-passport.serializeUser((user, done) => done(null, user))
-passport.deserializeUser((user, done) => done(null, user))
-
-passport.use(samlStrategy)
-
 const app = express()
 
-app.use(cors())
+app.use(
+  cors({
+    allowedHeaders: ['sessionId', 'Content-Type'],
+    exposedHeaders: ['sessionId'],
+    origin: '*',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    preflightContinue: false,
+  })
+)
+app.all('/*', function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*')
+  next()
+})
+
 app.use(express.static(__dirname))
 
 app.engine('html', mustache())
