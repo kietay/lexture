@@ -92,8 +92,8 @@ export const transcriptionToDataModel = (transResponse, videoId) =>
     try {
       const alt = r.alternatives[0]
       const endElem = alt.words.slice(-1)[0] ? alt.words.slice(-1)[0] : alt.words[0]
-      const startTime = alt.words[0].startTime.seconds
-      const endTime = endElem.endTime.seconds
+      const startTime = alt.words[0] ? alt.words[0].startTime.seconds : 0
+      const endTime = endElem ? endElem.endTime.seconds : 0
 
       return {
         videoId: videoId,
@@ -103,13 +103,13 @@ export const transcriptionToDataModel = (transResponse, videoId) =>
       }
     } catch (err) {
       console.log(`Unable to transcribe ${JSON.stringify(r.alternatives[0])}`)
+    }
       return {
         videoId: videoId,
-        text: 'n/a',
+        text: '',
         startTimestamp: 0,
         endTimestamp: 0,
       }
-    }
   })
 
 export const transcriptionToVtt = transResponse => {
@@ -118,8 +118,8 @@ export const transcriptionToVtt = transResponse => {
     const lineNum = ind + 1
     const alt = r.alternatives[0]
 
-    const startTime = formatTime(alt.words[0].startTime)
-    const endTime = formatTime(alt.words.slice(-1)[0].endTime)
+    const startTime = formatTime(alt.words[0] ? alt.words[0].startTime : 0)
+    const endTime = formatTime(alt.words.slice(-1)[0] ? alt.words.slice(-1)[0].endTime : 0)
 
 
     return `${lineNum}\n${startTime} --> ${endTime}\n${alt.transcript}\n\n`
