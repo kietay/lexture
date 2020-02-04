@@ -53,8 +53,14 @@ app.get('/uploadinfo', (req, res) => {
   res.render('upload-info')
 })
 
+var mongooseOptions = {
+	useNewUrlParser: true,
+	useUnifiedTopology: true,
+	authSource: "admin"
+};
+
 mongoose
-  .connect(process.env.MONGO_ENDPOINT, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(process.env.MONGO_ENDPOINT, mongooseOptions)
   .then(() => {
     console.log('Connected to mongo')
     app.listen(3000, () => console.log(`Example app listening on port ${process.env.PORT}!`))

@@ -96,7 +96,7 @@ export const searchTranscripts = async query => {
       topics: topics,
       // todo fix this hardcoding
       time: "10 mins",
-      transcriptSearchResults: textMatches,
+      transcriptSearchResults: textMatches.slice(0, 3),
     }
   })
 
