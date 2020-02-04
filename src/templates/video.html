@@ -252,7 +252,7 @@
         video.on('progress', function() {
              // Get query string parameters and set video timestamp
              var urlParams = new URLSearchParams(window.location.search);
-             if (urlParams.has("t") && video.bufferedPercent() > 0.1 && foundTimestamp === false) {
+             if (urlParams.has("t") && foundTimestamp === false) {
                  foundTimestamp = true
                  var timestampParam = urlParams.get("t");
                  var timestamp = parseInt(timestampParam);
