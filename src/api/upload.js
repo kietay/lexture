@@ -20,7 +20,6 @@ import Course from '../models/Course'
 const fsp = fs.promises
 
 router.get('/', (req, res) => {
-  // res.sendFile(path.join(__dirname + '/../viewsOld/upload.html'))
   res.render('upload')
 })
 
