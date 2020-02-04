@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Lexture - {{course}}</title>
+    <link rel="icon" type="image/png" href="../assets/favicon.png" />
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="../stylesheets/bootstrap.min.css" />
+    <!--Video.js CSS-->
+    <link href="https://vjs.zencdn.net/7.5.5/video-js.css" rel="stylesheet" />
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="../stylesheets/base.css" />
+    <link rel="stylesheet" href="../stylesheets/course.css" />
+  </head>
+  <body>
+    {{> navbar}}
+
+    <div class="container flex-column">
+      <div class="course-name"><h4 class="font-weight-bold">{{course}}</h4></div>
+
+      <div class="course-overview">
+        <h5 class="subsection-title">Course Overview</h5>
+        <!--I have to wrap each paragraph in <p></p> tags because that's the only way to do paragraph spacing.-->
+        {{#courseOverview}}
+        <p>{{paragraph}}</p>
+        {{/courseOverview}}
+      </div>
+
+      <div class="current-lectures">
+        <h5 class="subsection-title">Current Lectures</h5>
+
+        <div class="d-flex justify-content-between align-items-center">
+          <button class="nav-btn left-arrow"></button>
+
+          <!--Note to Kieran: Since I haven't programmed the slide-show function yet, please fill 
+          each course with ONLY 0~3 videos. Any more and it'll look like absolute shit. Cheers.-->
+          {{#courseVideos}}
+          <div class="card">
+            <img src="../assets/thumbnail.png" class="card-img-top" alt="video thumbnail" />
+            <img src="../assets/filter.png" class="card-img-filter" alt="" />
+            <div class="card-body">
+              <p class="course-title mt-0">{{title}}</p>
+              <div class="course-info d-flex justify-content-between">
+                <p class="course-lecturer mb-0">{{lecturer}}</p>
+                <p class="course-length mb-0">{{time}}</p>
+              </div>
+            </div>
+          </div>
+          {{/courseVideos}}
+
+          <button class="nav-btn"></button>
+        </div>
+      </div>
+    </div>
+
+    <!--jQuery-->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <!--Popper.js-->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <!--Bootstrap JS-->
+    <script src="../scripts/bootstrap.min.js"></script>
+    <!--Video.js-->
+    <script src="https://vjs.zencdn.net/7.5.5/video.js"></script>
+    <!--Custom JS-->
+    <script src="../scripts/course.js"></script>
+  </body>
+</html>

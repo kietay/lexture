@@ -20,7 +20,6 @@ import Course from '../models/Course'
 const fsp = fs.promises
 
 router.get('/', (req, res) => {
-  // res.sendFile(path.join(__dirname + '/../viewsOld/upload.html'))
   res.render('upload')
 })
 
@@ -52,6 +51,10 @@ router.post('/new-video', (req, res) => {
 
     res.redirect('/uploadinfo?uploadId=' + req.file.filename)
   })
+})
+
+router.get('/upload-info', (req, res) => {
+  res.send(req)
 })
 
 router.get('/video-details', (req, res) => {
@@ -100,7 +103,7 @@ router.post('/submit-video-details', async (req, res) => {
       {
         language: 'en',
         // url: transcriptSpacesPath,
-        url: transPath
+        url: transPath,
       },
     ],
   }

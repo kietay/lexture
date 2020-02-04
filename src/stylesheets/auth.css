@@ -1,0 +1,12 @@
+.signin-button {
+  width: 140px;
+  height: 44px;
+  margin: 90px 80px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--white);
+  background-color: var(--blue-with-a-hint-of-purple);
+  border: none;
+  box-shadow: var(--std-box-shadow);
+  transition: 0.2s;
+}
