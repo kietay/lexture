@@ -12,6 +12,7 @@
     <!--Custom CSS-->
     <link rel="stylesheet" href="../stylesheets/base.css" />
     <link rel="stylesheet" href="../stylesheets/home.css" />
+    <link href="../intro.js/introjs.css" rel="stylesheet" />
   </head>
   <body>
     {{> navbar}}
@@ -171,6 +172,9 @@
     <script src="https://vjs.zencdn.net/7.5.5/video.js"></script>
     <!--Custom JS-->
     <script src="../scripts/home.js"></script>
-    <script></script>
+    <script type="text/javascript" src="../intro.js/intro.js"></script>
+    <script type="text/javascript">
+      introJs().start()
+    </script>
   </body>
 </html>
