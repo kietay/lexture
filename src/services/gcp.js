@@ -1,12 +1,10 @@
 import speech from '@google-cloud/speech'
 import { Storage } from '@google-cloud/storage'
-import fs from 'fs'
 import path from 'path'
 import ffmpeg from 'fluent-ffmpeg'
 import uuid from 'uuid'
-import { getConsoleOutput } from '@jest/console'
 
-const FFPMPEG_PATH = '/usr/local/bin/ffmpeg'
+// const FFPMPEG_PATH = '/usr/local/bin/ffmpeg'
 
 export const transcribeAudio = async fp => {
   const gcsUri = await uploadToGcs(fp)
