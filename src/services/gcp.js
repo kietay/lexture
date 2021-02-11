@@ -4,7 +4,7 @@ import path from 'path'
 import ffmpeg from 'fluent-ffmpeg'
 import uuid from 'uuid'
 
-// const FFPMPEG_PATH = '/usr/local/bin/ffmpeg'
+const FFPMPEG_PATH = '/usr/local/bin/ffmpeg'
 
 export const transcribeAudio = async fp => {
   const gcsUri = await uploadToGcs(fp)
@@ -44,7 +44,7 @@ export const transcribeAudio = async fp => {
 export const uploadToGcs = async fp => {
   const fileName = path.basename(fp)
   const storage = new Storage()
-  const bucketName = 'lexture'
+  const bucketName = 'lexturecloud'
   await storage.bucket(bucketName).upload(fp, {})
   console.log(`File uploaded to GCS: ${fp}`)
 

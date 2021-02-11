@@ -56,6 +56,7 @@
   <component name="ChangeListManager">
     <list default="true" id="48be9c45-2d4e-4a3d-8e51-dd4e7beca43a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/gcp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/gcp.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,6 +116,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -150,7 +152,8 @@
       <workItem from="1575252998638" duration="30180000" />
       <workItem from="1575477373152" duration="3730000" />
       <workItem from="1580826872759" duration="904000" />
-      <workItem from="1612931741049" duration="6863000" />
+      <workItem from="1612931741049" duration="7686000" />
+      <workItem from="1613019759813" duration="480000" />
     </task>
     <task id="LOCAL-00001" summary="Update gitignore">
       <created>1580827125942</created>
@@ -187,7 +190,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612940044585</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Cpy styles and assets">
+      <created>1612940832148</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1612940832148</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -203,27 +213,29 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Update gitignore" />
     <MESSAGE value="Only run intro js on first visit" />
     <MESSAGE value="Remove rogue require import" />
     <MESSAGE value="Set port from env var for heroku" />
-    <option name="LAST_COMMIT_MESSAGE" value="Set port from env var for heroku" />
+    <MESSAGE value="Cpy styles and assets" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cpy styles and assets" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1193" y="333" key="CommitChangelistDialog2" timestamp="1612940044476">
+    <state x="1193" y="333" key="CommitChangelistDialog2" timestamp="1612940832037">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state x="1193" y="333" key="CommitChangelistDialog2/-1536.25.1536.935/0.25.2560.1415@0.25.2560.1415" timestamp="1612940044476" />
+    <state x="1193" y="333" key="CommitChangelistDialog2/-1536.25.1536.935/0.25.2560.1415@0.25.2560.1415" timestamp="1612940832037" />
     <state x="831" y="170" width="1542" height="1144" key="DiffContextDialog" timestamp="1612935165452">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="831" y="170" width="1542" height="1144" key="DiffContextDialog/-1536.25.1536.935/0.25.2560.1415@0.25.2560.1415" timestamp="1612935165452" />
-    <state x="1202" y="479" key="Vcs.Push.Dialog.v2" timestamp="1612940045858">
+    <state x="1202" y="479" key="Vcs.Push.Dialog.v2" timestamp="1612940834087">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state x="1202" y="479" key="Vcs.Push.Dialog.v2/-1536.25.1536.935/0.25.2560.1415@0.25.2560.1415" timestamp="1612940045858" />
+    <state x="1202" y="479" key="Vcs.Push.Dialog.v2/-1536.25.1536.935/0.25.2560.1415@0.25.2560.1415" timestamp="1612940834087" />
     <state x="1372" y="624" width="597" height="490" key="find.popup" timestamp="1612937156753">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
