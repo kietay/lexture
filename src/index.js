@@ -11,6 +11,19 @@ import { samlStrategy, ensureAuthenticated, passport } from './api/auth'
 import mongoose from 'mongoose'
 import bodyParser from 'body-parser'
 import session from 'express-session'
+import fs from 'fs'
+
+const tempdirs = ['./temp', './temp/audio', './temp/video']
+
+console.log('Starting the ting')
+tempdirs.forEach(dir => {
+  if (!fs.existsSync(dir)) {
+    console.log('Creating dir: ' + dir)
+    fs.mkdirSync(dir)
+  } else {
+    console.log('Dir exists: ' + dir)
+  }
+})
 
 mongoose.set('useCreateIndex', true)
 
