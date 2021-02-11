@@ -13,7 +13,7 @@ import bodyParser from 'body-parser'
 import session from 'express-session'
 import fs from 'fs'
 
-const tempdirs = ['./temp', './temp/audio', './temp/video']
+const tempdirs = ['./temp', './temp/audio', './temp/video', './temp/transcripts']
 
 console.log('Starting the ting')
 tempdirs.forEach(dir => {
