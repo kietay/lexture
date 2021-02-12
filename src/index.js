@@ -7,7 +7,7 @@ import video from './api/video'
 import search from './api/search'
 import course from './api/course'
 import { auth } from './api'
-import { samlStrategy, ensureAuthenticated, passport } from './api/auth'
+import { ensureAuthenticated, passport } from './api/auth'
 import mongoose from 'mongoose'
 import bodyParser from 'body-parser'
 import session from 'express-session'
@@ -15,13 +15,11 @@ import fs from 'fs'
 
 const tempdirs = ['./temp', './temp/audio', './temp/video', './temp/transcripts']
 
-console.log('Starting the ting')
+// Create these temp dirs if not already existing
 tempdirs.forEach(dir => {
   if (!fs.existsSync(dir)) {
-    console.log('Creating dir: ' + dir)
     fs.mkdirSync(dir)
   } else {
-    console.log('Dir exists: ' + dir)
   }
 })
 
